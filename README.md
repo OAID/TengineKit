@@ -4,7 +4,10 @@
 =======================================================================
 
 # TengineKit
-Tenginekit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.
+[![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
+<br>
+<br>
+TengineKit, developed by OPEN AI LAB. Tenginekit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.
 
 # Effect
 
@@ -302,6 +305,3 @@ About the use of TengineKit and face-related technical exchanges, you can join t
 - Scan code plus group
  
  <img width="256" height="256"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QQGroup_QR.jpg"/>
-
-# LICENSE
-[![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
