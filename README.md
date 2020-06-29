@@ -20,7 +20,7 @@ TengineKit, developed by OPEN AI LAB. Tenginekit is an easy-to-integrate face de
 <div align=center><b>dance of host</b></div>
 
 ## Video
-[<div align=center><img width="800" height="400" src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/landmark_report.png"/></div>](https://youtu.be/bnyD3laX_bU)
+[<div align=center><img width="568" height="320" src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/landmark_report.png"/></div>](https://youtu.be/bnyD3laX_bU)
 <div align=center><img src="https://img.shields.io/youtube/views/bnyD3laX_bU?style=social"/></div>
 
 # Have a try

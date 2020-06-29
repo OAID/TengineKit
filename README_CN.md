@@ -17,7 +17,7 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 <div align=center><b>真实效果</b></div>
 
 ## Gif
-<div align=center><img width="800" height="400"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/object_face_landmark.gif"/></div>
+<div align=center><img width="568" height="320"   src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/object_face_landmark.gif"/></div>
 <div align=center><b>跳舞主持</b></div>
 
 ## 视频
