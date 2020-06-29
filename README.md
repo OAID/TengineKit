@@ -9,7 +9,7 @@
 <br>
 TengineKit, developed by OPEN AI LAB. 
 <br>
-Tenginekit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.
+TengineKit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.
 
 # Effect
 
