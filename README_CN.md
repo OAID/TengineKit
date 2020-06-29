@@ -26,7 +26,7 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 
 - android扫码直接下载
 
-![Apk](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QRCode_258.png)
+![Apk](https://www.pgyer.com/app/qrcode/A0uD?sign=&auSign=&code=)
 
 # 目标
 - 移动端最佳的性能的人脸SDK

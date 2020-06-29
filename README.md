@@ -27,7 +27,7 @@ or
 
 - scan code to download apk 
 
-![Apk](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QRCode_258.png)
+![Apk](https://www.pgyer.com/app/qrcode/A0uD?sign=&auSign=&code=)
 
 # Goals
 - Provide best performance in mobile client
