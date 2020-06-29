@@ -302,6 +302,6 @@ When rendering, it is rendered at an angle of 0°, which is the normal output th
 # Contact
 About the use of TengineKit and face-related technical exchanges, you can join the following QQ groups(Group Answer:TengineKit):
 - TengineKit communication QQ group: 630836519
-- Scan code plus group
+- Scan to join group
  
  <img width="256" height="256"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QQGroup_QR.jpg"/>

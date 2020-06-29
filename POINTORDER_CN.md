@@ -1,6 +1,6 @@
 # Landmark 关键点顺序
 
-![LandmarkOrder](docs/images/face_points.png)
+![LandmarkOrder](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/face_points.png)
 
 # Landmark顺序说明：
 | 顺序 | 注释 |
