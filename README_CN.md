@@ -1,23 +1,23 @@
 
-![TengineKit](docs/logo/TengineKit.png?raw=true "TengineKit logo")
+![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
 # TengineKit
-TengineKit, 由OPEN AI LAB研发, TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，它可以在各种手机上以非常低的延迟运行。
+TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，它可以在各种手机上以非常低的延迟运行。
 
 # 效果
 
 ## DEMO
 
-<div align=center><img width="400" height="857"  src="docs/images/TengineKitDemo2.gif"/></div>
+<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
 <div align=center><b>真实效果</b></div>
 
 ## Gif
-<div align=center><img width="800" height="400"  src="docs/images/object_face_landmark.gif"/></div>
+<div align=center><img width="800" height="400"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/object_face_landmark.gif"/></div>
 <div align=center><b>跳舞主持</b></div>
 
 ## 视频
-[<div align=center><img width="800" height="400" src="docs/images/landmark_report.png"/></div>](https://www.bilibili.com/video/BV1AK4y147xx/)
+[<div align=center><img width="800" height="400" src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/landmark_report.png"/></div>](https://www.bilibili.com/video/BV1AK4y147xx/)
 
 # 试用
 - [Apk](apk/TengineKitDemo-v1.2.2.apk) 可直接下载安装在手机上看到效果。
@@ -26,7 +26,7 @@ TengineKit, 由OPEN AI LAB研发, TengineKit是一个易于集成的人脸检
 
 - android扫码直接下载
 
-![Apk](https://www.pgyer.com/app/qrcode/A0uD?sign=&auSign=&code=)
+![Apk](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QRCode_258.png)
 
 # 目标
 - 移动端最佳的性能的人脸SDK
@@ -291,7 +291,7 @@ Android
 这部分是从Camera获取数据，作为SDK的输入。
 ## 2.角度
 我们以竖直屏幕下为0度角，由于Android摄像头采集的数据实际总是偏差90，所以在设置ori参数的时候都需要 + (-90)，安卓的实际旋转角是需要通过传感器加上函数计算去获得。具体可以看Demo项目中的示例。
-![process](docs/images/process_graph.png)
+![process](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/process_graph.png)
 ## 3.渲染
 在渲染的时候是以0°角去渲染，是人在正常情况下看到正常输出。Android部分有Canvas和Opengl渲染，选用Opengl渲染可以让你的apk效果更好。
 
@@ -300,7 +300,7 @@ Android
 - TengineKit QQ交流群 630836519
 - 扫码加群
  
- <img width="256" height="256"  src="docs/images/QQGroup_QR.jpg"/>
+ <img width="256" height="256"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QQGroup_QR.jpg"/>
 
 # LICENSE
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)

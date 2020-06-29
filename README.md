@@ -1,23 +1,23 @@
 [中文版本](README_CN.md)
 
-![TengineKit](docs/logo/TengineKit.png?raw=true "TengineKit logo")
+![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
 # TengineKit
-TengineKit, developed by OPEN AI LAB. Tenginekit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.
+Tenginekit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.
 
 # Effect
 
 ## DEMO
-<div align=center><img width="400" height="857"  src="docs/images/TengineKitDemo2.gif"/></div>
+<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
 <div align=center><b>real scene</b></div>
 
 ## Gif
-<div align=center><img width="800" height="400"  src="docs/images/object_face_landmark.gif"/></div>
+<div align=center><img width="800" height="400"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/object_face_landmark.gif"/></div>
 <div align=center><b>dance of host</b></div>
 
 ## Video
-[<div align=center><img width="800" height="400" src="docs/images/landmark_report.png"/></div>](https://youtu.be/bnyD3laX_bU)
+[<div align=center><img width="800" height="400" src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/landmark_report.png"/></div>](https://youtu.be/bnyD3laX_bU)
 <div align=center><img src="https://img.shields.io/youtube/views/bnyD3laX_bU?style=social"/></div>
 
 # Have a try
@@ -27,7 +27,7 @@ or
 
 - scan code to download apk 
 
-![Apk](https://www.pgyer.com/app/qrcode/A0uD?sign=&auSign=&code=)
+![Apk](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QRCode_258.png)
 
 # Goals
 - Provide best performance in mobile client
@@ -292,7 +292,7 @@ In setRotation of TengineKit Api, there are two parameters ori and is_screen_rot
 This part is to get data from Camera, as the SDK input.
 ## 2.Angle
 We use the vertical screen as an angle of 0 degrees. Since the data collected by the Android camera always deviates by 90, it is necessary to set + (-90) when setting the ori parameter. The actual rotation angle of Android is to add a function through the sensor Calculate to get. For details, see the example in the Demo project.
-![process](docs/images/process_graph_EN.png)
+![process](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/process_graph_EN.png)
 ## 3.Rendering
 When rendering, it is rendered at an angle of 0°, which is the normal output that people see under normal circumstances. The Android part has Canvas and Opengl rendering. Using Opengl rendering can make your apk better.
 
@@ -301,7 +301,7 @@ About the use of TengineKit and face-related technical exchanges, you can join t
 - TengineKit communication QQ group: 630836519
 - Scan code plus group
  
- <img width="256" height="256"  src="docs/images/QQGroup_QR.jpg"/>
+ <img width="256" height="256"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QQGroup_QR.jpg"/>
 
 # LICENSE
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
