@@ -3,7 +3,7 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
-# TengineKit - Free Realtime Face Landmark 212 Points For Mobile 
+# TengineKit - Free RealTime Face Landmarks 212 Points For Mobile 
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
 <br>
 <br>
