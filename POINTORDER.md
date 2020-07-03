@@ -1,6 +1,6 @@
 # Landmark Order
 
-![LandmarkOrder](docs/images/face_points.png)
+![LandmarkOrder](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/face_points.png)
 
 # Landmark sequence description：
 | order | Annotate |

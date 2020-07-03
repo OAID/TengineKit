@@ -2,11 +2,12 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
-# TengineKit
+# TengineKit - 永久免费移动端实时人脸212关键点SDK
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
 <br>
 <br>
-TengineKit, developed by OPEN AI LAB。
+TengineKit, developed by OPEN AI LAB.
+<br>
 TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，它可以在各种手机上以非常低的延迟运行。
 
 # 效果
@@ -14,13 +15,14 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 ## DEMO
 
 <div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
+<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo3.gif"/></div>
 <div align=center><b>真实效果</b></div>
 
 ## Gif
-<div align=center><img width="800" height="400"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/object_face_landmark.gif"/></div>
+<div align=center><img width="568" height="320"   src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/object_face_landmark.gif"/></div>
 <div align=center><b>跳舞主持</b></div>
 
-## 视频
+## 视频( <a href="https://www.youtube.com/watch?v=bnyD3laX_bU" target="_blank">YouTube</a> | <a href="https://www.bilibili.com/video/BV1AK4y147xx/" target="_blank">BiliBili</a> )
 [<div align=center><img width="800" height="400" src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/landmark_report.png"/></div>](https://www.bilibili.com/video/BV1AK4y147xx/)
 
 # 试用
