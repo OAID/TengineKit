@@ -37,7 +37,6 @@ android {
             flatDir {
                 dirs 'libs'
             }
-            maven { url 'https://dl.bintray.com/crusoekid/maven' }
         }
 }
 
