@@ -56,6 +56,12 @@ or
 | MediaTek Helio P60 | 27ms | 37fps |
 | Qualcomm 450B | 28ms | 36fps |
 
+# Release
+The latest release is available on Maven Central.
+```implementation
+    implementation 'com.tengine.android:tenginekit:1.0.1'
+```
+
 # Usage
 ```java
 ...

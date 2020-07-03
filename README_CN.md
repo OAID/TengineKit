@@ -55,7 +55,13 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 | 联发科 Helio P60 | 27ms | 37fps |
 | 骁龙450B | 28ms | 36fps |
 
-# Usage
+# 库
+最新的库的版本放在 Maven Central.
+```implementation
+    implementation 'com.tengine.android:tenginekit:1.0.1'
+```
+
+# 使用
 ```java
 ...
 

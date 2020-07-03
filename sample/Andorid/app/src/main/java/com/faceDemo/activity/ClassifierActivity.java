@@ -61,8 +61,16 @@ public class ClassifierActivity extends CameraActivity {
     protected void processImage() {
         getCameraBytes();
         int degree = CameraEngine.getInstance().getCameraOrientation(sensorEventUtil.orientation);
-        FaceInfo[] faceInfos = FaceManager.getInstance().getFaceInfo(mNV21Bytes);
+        /**
+         * 设置旋转角
+         */
         FaceManager.getInstance().setRotation(degree - 90, false, CameraActivity.ScreenWidth, CameraActivity.ScreenHeight);
+
+        /**
+         * 获取人脸信息
+         */
+        FaceInfo[] faceInfos = FaceManager.getInstance().getFaceInfo(mNV21Bytes);
+
         if (faceInfos != null && faceInfos.length > 0) {
             Rect[] face_rect = new Rect[faceInfos.length];
             List<List<LandmarkInfo>> face_landmarks = new ArrayList<>();

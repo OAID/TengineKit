@@ -76,7 +76,7 @@ public abstract class CameraActivity extends AppCompatActivity implements
         /**
          * 初始化
          * */
-        FaceManager.getInstance().init(this,previewWidth, previewHeight, ScreenWidth, ScreenHeight,FaceManager.ImageFormat.YUV_NV21);
+        FaceManager.getInstance().init(this,previewWidth, previewHeight, ScreenWidth, ScreenHeight, FaceManager.ImageFormat.YUV_NV21);
         sensorEventUtil = new SensorEventUtil(this);
     }
 

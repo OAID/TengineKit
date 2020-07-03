@@ -33,11 +33,12 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-    repositories {
-        flatDir {
-            dirs 'libs'
+        repositories {
+            flatDir {
+                dirs 'libs'
+            }
+            maven { url 'https://dl.bintray.com/crusoekid/maven' }
         }
-    }
 }
 
 
@@ -49,6 +50,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.tengine.android:tenginekit:1.0.1'
 
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
