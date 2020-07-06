@@ -60,7 +60,7 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 # 库
 最新的库的版本放在 Maven Central.
 ```implementation
-    implementation 'com.tengine.android:tenginekit:1.0.1'
+    implementation 'com.tengine.android:tenginekit:1.0.2'
 ```
 
 # 使用

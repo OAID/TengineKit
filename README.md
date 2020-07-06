@@ -62,7 +62,7 @@ or
 # Release
 The latest release is available on Maven Central.
 ```implementation
-    implementation 'com.tengine.android:tenginekit:1.0.1'
+    implementation 'com.tengine.android:tenginekit:1.0.2'
 ```
 
 # Usage
