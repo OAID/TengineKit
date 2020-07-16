@@ -62,44 +62,48 @@ public class ClassifierActivity extends CameraActivity {
 
     @Override
     protected void processImage() {
-        getCameraBytes();
-        Log.d("#####", "processImage: enter" );
-        int degree = CameraEngine.getInstance().getCameraOrientation(sensorEventUtil.orientation);
-        /**
-         * 设置旋转角
-         */
-        Face.Camera.setRotation(degree - 90, false, (int) CameraActivity.ScreenWidth, (int) CameraActivity.ScreenHeight);
+        if (sensorEventUtil!= null) {
+            getCameraBytes();
+            Log.d("#####", "processImage: enter");
+            int degree = CameraEngine.getInstance().getCameraOrientation(sensorEventUtil.orientation);
+            /**
+             * 设置旋转角
+             */
+            Face.Camera.setRotation(degree - 90, false, (int) CameraActivity.ScreenWidth, (int) CameraActivity.ScreenHeight);
 
-        /**
-         * 获取人脸信息
-         */
-        Face.FaceDetect faceDetect = Face.detect(mNV21Bytes);
-        List<FaceDetectInfo> faceDetectInfos = new ArrayList<>();
-        List<FaceLandmarkInfo> landmarkInfos = new ArrayList<>();
-        if(faceDetect.getFaceCount() > 0){
-            faceDetectInfos = faceDetect.getDetectInfos();
-            landmarkInfos = faceDetect.landmark2d();
-        }
-        Log.d("#####", "processImage: " + faceDetectInfos.size());
-        if (faceDetectInfos != null && faceDetectInfos.size() > 0) {
-            Rect[] face_rect = new Rect[faceDetectInfos.size()];
-
-            List<List<FaceLandmarkPoint>> face_landmarks = new ArrayList<>();
-            for (int i = 0; i < faceDetectInfos.size(); i++) {
-                Rect rect = new Rect();
-                rect = faceDetectInfos.get(i).asRect();
-                face_rect[i] = rect;
-                face_landmarks.add(landmarkInfos.get(i).landmarks);
+            /**
+             * 获取人脸信息
+             */
+            Face.FaceDetect faceDetect = Face.detect(mNV21Bytes);
+            List<FaceDetectInfo> faceDetectInfos = new ArrayList<>();
+            List<FaceLandmarkInfo> landmarkInfos = new ArrayList<>();
+            if (faceDetect.getFaceCount() > 0) {
+                faceDetectInfos = faceDetect.getDetectInfos();
+                landmarkInfos = faceDetect.landmark2d();
             }
-            EncoderBus.GetInstance().onProcessResults(face_rect);
-            EncoderBus.GetInstance().onProcessResults(face_landmarks);
+            Log.d("#####", "processImage: " + faceDetectInfos.size());
+            if (faceDetectInfos != null && faceDetectInfos.size() > 0) {
+                Rect[] face_rect = new Rect[faceDetectInfos.size()];
+
+                List<List<FaceLandmarkPoint>> face_landmarks = new ArrayList<>();
+                for (int i = 0; i < faceDetectInfos.size(); i++) {
+                    Rect rect = new Rect();
+                    rect = faceDetectInfos.get(i).asRect();
+                    face_rect[i] = rect;
+                    face_landmarks.add(landmarkInfos.get(i).landmarks);
+                }
+                EncoderBus.GetInstance().onProcessResults(face_rect);
+                EncoderBus.GetInstance().onProcessResults(face_landmarks);
+            }
         }
 
         runInBackground(new Runnable() {
             @Override
             public void run() {
                 readyForNextImage();
-                trackingOverlay.postInvalidate();
+                if (trackingOverlay!=null) {
+                    trackingOverlay.postInvalidate();
+                }
             }
         });
     }

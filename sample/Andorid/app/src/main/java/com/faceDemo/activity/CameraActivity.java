@@ -68,6 +68,7 @@ public abstract class CameraActivity extends AppCompatActivity implements
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_camera);
         setFragment();
+
     }
 
     public void Init() {
@@ -88,8 +89,9 @@ public abstract class CameraActivity extends AppCompatActivity implements
                         .setInputImageSize(previewWidth, previewHeight)
                         .setOutputImageSize((int) ScreenWidth, (int) ScreenHeight)
         );
-        sensorEventUtil = new SensorEventUtil(this);
-        Log.d(TAG, "Init: 2");
+        if (sensorEventUtil == null) {
+            sensorEventUtil = new SensorEventUtil(this);
+        }
     }
 
     /**
@@ -140,6 +142,7 @@ public abstract class CameraActivity extends AppCompatActivity implements
         handlerThread = new HandlerThread("inference");
         handlerThread.start();
         handler = new Handler(handlerThread.getLooper());
+        processImage();
     }
 
     @Override
