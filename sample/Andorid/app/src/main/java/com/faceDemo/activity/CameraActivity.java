@@ -85,7 +85,6 @@ public abstract class CameraActivity extends AppCompatActivity implements
                         .setCameraMode()
                         .setDefaultFunc()
                         .setDefaultInputImageFormat()
-                        .setNormalMode()
                         .setInputImageSize(previewWidth, previewHeight)
                         .setOutputImageSize((int) ScreenWidth, (int) ScreenHeight)
         );
