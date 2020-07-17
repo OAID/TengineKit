@@ -45,8 +45,7 @@
         YUV_NV21,
         RGB,
         RGBA,
-        GRAY,
-        BGRA
+        GRAY
     }
 ```
 
