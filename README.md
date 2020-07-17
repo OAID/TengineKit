@@ -14,8 +14,8 @@ TengineKit is an easy-to-integrate face detection and face landmarks SDK. At pre
 # Effect
 
 ## DEMO
+<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
 <div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo4.gif"/></div>
-<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo3.gif"/></div>
 <div align=center><b>real scene</b></div>
 
 ## Gif
