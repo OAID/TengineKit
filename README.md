@@ -83,7 +83,7 @@ The ```build.gradle``` in Main Module add
 ```java
     dependencies {
         ...
-        implementation 'com.tengine.android:tenginekit:1.0.3'
+        implementation 'com.tengine.android:tenginekit:1.0.4'
         ...
     }
 ```     
