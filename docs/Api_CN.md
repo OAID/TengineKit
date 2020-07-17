@@ -37,7 +37,7 @@
 ```
 
 配置输入图片格式：    
-> ```.setDefaultInputImageFormat()``` 设置默认图片格式(YUV_NV21) 
+> ```.setDefaultInputImageFormat()``` 设置默认图片格式(YUV_NV21)        
 ```.setInputImageFormat(ImageFormat imageFormat)``` 传参方式设置输入图片格式    
 ```java
     public enum ImageFormat
