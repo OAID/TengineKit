@@ -59,6 +59,5 @@ public class SensorEventUtil implements SensorEventListener {
 				}
 			}
 		}
-		Log.d("@@@@", "onSensorChanged: " + orientation);
 	}
 }

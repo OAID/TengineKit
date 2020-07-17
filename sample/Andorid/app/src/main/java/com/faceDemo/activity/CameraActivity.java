@@ -77,17 +77,19 @@ public abstract class CameraActivity extends AppCompatActivity implements
         /**
          * 初始化
          * */
-        Log.d(TAG, "Init: 1");
+        long s = System.currentTimeMillis();
         Face.init(
                 this,
                 AndroidConfig
                         .create()
                         .setCameraMode()
-                        .setDefaultFunc()
+                        .setDefaultFunc().openFunc(AndroidConfig.Func.Attribution)
                         .setDefaultInputImageFormat()
                         .setInputImageSize(previewWidth, previewHeight)
                         .setOutputImageSize((int) ScreenWidth, (int) ScreenHeight)
         );
+        long e = System.currentTimeMillis();
+        Log.d("CamAcrrr", "Init: " + (e -s));
         if (sensorEventUtil == null) {
             sensorEventUtil = new SensorEventUtil(this);
         }

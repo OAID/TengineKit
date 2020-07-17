@@ -14,7 +14,7 @@ TengineKit is an easy-to-integrate face detection and face landmarks SDK. At pre
 # Effect
 
 ## DEMO
-<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
+<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo4.gif"/></div>
 <div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo3.gif"/></div>
 <div align=center><b>real scene</b></div>
 
@@ -59,16 +59,34 @@ or
 | MediaTek Helio P60 | 27ms | 37fps |
 | Qualcomm 450B | 28ms | 36fps |
 
-# Release
-The latest release is available on Maven Central.
-```implementation
+# Gradle Configure
+The ```build.gradle``` in Project add
+```java
     repositories {
+        ...
         jcenter()
         mavenCentral()
         ...
     }
-    implementation 'com.tengine.android:tenginekit:1.0.3'
-```
+
+    allprojects {
+        repositories {
+            ...
+            jcenter()
+            mavenCentral()
+            ...    
+        }
+    }
+    
+```     
+The ```build.gradle``` in Main Module add
+```java
+    dependencies {
+        ...
+        implementation 'com.tengine.android:tenginekit:1.0.3'
+        ...
+    }
+```     
 
 # System
 Android

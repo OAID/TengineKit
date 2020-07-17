@@ -13,7 +13,7 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 # 效果
 
 ## DEMO 
-<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
+<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo4.gif"/></div>
 <div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo3.gif"/></div>
 <div align=center><b>真实效果</b></div>
 
@@ -56,16 +56,34 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 | 联发科 Helio P60 | 27ms | 37fps |
 | 骁龙450B | 28ms | 36fps |
 
-# 库
-最新的库的版本放在 Maven Central.
+# 配置Gradle
+Project中的build.gradle添加
 ```implementation
     repositories {
+        ...
         jcenter()
         mavenCentral()
         ...
     }
-    implementation 'com.tengine.android:tenginekit:1.0.3'
+
+    allprojects {
+        repositories {
+            ...
+            jcenter()
+            mavenCentral()
+            ...    
+        }
+    }
+    
+```     
+主Module中的build.gradle添加
 ```
+    dependencies {
+        ...
+        implementation 'com.tengine.android:tenginekit:1.0.3'
+        ...
+    }
+```     
 
 # 系统
 Android

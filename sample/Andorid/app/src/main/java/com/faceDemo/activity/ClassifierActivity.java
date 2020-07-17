@@ -64,7 +64,6 @@ public class ClassifierActivity extends CameraActivity {
     protected void processImage() {
         if (sensorEventUtil!= null) {
             getCameraBytes();
-            Log.d("#####", "processImage: enter");
             int degree = CameraEngine.getInstance().getCameraOrientation(sensorEventUtil.orientation);
             /**
              * 设置旋转角
