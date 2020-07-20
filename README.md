@@ -3,7 +3,7 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
-# If the project gets 1000 stars, we will immediately open the IOS version of the SDK.      
+# If the project gets 1000 stars, we will immediately open this SDK use on IOS.      
 
 # TengineKit - Free RealTime Face Landmarks 212 Points For Mobile 
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)     

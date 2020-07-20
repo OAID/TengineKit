@@ -2,7 +2,7 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
-# 如果项目获得1000颗star，我们会马上开放IOS版本的sdk。      
+# 如果项目获得1000颗star，我们会马上开放IOS版本的SDK。      
 
 # TengineKit - 永久免费移动端实时人脸212关键点SDK
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
