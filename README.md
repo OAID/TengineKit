@@ -3,12 +3,12 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
+# If the project gets 1000 stars, we will immediately open the ios version of the SDK.      
+
 # TengineKit - Free RealTime Face Landmarks 212 Points For Mobile 
-[![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
-<br>
-<br>
-TengineKit, developed by OPEN AI LAB. 
-<br>
+[![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)     
+
+TengineKit, developed by OPEN AI LAB.       
 TengineKit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.
 
 # Effect

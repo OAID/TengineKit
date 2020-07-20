@@ -2,12 +2,12 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
+# 如果项目获得1000颗star，我们会马上开放ios版本的sdk。      
+
 # TengineKit - 永久免费移动端实时人脸212关键点SDK
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
-<br>
-<br>
-TengineKit, 由 OPEN AI LAB 自主研发.
-<br>
+
+TengineKit, 由 OPEN AI LAB 自主研发.        
 TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，它可以在各种手机上以非常低的延迟运行。
 
 # 效果
