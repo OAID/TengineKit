@@ -96,7 +96,7 @@ Android
 [人脸关键点顺序](POINTORDER_CN.md)
 
 # 使用
-您伴随着您给我们的```star```一起看看[使用示例](Usage.md)
+您可以伴随着您给我们的```star```一起看看[使用示例](Usage.md)，感谢。
 
 # 权限
 ``` permission
