@@ -27,7 +27,7 @@ For example, set the default configuration like this.
 
 Configuration mode:    
 > ```.setNormalMode()``` Set to normal mode   
-```.setCameraMode()``` Set to camera mode for     
+```.setCameraMode()``` Set to camera mode(This mode will automatically rotate the picture according to the front and rear camera)     
 ```.setHandleMode(HandleMode mHandleMode)``` Parameter transmission mode setting mode   
 ```java
     public enum HandleMode{

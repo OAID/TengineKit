@@ -25,9 +25,9 @@
 ## AndoridConfig
 > ``` .create()``` 首先创建一个AndroidConfig。
 
-配置模：    
+配置模式：    
 > ```.setNormalMode()``` 设置为普通模式   
-```.setCameraMode()``` 设置为摄像机模式用于     
+```.setCameraMode()``` 设置为摄像机模式用于（该模式会自动根据前后摄像头旋转图片）     
 ```.setHandleMode(HandleMode mHandleMode)``` 传参方式设置模式   
 ```java
     public enum HandleMode{
