@@ -123,7 +123,7 @@ In setRotation of TengineKit Api, there are two parameters ori and is_screen_rot
 This part is to get data from Camera, as the SDK input.
 ## 2.Angle
 We use the vertical screen as an angle of 0 degrees. Since the data collected by the Android camera always deviates by 90, it is necessary to set + (-90) when setting the ori parameter. The actual rotation angle of Android is to add a function through the sensor Calculate to get. For details, see the example in the Demo project.
-![process](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/process_graph_EN.png)
+<!-- ![process](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/process_graph_EN.png) -->
 ## 3.Rendering
 When rendering, it is rendered at an angle of 0°, which is the normal output that people see under normal circumstances. The Android part has Canvas and Opengl rendering. Using Opengl rendering can make your apk better.
 

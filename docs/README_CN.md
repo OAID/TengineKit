@@ -119,7 +119,7 @@ Android
 这部分是从Camera获取数据，作为SDK的输入。
 ## 2.角度
 我们以竖直屏幕下为0度角，由于Android摄像头采集的数据实际总是偏差90，所以在设置ori参数的时候都需要 + (-90)，安卓的实际旋转角是需要通过传感器加上函数计算去获得。具体可以看Demo项目中的示例。
-![process](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/process_graph.png)
+<!-- ![process](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/process_graph.png) -->
 ## 3.渲染
 在渲染的时候是以0°角去渲染，是人在正常情况下看到正常输出。Android部分有Canvas和Opengl渲染，选用Opengl渲染可以让你的apk效果更好。
 
