@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Face.iml" filepath="$PROJECT_DIR$/Face.iml" />
-      <module fileurl="file://$PROJECT_DIR$/FaceSDKSimpleDemo-Face.iml" filepath="$PROJECT_DIR$/FaceSDKSimpleDemo-Face.iml" group="Face" />
-      <module fileurl="file://$PROJECT_DIR$/GoogleUse-Face.iml" filepath="$PROJECT_DIR$/GoogleUse-Face.iml" group="Face" />
-      <module fileurl="file://$PROJECT_DIR$/app/GoogleUse-app.iml" filepath="$PROJECT_DIR$/app/GoogleUse-app.iml" group="Face/app" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Face.iml" filepath="$PROJECT_DIR$/Face.iml" group="Face" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/GoogleUse.iml" filepath="$PROJECT_DIR$/.idea/GoogleUse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Face/app" />
     </modules>
   </component>
 </project>
