@@ -55,18 +55,21 @@ Configure input and output:
 
 Configuration function (functions are based on image detection):    
 > ```.setDefaultFunc()``` Set default functions (face detection and key points)  
-```.openFunc(Func func)``` Pass parameter setting function (image detection must be set to ```AndroidConfig.Func.Detect``` or ```AndroidConfig.Func.GoDetect```)    
+```.openFunc(Func func)``` Pass parameter setting function (image detection must be set to ```AndroidConfig.Func.Detect``` or ```AndroidConfig.Func.BlazeFace```)    
 ```java
     public enum Func
     {
         Detect,
         Landmark,
         Attribution,
+        BlazeFace,
+        FaceMesh,
     }
 ```
+Tips：BlazeFace, FaceMesh models are from Google，The project address is：https://github.com/google/mediapipe
 
 ## get detect infos     
-Since all functions are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, GoDetect will be more accurate and the angle can be larger (GoDetect is based on the Google model). Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);
+Since all functions are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, BlazeFace will be more accurate and the angle can be larger (BlazeFace is based on the Google model). Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);
 #### Parameter
  - imageData: Input data
 

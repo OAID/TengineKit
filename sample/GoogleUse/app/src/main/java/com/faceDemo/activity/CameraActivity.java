@@ -82,7 +82,7 @@ public abstract class CameraActivity extends AppCompatActivity implements
                 AndroidConfig
                         .create()
                         .setCameraMode()
-                        .openFunc(AndroidConfig.Func.GoDetect).openFunc(AndroidConfig.Func.Landmark3d)
+                        .openFunc(AndroidConfig.Func).openFunc(AndroidConfig.Func.FaceMesh)
                         .setDefaultInputImageFormat()
                         .setInputImageSize(previewWidth, previewHeight)
                         .setOutputImageSize((int) ScreenWidth, (int) ScreenHeight)

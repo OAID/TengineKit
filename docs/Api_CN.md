@@ -55,20 +55,21 @@
 
 配置功能(功能都基于图像检测)：    
 > ```.setDefaultFunc()``` 设置默认功能(人脸检测和关键点)  
-```.openFunc(Func func)``` 传参设置功能(必须设置图片检测```AndroidConfig.Func.Detect```或者```AndroidConfig.Func.GoDetect```)    
+```.openFunc(Func func)``` 传参设置功能(必须设置图片检测```AndroidConfig.Func.Detect```或者```AndroidConfig.Func.BlazeFace```)    
 ```java
     public enum Func
     {
         Detect,
         Landmark,
         Attribution,
-        Landmark3d,
-        GoDetect,
+        BlazeFace,
+        FaceMesh,
     }
 ```
+Tips：BlazeFace, FaceMesh的模型都是来自Google，项目地址为：https://github.com/google/mediapipe
 
 ## 获取人脸检测信息
-由于所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，GoDetect会更准并且角度可以更大(GoDetect是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
+由于所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，BlazeFace会更准并且角度可以更大(BlazeFace是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
 #### 参数
  - imageData: 输入数据    
 ```java
@@ -82,7 +83,7 @@
     List<FaceLandmarkInfo> landmarkInfos = faceDetect.landmark2d();;
 ```
 
-## 获取3D人脸关键点信息(此功能是基于Google的模型进行的)  
+## 获取3D人脸关键点信息(此功能是基于Google的模型)  
 3D人脸关键点功能是基于人脸检测的，所以landmark3d信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmark3dInfo列表](#FaceLandmark3dInfo)
 ``` java
     List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();;
