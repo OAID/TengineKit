@@ -81,7 +81,7 @@ The face key point function is based on face detection, so the landmark informat
     List<LandmarkInfo> landmarkInfos = faceDetect.landmark2d();;
 ```
 
-## 获get 3D landmark infos(This feature is based on Google model)  
+## get 3D landmark infos(This feature is based on Google model)  
 The face key point function is based on face detection, so the 3d landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceLandmark3dInfo list](#FaceLandmark3dInfo);
 ``` java
     List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();;
