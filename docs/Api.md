@@ -55,7 +55,7 @@ Configure input and output:
 
 Configuration function (functions are based on image detection):    
 > ```.setDefaultFunc()``` Set default functions (face detection and key points)  
-```.openFunc(Func func)``` Pass parameter setting function (image detection must be set to ```AndroidConfig.Func.Detect```)    
+```.openFunc(Func func)``` Pass parameter setting function (image detection must be set to ```AndroidConfig.Func.Detect``` or ```AndroidConfig.Func.GoDetect```)    
 ```java
     public enum Func
     {
@@ -66,7 +66,7 @@ Configuration function (functions are based on image detection):
 ```
 
 ## get detect infos     
-Since all functions are based on face detection, first create an object of ```Face.FaceDetect```. Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);
+Since all functions are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, GoDetect will be more accurate and the angle can be larger (GoDetect is based on the Google model). Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);
 #### Parameter
  - imageData: Input data
 
@@ -79,6 +79,12 @@ Since all functions are based on face detection, first create an object of ```Fa
 The face key point function is based on face detection, so the landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceLandmarkInfo list](#FaceLandmarkInfo);
 ``` java
     List<LandmarkInfo> landmarkInfos = faceDetect.landmark2d();;
+```
+
+## 获get 3D landmark infos(This feature is based on Google model)  
+The face key point function is based on face detection, so the 3d landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceLandmark3dInfo list](#FaceLandmark3dInfo);
+``` java
+    List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();;
 ```
 
 ## get attribution infos
@@ -136,6 +142,11 @@ Setting rotation is only useful in camera mode.
 | rightEyeClose | float | Right eye closure confidence  0~1 |
 | mouseClose | float | Mouth closure confidence  0~1 |
 | mouseOpenBig | float | Open mouth Big confidence  0~1 |
+
+#### FaceLandmark3dInfo 
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| landmarks | List<FaceLandmarkPoint> | Face key point information 468 points |
 
 #### FaceAttributionInfo  
 | Parameter name | Parameter type | Comment |

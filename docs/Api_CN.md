@@ -55,20 +55,22 @@
 
 配置功能(功能都基于图像检测)：    
 > ```.setDefaultFunc()``` 设置默认功能(人脸检测和关键点)  
-```.openFunc(Func func)``` 传参设置功能(必须设置图片检测```AndroidConfig.Func.Detect```)    
+```.openFunc(Func func)``` 传参设置功能(必须设置图片检测```AndroidConfig.Func.Detect```或者```AndroidConfig.Func.GoDetect```)    
 ```java
     public enum Func
     {
         Detect,
         Landmark,
         Attribution,
+        Landmark3d,
+        GoDetect,
     }
 ```
 
 ## 获取人脸检测信息
-由于所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
+由于所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，GoDetect会更准并且角度可以更大(GoDetect是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
 #### 参数
- - imageData: Input data    
+ - imageData: 输入数据    
 ```java
     Face.FaceDetect faceDetect = Face.detect(imageData);
     List<FaceDetectInfo> faceDetectInfos = faceDetect.getDetectInfos();
@@ -78,6 +80,12 @@
 人脸关键点功能是基于人脸检测的，所以landmark信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmarkInfo列表](#FaceLandmarkInfo)
 ``` java
     List<FaceLandmarkInfo> landmarkInfos = faceDetect.landmark2d();;
+```
+
+## 获取3D人脸关键点信息(此功能是基于Google的模型进行的)  
+3D人脸关键点功能是基于人脸检测的，所以landmark3d信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmark3dInfo列表](#FaceLandmark3dInfo)
+``` java
+    List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();;
 ```
 
 ## 获取人脸属性信息
@@ -134,6 +142,11 @@
 | rightEyeClose | float | 右眼闭合置信度  0~1 |
 | mouseClose | float | 嘴巴闭合置信度  0~1 |
 | mouseOpenBig | float | 嘴巴张大置信度  0~1 |
+
+## FaceLandmark3dInfo 
+| 参数名 | 参数类型 | 注释 |
+| :---: | :---: | :---: |
+| landmarks | List<FaceLandmark3dInfo> | 人脸关键点信息 468个点 |
 
 ## FaceAttributionInfo  
 | 参数名 | 参数类型 | 注释 |
