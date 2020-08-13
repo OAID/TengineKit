@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <dimen name="statusBarHeight">24dp</dimen>
+        <dimen name="appBarTopMargin">24dp</dimen>
+</resources>
