@@ -43,6 +43,7 @@ or
 # Features
 - face detection
 - face landmarks
+- face 3dlandmarks
 - face attributes like age, gender, smile, glasses
 
 
