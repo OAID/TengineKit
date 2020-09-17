@@ -44,12 +44,10 @@ or
 - face 3dlandmarks
 - face attributes like age, gender, smile, glasses
 - eye iris & landmarks
-- hand detect
-- hand landmarks
-- body detect
-- body landamrks
-
-
+- hand detect(Real-time, not yet on Mobile)
+- hand landmarks(Real-time, not yet on Mobile)
+- body detect(Real-time, not yet on Mobile)
+- body landamrks(Real-time, not yet on Mobile)
 
 # Performance(face & landmark)
 
