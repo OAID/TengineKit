@@ -82,7 +82,8 @@ Configuration function (functions are based on image detection):
 | BlazePose | Body detect |
 | BlazePoseLandmark | Body landmarks |
 | HandDetect | Hand detect |
-| HandLandmark3d | Hand landmarks |
+| HandLandmark3d | Hand landmarks | 
+
 Tips：BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect,  HandLandmark3d, models are from Google，The project address is：https://github.com/google/mediapipe
 
 ## get face detect infos     
@@ -113,13 +114,13 @@ The attribute function is based on face detection, so the method of obtaining at
     List<AttributionInfo> attributionInfos = faceDetect.attribution();
 ```
 
-## Get iris information (this function is based on Google's model) (76 key points)
+## get iris information (this function is based on Google's model) (76 key points)
 The iris function is based on face detection and face 3d key points, so iris3d information acquisition should be based on the ```Face.FaceDetect``` object created earlier. Finally return a [FaceIrisInfo list](#FaceIrisInfo); 76 key points include 5 iris key points and 71 key points around the eyes.
 ``` java
     List<FaceIrisInfo> irisInfos = faceDetect.iris3d();;
 ```
 
-## Get hand detection information
+## get hand detection information(this function is based on Google's model)
 Since all the functions of the hand are based on hand detection, first create an object of ```Hand.HandDetect```. Will eventually return a [List<HandDetectInfo>](#HandDetectInfo);
 #### Parameters
 - imageData: input data
@@ -128,19 +129,25 @@ Since all the functions of the hand are based on hand detection, first create an
     List<HandDetectInfo> handDetectInfos = handDetect.getDetectInfos();
 ```
 
-## Get information on key points of the hand (21 key points)
+## get hand landamrk info (this function is based on Google's model)(21 key points)
 The hand key point function is based on hand detection, so the landmark information acquisition method should be based on the ```Hand.HandDetect``` object created earlier. Finally returns a [HandLandmarkInfo](#HandLandmarkInfo);
 ``` java
      List<HandLandmarkInfo> landmarkInfos = handDetect.landmark3d();
 ```
 
-## Get body detection information
+## get body detection information(this function is based on Google's model)
 Since all the functions of the body are based on body detection, first create an object of ```Body.BodyDetect```. Will eventually return a [List<BodyDetectInfo>](#BodyDetectInfo);
 #### Parameters
 - imageData: input data
 ```java
     Body.BodyDetect bodyDetect = Body.detect(imageData);
     List<BodyDetectInfo> bodyDetectInfos = bodyDetect.getDetectInfos();
+```
+
+## get body landamrk info (this function is based on Google's model)(25 key points)
+The body key point function is based on body detection, so the landmark information acquisition method should be based on the ```Body.BodyDetect``` object created earlier. Finally returns a [BodyLandmarkInfo](#BodyLandmarkInfo);
+``` java
+     List<BodyLandmarkInfo> landmarkInfos = bodyDetect.landmark2d();
 ```
 
 ## switch camera

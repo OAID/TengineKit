@@ -83,6 +83,7 @@
 | BlazePoseLandmark | 身体关键点 |
 | HandDetect | 手部检测 |
 | HandLandmark3d | 手部关键点 |
+
 Tips：BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect, HandLandmark3d,的模型都是来自Google，项目地址为：https://github.com/google/mediapipe
 
 ## 获取人脸检测信息

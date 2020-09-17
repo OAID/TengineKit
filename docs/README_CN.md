@@ -6,7 +6,7 @@
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
 
 TengineKit, 由 OPEN AI LAB 自主研发.        
-TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，它可以在各种手机上以非常低的延迟运行。我们会持续更新这个项目，让效果更佳，性能更好！
+TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，它可以在各种手机上以非常低的延迟运行。**我们会持续更新这个项目，让效果更佳，性能更好！**
 
 # 效果
 
