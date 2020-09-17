@@ -98,7 +98,7 @@ public class CameraActivity extends AppCompatActivity implements Camera.PreviewC
         if (faceDetectInfos != null && faceDetectInfos.size() > 0) {
             Rect[] face_rect = new Rect[faceDetectInfos.size()];
 
-            List<List<FaceLandmarkPoint>> face_landmarks = new ArrayList<>();
+            List<List<TenginekitPoint>> face_landmarks = new ArrayList<>();
             for (int i = 0; i < faceDetectInfos.size(); i++) {
                 Rect rect = new Rect();
                 rect = faceDetectInfos.get(i).asRect();

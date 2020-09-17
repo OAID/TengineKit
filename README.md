@@ -3,13 +3,11 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
-# If the project gets 1000 stars, we will immediately open this SDK use on IOS.     
-
-# TengineKit - Free RealTime Face Landmarks 212 Points For Mobile 
+# TengineKit - Free RealTime Face Landmarks 212 Points For Mobile.  
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)     
 
 TengineKit, developed by OPEN AI LAB.       
-TengineKit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.
+TengineKit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.We will continue to update this project for better results and better performance!
 
 # Effect
 
@@ -45,9 +43,15 @@ or
 - face landmarks
 - face 3dlandmarks
 - face attributes like age, gender, smile, glasses
+- eye iris & landmarks
+- hand detect
+- hand landmarks
+- body detect
+- body landamrks
 
 
-# Performance
+
+# Performance(face & landmark)
 
 | CPU | Time consuming | Frame rate |
 | :---: | :---: | :---: |
@@ -84,7 +88,7 @@ The ```build.gradle``` in Main Module add
 ```java
     dependencies {
         ...
-        implementation 'com.tengine.android:tenginekit:1.0.7'
+        implementation 'com.tengine.android:tenginekit:1.1.2'
         ...
     }
 ```     
@@ -94,7 +98,7 @@ Android
 - Min Sdk Version 19
 
 # API
-When using sdk, you can refer to [face api](docs/Api.md) to complete the functions you need.
+When using sdk, you can refer to [Api](docs/Api.md) to complete the functions you need.
 
 # Landmark Points Order
 [Landmark Points Order](docs/POINTORDER.md)
@@ -116,7 +120,7 @@ When using sdk, you can refer to [face api](docs/Api.md) to complete the functio
 
 
 # Sample
-Android code under the "sample/Android" folder.
+Android code under the "sample/" folder.
 # Access Guide
 In setRotation of TengineKit Api, there are two parameters ori and is_screen_rotate, which are the rotation angle and whether to follow the screen rotation. Whether the android:screenOrientation parameter in the Manifest follows the screen can be set. Not setting this parameter is to follow the screen rotation.
 # Process
@@ -124,7 +128,6 @@ In setRotation of TengineKit Api, there are two parameters ori and is_screen_rot
 This part is to get data from Camera, as the SDK input.
 ## 2.Angle
 We use the vertical screen as an angle of 0 degrees. Since the data collected by the Android camera always deviates by 90, it is necessary to set + (-90) when setting the ori parameter. The actual rotation angle of Android is to add a function through the sensor Calculate to get. For details, see the example in the Demo project.
-<!-- ![process](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/process_graph_EN.png) -->
 ## 3.Rendering
 When rendering, it is rendered at an angle of 0°, which is the normal output that people see under normal circumstances. The Android part has Canvas and Opengl rendering. Using Opengl rendering can make your apk better.
 

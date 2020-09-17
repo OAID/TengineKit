@@ -1,8 +1,8 @@
-# Landmark Order
+# Face Landmark Order
 
 ![LandmarkOrder](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/face_points.png)
 
-# Landmark sequence description：
+# Face Landmark sequence description：
 | order | Annotate |
 | :---: | :---: |
 | 1-37| Key points of the contour of the upper part of the face. The sequence of positions detected in a counter-clockwise order starting from near the right ear to ending near the left ear |

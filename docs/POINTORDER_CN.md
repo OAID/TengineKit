@@ -1,8 +1,8 @@
-# Landmark 关键点顺序
+# Face Landmark 关键点顺序
 
 ![LandmarkOrder](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/face_points.png)
 
-# Landmark顺序说明：
+# Face Landmark 顺序说明：
 | 顺序 | 注释 |
 | :---: | :---: |
 | 1 - 37| 面部上半部分轮廓关键点。从右耳附近起始到左耳附近终，按逆时针顺序检测到的位置序列 |

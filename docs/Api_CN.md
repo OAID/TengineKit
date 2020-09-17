@@ -6,12 +6,12 @@
  - context: activity的context 
  - config: ```AndroidConfig``` 项目的配置       
 ``` java
-    Face.init(Context context, AndroidConfig config);
+    KitCore.init(Context context, AndroidConfig config);
 ```
 
 比如这样设置默认的配置。
 ``` java
-    Face.init(context,
+    KitCore.init(context,
             AndroidConfig
                 .create()
                 .setCameraMode()
@@ -64,12 +64,29 @@
         Attribution,
         BlazeFace,
         FaceMesh,
+        Iris,
+        BlazePose,
+        BlazePoseLandmark,
+        HandDetect,
+        HandLandmark3d,
     }
-```
-Tips：BlazeFace, FaceMesh的模型都是来自Google，项目地址为：https://github.com/google/mediapipe
+```     
+| enum | 功能 |
+| :---: | :---: |
+| Detect | 人脸检测 |
+| Landmark | 人脸关键点(212) |
+| Attribution | 人脸属性 |
+| BlazeFace | 人脸检测 |
+| FaceMesh | 人脸3d关键点(468) |
+| Iris | 虹膜关键点 |
+| BlazePose | 身体检测 |
+| BlazePoseLandmark | 身体关键点 |
+| HandDetect | 手部检测 |
+| HandLandmark3d | 手部关键点 |
+Tips：BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect, HandLandmark3d,的模型都是来自Google，项目地址为：https://github.com/google/mediapipe
 
 ## 获取人脸检测信息
-由于所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，BlazeFace会更准并且角度可以更大(BlazeFace是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
+由于脸部所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，BlazeFace会更准并且角度可以更大(BlazeFace是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
 #### 参数
  - imageData: 输入数据    
 ```java
@@ -77,22 +94,58 @@ Tips：BlazeFace, FaceMesh的模型都是来自Google，项目地址为：https:
     List<FaceDetectInfo> faceDetectInfos = faceDetect.getDetectInfos();
 ```
 
-## 获取人脸关键点信息  
-人脸关键点功能是基于人脸检测的，所以landmark信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmarkInfo列表](#FaceLandmarkInfo)
+## 获取人脸关键点信息（212关键点）  
+人脸关键点功能是基于人脸检测的，所以landmark信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmarkInfo列表](#FaceLandmarkInfo);
 ``` java
     List<FaceLandmarkInfo> landmarkInfos = faceDetect.landmark2d();;
 ```
 
-## 获取3D人脸关键点信息(此功能是基于Google的模型)  
-3D人脸关键点功能是基于人脸检测的，所以landmark3d信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmark3dInfo列表](#FaceLandmark3dInfo)
+## 获取3D人脸关键点信息(此功能是基于Google的模型)（468关键点）  
+3D人脸关键点功能是基于人脸检测的，所以landmark3d信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmark3dInfo列表](#FaceLandmark3dInfo);
 ``` java
     List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();;
 ```
 
 ## 获取人脸属性信息
-属性功能是基于人脸检测的，所以attribution信息获取方法是基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceAttributionInfo列表](#FaceAttributionInfo)
+属性功能是基于人脸检测的，所以attribution信息获取方法是基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceAttributionInfo列表](#FaceAttributionInfo);
 ```java
     List<FaceAttributionInfo> attributionInfos = faceDetect.attribution();
+```
+
+## 获取获取虹膜信息(此功能是基于Google的模型)(76关键点)  
+虹膜功能是基于人脸检测和人脸3d关键点，所以iris3d信息获取要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceIrisInfo列表](#FaceIrisInfo);76个关键点包含5个虹膜关键点以及71个眼睛周围关键点。
+``` java
+    List<FaceIrisInfo> irisInfos = faceDetect.iris3d();;
+```
+
+## 获取手部检测信息
+由于手部所有功能都基于人脸检测，所以先创建一个```Hand.HandDetect```的对象。最终会返回一个[List<HandDetectInfo>](#HandDetectInfo);
+#### 参数
+ - imageData: 输入数据    
+```java
+    Hand.HandDetect handDetect = Hand.detect(imageData);
+    List<HandDetectInfo> handDetectInfos = handDetect.getDetectInfos();
+```
+
+## 获取手部关键点信息（21关键点）  
+手部关键点功能是基于手部检测的，所以landmark信息获取方法要基于前面创建的```Hand.HandDetect```对象。最终返回一个[HandLandmarkInfo](#HandLandmarkInfo);
+``` java
+    List<HandLandmarkInfo> landmarkInfos = handDetect.landmark3d();;
+```
+
+## 获取身体检测信息
+由于身体所有功能都基于人脸检测，所以先创建一个```Body.BodyDetect```的对象。最终会返回一个[List<BodyDetectInfo>](#BodyDetectInfo);
+#### 参数
+ - imageData: 输入数据    
+```java
+    Body.BodyDetect bodyDetect = Body.detect(imageData);
+    List<BodyDetectInfo> bodyDetectInfos = bodyDetect.getDetectInfos();
+```
+
+## 获取身体关键点信息（25关键点）  
+身体关键点功能是基于身体检测的，所以landmark信息获取方法要基于前面创建的```Body.BodyDetect```对象。最终返回一个[BodyLandmarkInfo](#BodyLandmarkInfo);
+``` java
+    List<BodyLandmarkInfo> landmarkInfos = bodyDetect.landmark2d();;
 ```
 
 ## 切换摄像头
@@ -135,7 +188,7 @@ Tips：BlazeFace, FaceMesh的模型都是来自Google，项目地址为：https:
 ## FaceLandmarkInfo 
 | 参数名 | 参数类型 | 注释 |
 | :---: | :---: | :---: |
-| landmarks | List<FaceLandmarkPoint> | 人脸关键点信息 212个点 |
+| landmarks | List<TenginekitPoint> | 人脸关键点信息 212个点 |
 | pitch | float | 人脸pitch方向转角 |
 | yaw | float | 人脸yaw方向转角 |
 | roll | float | 人脸roll方向转角 |
@@ -147,7 +200,7 @@ Tips：BlazeFace, FaceMesh的模型都是来自Google，项目地址为：https:
 ## FaceLandmark3dInfo 
 | 参数名 | 参数类型 | 注释 |
 | :---: | :---: | :---: |
-| landmarks | List<FaceLandmark3dInfo> | 人脸关键点信息 468个点 |
+| landmarks | List<TenginekitPoint> | 人脸关键点信息 468个点 |
 
 ## FaceAttributionInfo  
 | 参数名 | 参数类型 | 注释 |
@@ -159,7 +212,49 @@ Tips：BlazeFace, FaceMesh的模型都是来自Google，项目地址为：https:
 | beatyOfManLook | int | 男性角度看的颜值 |
 | beautyOfWomanLook | int | 女性角度看的颜值 |
 
-## FaceLandmarkPoint    
+## FaceIrisInfo 
+| 参数名 | 参数类型 | 注释 |
+| :---: | :---: | :---: |
+| leftEye | eyeInfo(#eyeInfo) | 左眼信息 |
+| rightEye | eyeInfo(#eyeInfo) | 右眼信息 |
+
+## eyeInfo 
+| 参数名 | 参数类型 | 注释 |
+| :---: | :---: | :---: |
+| eyeLandmark | List<TenginekitPoint> | 眼部71个关键点 |
+| eyeIris | List<TenginekitPoint> | 虹膜的5个关键点 |
+
+## HandDetectInfo   
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| top | int | 距离显示上边缘距离 |
+| bottom | int | 距离显示下边缘距离 |
+| left | int | 距离显示左边缘距离 |
+| right | int | 距离显示右边缘距离 |
+| width | int | 手框的宽 |
+| height | int | 手框的高 | 
+
+## HandLandmarkInfo 
+| 参数名 | 参数类型 | 注释 |
+| :---: | :---: | :---: |
+| landmarks | List<TenginekitPoint> | 手部关键点信息 21个关键点 |
+
+## BodyDetectInfo   
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| top | int | 距离显示上边缘距离 |
+| bottom | int | 距离显示下边缘距离 |
+| left | int | 距离显示左边缘距离 |
+| right | int | 距离显示右边缘距离 |
+| width | int | 身体框的宽 |
+| height | int | 身体框的高 | 
+
+## BodyLandmarkInfo 
+| 参数名 | 参数类型 | 注释 |
+| :---: | :---: | :---: |
+| landmarks | List<TenginekitPoint> | 身体关键点信息 25个关键点 |
+
+## TenginekitPoint    
 | 参数名 | 参数类型 | 注释 |
 | :---: | :---: | :---: |
 | x | float | 点的x位置信息 |

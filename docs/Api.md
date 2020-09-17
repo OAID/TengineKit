@@ -6,12 +6,12 @@ The located Function under ```com.tenginekit```.
  - config: ```AndroidConfig``` is the config of work
 
 ``` java
-    Face.init(Context context, AndroidConfig config);
+    KitCore.init(Context context, AndroidConfig config);
 ```
 
 For example, set the default configuration like this.
 ``` java
-    Face.init(context,
+    KitCore.init(context,
             AndroidConfig
                 .create()
                 .setCameraMode()
@@ -59,17 +59,34 @@ Configuration function (functions are based on image detection):
 ```java
     public enum Func
     {
-        Detect,
+        Detect, // 
         Landmark,
         Attribution,
         BlazeFace,
         FaceMesh,
+        Iris,
+        BlazePose,
+        BlazePoseLandmark,
+        HandDetect,
+        HandLandmark3d,
     }
 ```
-Tips：BlazeFace, FaceMesh models are from Google，The project address is：https://github.com/google/mediapipe
+| enum | Function |
+| :---: | :---: |
+| Detect | Face detect |
+| Landmark | Face landmarks(212) |
+| Attribution | Face attribution |
+| BlazeFace | Face detect |
+| FaceMesh | Face 3d landmarks(468) |
+| Iris | Iris landmarks |
+| BlazePose | Body detect |
+| BlazePoseLandmark | Body landmarks |
+| HandDetect | Hand detect |
+| HandLandmark3d | Hand landmarks |
+Tips：BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect,  HandLandmark3d, models are from Google，The project address is：https://github.com/google/mediapipe
 
-## get detect infos     
-Since all functions are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, BlazeFace will be more accurate and the angle can be larger (BlazeFace is based on the Google model). Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);
+## get face detect infos     
+Since all functions on face are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, BlazeFace will be more accurate and the angle can be larger (BlazeFace is based on the Google model). Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);
 #### Parameter
  - imageData: Input data
 
@@ -78,22 +95,52 @@ Since all functions are based on face detection, first create an object of ```Fa
     List<FaceDetectInfo> faceDetectInfos = faceDetect.getDetectInfos();
 ```
 
-## get landmark infos   
+## get landmark infos(212 landmarks)   
 The face key point function is based on face detection, so the landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceLandmarkInfo list](#FaceLandmarkInfo);
 ``` java
-    List<LandmarkInfo> landmarkInfos = faceDetect.landmark2d();;
+    List<LandmarkInfo> landmarkInfos = faceDetect.landmark2d();
 ```
 
-## get 3D landmark infos(This feature is based on Google model)  
+## get 3D landmark infos(This feature is based on Google model)(468 landmarks)  
 The face key point function is based on face detection, so the 3d landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceLandmark3dInfo list](#FaceLandmark3dInfo);
 ``` java
-    List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();;
+    List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();
 ```
 
 ## get attribution infos
 The attribute function is based on face detection, so the method of obtaining attribute information is based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceAttributionInfo list](#FaceAttributionInfo);
 ```java
     List<AttributionInfo> attributionInfos = faceDetect.attribution();
+```
+
+## Get iris information (this function is based on Google's model) (76 key points)
+The iris function is based on face detection and face 3d key points, so iris3d information acquisition should be based on the ```Face.FaceDetect``` object created earlier. Finally return a [FaceIrisInfo list](#FaceIrisInfo); 76 key points include 5 iris key points and 71 key points around the eyes.
+``` java
+    List<FaceIrisInfo> irisInfos = faceDetect.iris3d();;
+```
+
+## Get hand detection information
+Since all the functions of the hand are based on hand detection, first create an object of ```Hand.HandDetect```. Will eventually return a [List<HandDetectInfo>](#HandDetectInfo);
+#### Parameters
+- imageData: input data
+```java
+    Hand.HandDetect handDetect = Hand.detect(imageData);
+    List<HandDetectInfo> handDetectInfos = handDetect.getDetectInfos();
+```
+
+## Get information on key points of the hand (21 key points)
+The hand key point function is based on hand detection, so the landmark information acquisition method should be based on the ```Hand.HandDetect``` object created earlier. Finally returns a [HandLandmarkInfo](#HandLandmarkInfo);
+``` java
+     List<HandLandmarkInfo> landmarkInfos = handDetect.landmark3d();
+```
+
+## Get body detection information
+Since all the functions of the body are based on body detection, first create an object of ```Body.BodyDetect```. Will eventually return a [List<BodyDetectInfo>](#BodyDetectInfo);
+#### Parameters
+- imageData: input data
+```java
+    Body.BodyDetect bodyDetect = Body.detect(imageData);
+    List<BodyDetectInfo> bodyDetectInfos = bodyDetect.getDetectInfos();
 ```
 
 ## switch camera
@@ -137,7 +184,7 @@ Setting rotation is only useful in camera mode.
 #### FaceLandmarkInfo 
 | Parameter name | Parameter type | Comment |
 | :---: | :---: | :---: |
-| landmarks | List<FaceLandmarkPoint> | Face key point information 212 points |
+| landmarks | List<TenginekitPoint> | Face key point information 212 points |
 | pitch | float | Human face pitch direction corner |
 | yaw | float | Human face yaw direction corner |
 | roll | float | Human face roll direction corner |
@@ -149,7 +196,7 @@ Setting rotation is only useful in camera mode.
 #### FaceLandmark3dInfo 
 | Parameter name | Parameter type | Comment |
 | :---: | :---: | :---: |
-| landmarks | List<FaceLandmarkPoint> | Face key point information 468 points |
+| landmarks | List<TenginekitPoint> | Face key point information 468 points |
 
 #### FaceAttributionInfo  
 | Parameter name | Parameter type | Comment |
@@ -161,7 +208,49 @@ Setting rotation is only useful in camera mode.
 | beatyOfManLook | int | Face value from a male perspective |
 | beautyOfWomanLook | int | Face value from a female perspective |
 
-#### FaceLandmarkPoint    
+#### FaceIrisInfo 
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| leftEye | eyeInfo | left eye info |
+| rightEye | eyeInfo | right eye info |
+
+#### eyeInfo 
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| eyeLandmark | List<TenginekitPoint> | 71 key points of the eye |
+| eyeIris | List<TenginekitPoint> | 5 key points of the iris |
+
+#### HandDetectInfo   
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| top | int | Distance display upper edge distance |
+| bottom | int | Distance display bottom edge distance |
+| left | int | Distance shows the distance of the left edge |
+| right | int | Distance display right edge distance |
+| width | int | Hand rect width |
+| height | int | Hand rect height |  
+
+#### HandLandmarkInfo 
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| landmarks | List<TenginekitPoint> | Hand key point information 21 points |
+
+#### BodyDetectInfo   
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| top | int | Distance display upper edge distance |
+| bottom | int | Distance display bottom edge distance |
+| left | int | Distance shows the distance of the left edge |
+| right | int | Distance display right edge distance |
+| width | int | Body rect width |
+| height | int | Body rect height |  
+
+#### BodyLandmarkInfo 
+| Parameter name | Parameter type | Comment |
+| :---: | :---: | :---: |
+| landmarks | List<TenginekitPoint> | Body key point information 25 points |
+
+#### TenginekitPoint    
 | Parameter name | Parameter type | Comment |
 | :---: | :---: | :---: |
 | x | float | Point x position |
