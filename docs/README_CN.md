@@ -84,7 +84,7 @@ Project中的build.gradle添加
 ```
     dependencies {
         ...
-        implementation 'com.tengine.android:tenginekit:1.1.2'
+        implementation 'com.tengine.android:tenginekit:1.1.3'
         ...
     }
 ```     
