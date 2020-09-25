@@ -10,10 +10,9 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 
 # 效果
 
-## DEMO 
-<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
-<div align=center><img width="400" height="663"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo4.gif"/></div>
-<div align=center><b>真实效果</b></div>
+| 人脸检测 &</br> 人脸2d关键点 | 人脸3d关键点 &</br>虹膜 |
+| :---: | :---: |
+| <div align=center><img width="150" height="270"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo4.gif"/></div> | <div align=center><img width="150" height="270"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/Face3dLandmark.gif"/></div> |
 
 ## Gif
 <div align=center><img width="568" height="320"   src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/object_face_landmark.gif"/></div>
