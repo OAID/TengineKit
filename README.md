@@ -12,11 +12,13 @@ TengineKit is an easy-to-integrate face detection and face landmarks SDK. At pre
 # Effect
 
 ## DEMO
-<div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
+<!-- <div align=center><img width="400" height="857"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif"/></div>
 <div align=center><img width="400" height="663"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo4.gif"/></div>
-<div align=center><b>real scene</b></div>
+<div align=center><b>real scene</b></div> -->
 
 ![Face Detection](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/TengineKitDemo2.gif)
+![Face 3dLandmark](https://openailab.oss-cn-shenzhen.aliyuncs.com/images/Face3dLandmark.gif)
+
 
 ## Gif
 <div align=center><img width="800" height="400"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/object_face_landmark.gif"/></div>
