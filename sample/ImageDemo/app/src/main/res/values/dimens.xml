@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_80">80dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+    <dimen name="margin_56">56dp</dimen>
+    <dimen name="margin_46">46dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_36">36dp</dimen>
+    <dimen name="margin_33">33dp</dimen>
+    <dimen name="margin_32">32dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_28">28dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_23">23dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_18">18dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_14">14dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_3">3dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+
+    <dimen name="height_280">280dp</dimen>
+    <dimen name="height_209">209dp</dimen>
+    <dimen name="height_157">157dp</dimen>
+    <dimen name="height_150">150dp</dimen>
+    <dimen name="height_116">116dp</dimen>
+    <dimen name="height_100">100dp</dimen>
+    <dimen name="height_96">96dp</dimen>
+    <dimen name="height_90">90dp</dimen>
+    <dimen name="height_80">80dp</dimen>
+    <dimen name="height_60">60dp</dimen>
+    <dimen name="height_56">56dp</dimen>
+    <dimen name="height_52">52dp</dimen>
+    <dimen name="height_48">48dp</dimen>
+    <dimen name="height_44">44dp</dimen>
+    <dimen name="height_40">40dp</dimen>
+    <dimen name="height_36">36dp</dimen>
+    <dimen name="height_32">32dp</dimen>
+    <dimen name="height_30">30dp</dimen>
+    <dimen name="height_24">24dp</dimen>
+    <dimen name="height_16">16dp</dimen>
+    <dimen name="height_10">10dp</dimen>
+    <dimen name="height_8">8dp</dimen>
+    <dimen name="height_5">5dp</dimen>
+    <dimen name="height_4">4dp</dimen>
+    <dimen name="height_2">2dp</dimen>
+    <dimen name="height_0">0dp</dimen>
+
+    <dimen name="corner_120">120dp</dimen>
+    <dimen name="corner_100">100dp</dimen>
+    <dimen name="corner_15">15dp</dimen>
+    <dimen name="corner_8">8dp</dimen>
+    <dimen name="corner_4">4dp</dimen>
+    <dimen name="corner_2">2dp</dimen>
+
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    
+    <dimen name="rect_corner">2dp</dimen>
+
+    <dimen name="separate_line_size_1px">1px</dimen>
+    <dimen name="separate_line_size_1dp">1dp</dimen>
+
+    <dimen name="statusBarHeight">0dp</dimen>
+    <dimen name="tabLayoutPaddingLeft">56dp</dimen>
+
+
+</resources>

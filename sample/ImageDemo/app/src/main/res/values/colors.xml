@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff00</color>
+    <color name="colorPrimaryDark">#cccccc</color>
+
+    <color name="colorAccent">#ff4f70</color>
+    <color name="ic_svg_color">#ffffff</color>
+
+    <color name="theme_main_color">#ffffff</color>
+    <color name="camera_text_color">#05f120</color>
+    <color name="camera_colorPressed">#e2a20c</color>
+    <color name="camera_colorUnpressed">#05f120</color>
+    <color name="camera_colorBg">#a24f504f</color>
+
+    <color name="main_text_color_edit">#ff4f70</color>
+    <color name="main_text_color_login">#fe8474</color>
+    <color name="main_text_color_capture_start">#ff4f70</color>
+    <color name="main_text_color_capture_end">#fe8474</color>
+
+    <color name="toolbar_text_color">#404040</color>
+
+    <color name="dialog_text_color">#3f3f3f</color>
+    <color name="dialog_btn_text_color">#FE6C57</color>
+
+    <color name="shared_text_color">#9a9a9a</color>
+    <color name="video_item_separate">#f4f4f4</color>
+
+    <color name="separate_line_color">#cccccc</color>
+
+    <color name="rpb_progress_color">#fe6c57</color>
+    <color name="rpb_second_progress_color">#555555</color>
+    <color name="rpb_breakpoint_color">#fff</color>
+    <color name="rpb_bg_color">#333333</color>
+
+
+    <color name="effect_item_icon_cover">#61000000</color>
+    <color name="effect_item_icon_cover2">#00000000</color>
+
+    <color name="text_color_666666">#666666</color>
+    <color name="text_color_61010101">#61010101</color>
+    <color name="separate_color">#1f000000</color>
+    <color name="comment_bg_color">#f6f6f6</color>
+
+    <color name="setting_text_color">#404040</color>
+    <color name="setting_separate_color">#1f000000</color>
+    <color name="setting_version_num_color">#8a000000</color>
+    <color name="setting_top_color">#f4f4f4</color>
+
+    <!--  xy add -->
+    <color name="xy_color_white">#FFFFFF</color>
+    <color name="ripple_white">#4dffffff</color>
+    <color name="ripple_black">#4d000000</color>
+</resources>
