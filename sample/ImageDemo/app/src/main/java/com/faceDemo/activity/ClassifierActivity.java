@@ -60,7 +60,6 @@ public class ClassifierActivity extends AppCompatActivity {
     public void run() {
         CanvasInit();
         Bitmap bb = null;
-
         try {
             Drawable d = Drawable.createFromStream(getAssets().open("5.jpg"), null);
             showImage.setImageDrawable(d);
@@ -121,7 +120,7 @@ public class ClassifierActivity extends AppCompatActivity {
             }
         }
         showImage.setImageBitmap(out_bitmap);
-
+        KitCore.release();
     }
 
     private byte[] bitmap2Bytes(Bitmap image) {
