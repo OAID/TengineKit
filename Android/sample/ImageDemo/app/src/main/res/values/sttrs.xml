@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="gradient_text_view">
+        <attr name="gtv_start_color" format="color"/>
+        <attr name="gtv_end_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="record_progress_bar">
+        <attr name="rpb_progress_color" format="color"/>
+        <attr name="rpb_breakpoint_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundProgressBar">
+        <attr name="roundColor" format="color"/>
+        <attr name="roundProgressColor" format="color"/>
+        <attr name="roundWidth" format="dimension"/>
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="barmax" format="integer"/>
+        <attr name="roundProgress" format="integer"/>
+        <attr name="textIsDisplayable" format="boolean"/>
+        <attr name="round_bar_style">
+            <enum name="STROKE" value="0"/>
+            <enum name="FILL" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ProgressBarView">
+        <attr name="progressBar_max_progress" format="integer" />
+        <attr name="progressBar_progress" format="integer" />
+        <attr name="progressBar_second_progress" format="integer" />
+
+        <attr name="progressBar_color" format="color"/> <!-- 默认进度条颜色 -->
+        <attr name="progressBar_progress_color" format="color" /> <!-- 当前进度条颜色 -->
+        <attr name="progressBar_secondProgress_color" format="color" /> <!-- 二级进度颜色 -->
+
+        <attr name="progressBar_round_rect_radius" format="dimension" /> <!-- 圆角矩形的圆角半径 -->
+
+        <attr name="progressBar_is_show_text" format="boolean"/> <!-- 当前进度值 -->
+        <attr name="progressBar_text_size" format="dimension"/>
+        <attr name="progressBar_text_color" format="color"/>
+
+        <attr name="progressBar_stoke_width" format="dimension" /> <!-- 进度条外边线的线宽 -->
+
+        <attr name="progressBar_style">
+            <enum name="LINE"          value="0"/>
+            <enum name="ROUND_RECT"    value="1"/>
+            <enum name="CIRCLE"        value="2"/>
+            <enum name="SECTOR"        value="3"/>
+            <enum name="SEMICIRCLE"    value="4"/>
+            <enum name="HEART"         value="5"/>
+            <enum name="SQUARE"        value="6"/>
+            <enum name="TRIANGLE"      value="7"/>
+        </attr>
+    </declare-styleable>
+</resources>
