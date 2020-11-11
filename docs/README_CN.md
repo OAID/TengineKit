@@ -61,7 +61,7 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 
 # 配置Gradle
 Project中的build.gradle添加
-```implementation
+```java
     repositories {
         ...
         jcenter()
@@ -78,7 +78,7 @@ Project中的build.gradle添加
         }
     }
     
-```     
+```           
 主Module中的```build.gradle```添加,选择你需要的功能。```core```是必须的。
 ```java
     dependencies {
@@ -93,7 +93,7 @@ Project中的build.gradle添加
         implementation 'com.tengine.tenginekit:body:0.0.1'
         ...
     } 
-
+```
 # 系统
 Android
 - 系统最低要求API 19
