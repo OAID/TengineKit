@@ -79,14 +79,20 @@ Project中的build.gradle添加
     }
     
 ```     
-主Module中的build.gradle添加
-```
+主Module中的```build.gradle```添加,选择你需要的功能。```core```是必须的。
+```java
     dependencies {
         ...
-        implementation 'com.tengine.android:tenginekit:1.1.4'
+        // Must!!!!
+        implementation 'com.tengine.tenginekit:core:0.0.1'
+        // Function on Face
+        implementation 'com.tengine.tenginekit:face:0.0.1'
+        // Function on Hand
+        implementation 'com.tengine.tenginekit:hand:0.0.1'
+        // Function on Body
+        implementation 'com.tengine.tenginekit:body:0.0.1'
         ...
-    }
-```     
+    } 
 
 # 系统
 Android

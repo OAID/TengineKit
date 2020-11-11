@@ -8,9 +8,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.NoCopySpan;
 import android.util.Log;
-import android.util.Size;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.faceDemo.R;
 import com.faceDemo.utils.FileHandler;
 import com.tenginekit.AndroidConfig;
-import com.tenginekit.Face;
 import com.tenginekit.KitCore;
-import com.tenginekit.model.FaceDetectInfo;
-import com.tenginekit.model.FaceLandmarkInfo;
+import com.tenginekit.face.Face;
+import com.tenginekit.face.FaceDetectInfo;
+import com.tenginekit.face.FaceLandmarkInfo;
 import com.tenginekit.model.TenginekitPoint;
 
 import java.nio.ByteBuffer;
@@ -61,7 +59,7 @@ public class ClassifierActivity extends AppCompatActivity {
         CanvasInit();
         Bitmap bb = null;
         try {
-            Drawable d = Drawable.createFromStream(getAssets().open("5.jpg"), null);
+            Drawable d = Drawable.createFromStream(getAssets().open("1.jpg"), null);
             showImage.setImageDrawable(d);
             bb = ((BitmapDrawable) d).getBitmap();
 

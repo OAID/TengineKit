@@ -1,11 +1,7 @@
 package com.faceDemo.activity;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.media.FaceDetector;
-import android.os.Environment;
 import android.util.Log;
 import android.util.Size;
 
@@ -17,20 +13,13 @@ import com.faceDemo.encoder.CircleEncoder;
 import com.faceDemo.encoder.EncoderBus;
 import com.faceDemo.encoder.EyeEncoder;
 import com.faceDemo.encoder.RectEncoder;
-import com.tenginekit.AndroidConfig;
-import com.tenginekit.Face;
-import com.tenginekit.Image;
-import com.tenginekit.KitCore;
-import com.tenginekit.model.FaceDetectInfo;
-import com.tenginekit.model.FaceIrisInfo;
-import com.tenginekit.model.FaceLandmark3dInfo;
-import com.tenginekit.model.FaceLandmarkInfo;
+import com.tenginekit.KitCore;;
+import com.tenginekit.face.Face;
+import com.tenginekit.face.FaceDetectInfo;
+import com.tenginekit.face.FaceIrisInfo;
+import com.tenginekit.face.FaceLandmark3dInfo;
 import com.tenginekit.model.TenginekitPoint;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 

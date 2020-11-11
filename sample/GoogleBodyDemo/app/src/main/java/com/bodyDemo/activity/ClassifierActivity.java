@@ -12,10 +12,10 @@ import com.bodyDemo.encoder.BitmapEncoder;
 import com.bodyDemo.encoder.CircleEncoder;
 import com.bodyDemo.encoder.EncoderBus;
 import com.bodyDemo.encoder.RectEncoder;
-import com.tenginekit.Body;
 import com.tenginekit.KitCore;
-import com.tenginekit.model.BodyDetectInfo;
-import com.tenginekit.model.BodyLandmarkInfo;
+import com.tenginekit.body.Body;
+import com.tenginekit.body.BodyDetectInfo;
+import com.tenginekit.body.BodyLandmarkInfo;
 import com.tenginekit.model.TenginekitPoint;
 
 import java.util.ArrayList;

@@ -83,11 +83,18 @@ The ```build.gradle``` in Project add
     }
     
 ```     
-The ```build.gradle``` in Main Module add
+The ```build.gradle``` in Main Module add,select which function you need.But the ```core``` is must.
 ```java
     dependencies {
         ...
-        implementation 'com.tengine.android:tenginekit:1.1.4'
+        // Must!!!!
+        implementation 'com.tengine.tenginekit:core:0.0.1'
+        // Function on Face
+        implementation 'com.tengine.tenginekit:face:0.0.1'
+        // Function on Hand
+        implementation 'com.tengine.tenginekit:hand:0.0.1'
+        // Function on Body
+        implementation 'com.tengine.tenginekit:body:0.0.1'
         ...
     }
 ```     

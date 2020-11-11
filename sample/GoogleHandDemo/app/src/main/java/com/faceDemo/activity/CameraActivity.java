@@ -31,7 +31,6 @@ import com.faceDemo.currencyview.LegacyCameraConnectionFragment;
 import com.faceDemo.utils.MyLogger;
 import com.faceDemo.utils.SensorEventUtil;
 import com.tenginekit.AndroidConfig;
-import com.tenginekit.Face;
 import com.tenginekit.KitCore;
 
 public abstract class CameraActivity extends AppCompatActivity implements

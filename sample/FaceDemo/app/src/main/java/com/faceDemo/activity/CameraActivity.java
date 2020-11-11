@@ -31,7 +31,6 @@ import com.faceDemo.currencyview.LegacyCameraConnectionFragment;
 import com.faceDemo.utils.MyLogger;
 import com.faceDemo.utils.SensorEventUtil;
 import com.tenginekit.AndroidConfig;
-import com.tenginekit.Face;
 import com.tenginekit.KitCore;
 
 public abstract class CameraActivity extends AppCompatActivity implements
@@ -82,7 +81,8 @@ public abstract class CameraActivity extends AppCompatActivity implements
                 CameraActivity.this,
                 AndroidConfig
                         .create()
-                        .setCameraMode().openFunc(AndroidConfig.Func.BlazeFace).openFunc(AndroidConfig.Func.Landmark)
+                        .setCameraMode()
+                        .openFunc(AndroidConfig.Func.BlazeFace).openFunc(AndroidConfig.Func.Landmark)
                         .setDefaultInputImageFormat()
                         .setInputImageSize(previewWidth, previewHeight)
                         .setOutputImageSize((int) ScreenWidth, (int) ScreenHeight)

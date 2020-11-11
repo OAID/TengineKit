@@ -12,10 +12,10 @@ import com.faceDemo.encoder.BitmapEncoder;
 import com.faceDemo.encoder.CircleEncoder;
 import com.faceDemo.encoder.EncoderBus;
 import com.faceDemo.encoder.RectEncoder;
-import com.tenginekit.Face;
 import com.tenginekit.KitCore;
-import com.tenginekit.model.FaceDetectInfo;
-import com.tenginekit.model.FaceLandmarkInfo;
+import com.tenginekit.face.Face;
+import com.tenginekit.face.FaceDetectInfo;
+import com.tenginekit.face.FaceLandmarkInfo;
 import com.tenginekit.model.TenginekitPoint;
 
 import java.util.ArrayList;
