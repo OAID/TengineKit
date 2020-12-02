@@ -22,7 +22,7 @@
         );
 ```
 
-## AndoridConfig
+## AndroidConfig
 > ``` .create()``` 首先创建一个AndroidConfig。
 
 配置模式：    

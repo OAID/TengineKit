@@ -22,7 +22,7 @@ For example, set the default configuration like this.
         );
 ``` 
 
-## AndoridConfig
+## AndroidConfig
 > ``` .create()``` First create an AndroidConfig.
 
 Configuration mode:    
