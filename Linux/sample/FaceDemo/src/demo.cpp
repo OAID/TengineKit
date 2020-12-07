@@ -42,7 +42,7 @@ void handle_rgb(std::string path)
 
     char data[w * h * 3];
     memcpy(data, (char *)frame.data, w * h * 3);
-    facesdk_readModelFromFile(ModelType::Detect, "models/detect.bin", ImageFormat::RGB, true);
+    facesdk_readModelFromFile(ModelType::Detect, "models/detect.bin", ImageFormat::RGB);
     sdkFaces faces = facesdk_detect(data);
     std::cout << "faces:" << faces.face_count << std::endl;
     for (int i = 0; i < faces.face_count; i++)
@@ -52,7 +52,7 @@ void handle_rgb(std::string path)
         cv::rectangle(frame, pt1, pt2, cv::Scalar(255, 0, 0), 2);
     }
 
-    facesdk_readModelFromFile(ModelType::Landmark, "models/landmark4.bin", ImageFormat::RGB, true);
+    facesdk_readModelFromFile(ModelType::Landmark, "models/landmark4.bin", ImageFormat::RGB);
     sdkFaces faces2 = facesdk_landmark();
     int index = 0;
     for (int j = 0; j < faces2.face_count; j++)
@@ -92,7 +92,7 @@ void handle_rgb(std::string path)
         }
         std::cout << std::endl;
     }
-    facesdk_readModelFromFile(ModelType::Attribution, "models/attribution.bin", ImageFormat::RGB, true);
+    facesdk_readModelFromFile(ModelType::Attribution, "models/attribution.bin", ImageFormat::RGB);
     sdkFaces faces3 = facesdk_attribute();
     std::cout << faces3.face_count << std::endl;
     for (int i = 0; i < faces3.face_count; i++)
