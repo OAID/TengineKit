@@ -48,7 +48,7 @@ make -j4
 ## 运行结果
 ![Output](sample/Face/resources/FaceOutput.jpg)
 
-<span id="jump">获取khadas npu sdk</span>
+<span id="jump">#获取khadas npu sdk</span>
 1. ) 跳转到[khads官网](https://www.khadas.cn/)
 2. ) 联系客服要npu的sdk
 3. ) 放到khadas板子位置，并export VIVANTE_SDK_DIR=$sdk路径
