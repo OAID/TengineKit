@@ -2,7 +2,6 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================    
 
-# TengineKit - 永久免费AI算法SDK
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
 
 TengineKit, 由 OPEN AI LAB 自主研发.        

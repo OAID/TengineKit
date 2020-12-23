@@ -3,7 +3,6 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
-# TengineKit - Free RealTime AI algorithm SDK.  
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)     
 
 TengineKit, developed by OPEN AI LAB.       
