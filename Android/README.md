@@ -1,4 +1,4 @@
-[中文版本](Android_README_CN.md)
+[中文版本](docs/Android_README_CN.md)
 
 # Gradle Configure
 The ```build.gradle``` in Project add
@@ -42,8 +42,8 @@ Android
 
 
 # Usage
-- [API](Android_api.md) : Use API to complete the functions you need.
-- [Usage](Usage.md) : Specific usage
+- [API](docs/Android_api.md) : Use API to complete the functions you need.
+- [Usage](docs/Usage.md) : Specific usage
 
 # Permission
 ``` permission
@@ -71,4 +71,4 @@ We use the vertical screen as an angle of 0 degrees. Since the data collected by
 When rendering, it is rendered at an angle of 0°, which is the normal output that people see under normal circumstances. The Android part has Canvas and Opengl rendering. Using Opengl rendering can make your apk better.
 
 # ImageHandle
-[ImageHandle](Android_api.md#ImageHandleApi) to do Zoom, rotate, crop, and change picture format
+[ImageHandle](docs/Android_api.md#ImageHandleApi) to do Zoom, rotate, crop, and change picture format
