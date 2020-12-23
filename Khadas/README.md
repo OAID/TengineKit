@@ -1,15 +1,18 @@
 # Tengine-Lite NPU 
 
 # 介绍
+Tengine-Lite目前在khadas上支持npu运行人脸检测和人脸关键点。通过npu运行算法可以更高效的得到你所需的结果。目前仅支持khadas的开发板。
+
 ## 功能 
-在khadas板子上运行人脸检测及人脸关键点
+- 人脸检测
+- 人脸关键点
 
 ## 性能
-人脸检测 ：< 1ms
-人脸关键点 ： < 1ms
+人脸检测 ：< 1ms        
+人脸关键点 ： < 1ms     
 
 ## 所需内容
-- khadas板子一块
+- khadas开发板一块
 - khadas npu sdk[如何获取](#获取khadas npu sdk)
 
 # 快速使用
@@ -45,7 +48,7 @@ make -j4
 ## 运行结果
 ![Output](sample/Face/resources/FaceOutput.jpg)
 
-## 获取khads npu sdk
+## 获取khadas npu sdk
 1. ) 跳转到[khads官网](https://www.khadas.cn/)
 2. ) 联系客服要npu，sdk
 3. ) 放到khadas板子位置，并export VIVANTE_SDK_DIR=$sdk路径
