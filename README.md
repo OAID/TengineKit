@@ -1,13 +1,13 @@
-[中文版本](docs/README_CN.md)
+[中文版本](Docs/README_CN.md)
 
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================
 
-# TengineKit - Free RealTime Face Landmarks 212 Points For Mobile.  
+# TengineKit - Free RealTime AI algorithm SDK.  
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)     
 
 TengineKit, developed by OPEN AI LAB.       
-TengineKit is an easy-to-integrate face detection and face landmarks SDK. At present, it can run on various mobile phones at very low latency.**We will continue to update this project for better results and better performance!**
+TengineKit is an easy-to-integrate AI algorithm SDK. At present, it can run on various mobile phones at very low latency.**We will continue to update this project for better results and better performance!**
 
 # Effect
 
@@ -43,25 +43,32 @@ or
 - face detection
 - face landmarks
 - face 3dlandmarks
-- face attributes like age, gender, smile, glasses
+- face attributes for example: age, gender, smile, glasses
 - eye iris & landmarks
 - hand detect(Real-time, not yet on Mobile)
 - hand landmarks(Real-time, not yet on Mobile)
 - body detect(Real-time, not yet on Mobile)
 - body landamrks(Real-time, not yet on Mobile)
 
-# Performance(face & landmark)
+# Performance(Face Detect & Face Landmark)(Reduced time)
 
 | CPU | Time consuming | Frame rate |
 | :---: | :---: | :---: |
-| Kirin 980 | 14ms | 71fps | 
-| Qualcomm 855 | 15ms | 67fps |
-| Kirin 970 | 17ms | 59fps |
-| Qualcomm 835 | 18ms | 56fps |
-| Kirin 710F| 19ms | 53fps |
-| Qualcomm 439 | 26ms | 38fps |
-| MediaTek Helio P60 | 27ms | 37fps |
-| Qualcomm 450B | 28ms | 36fps |
+| Kirin 980 | 4ms | 250fps | 
+| Qualcomm 855 | 5ms | 200fps |
+| Kirin 970 | 7ms | 142fps |
+| Qualcomm 835 | 8ms | 125fps |
+| Kirin 710F| 9ms | 111fps |
+| Qualcomm 439 | 16ms | 62fps |
+| MediaTek Helio P60 | 17ms | 59fps |
+| Qualcomm 450B | 18ms | 56fps |
 
 # Landmark Points Order
-[Landmark Points Order](docs/POINTORDER.md)
+[Landmark Points Order](Docs/POINTORDER.md)
+
+# Contact
+About the use of TengineKit and face-related technical exchanges, you can join the following QQ groups(Group Answer:TengineKit):
+- TengineKit communication QQ group: 630836519
+- Scan to join group
+ 
+ <img width="256" height="256"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QQGroup_QR.jpg"/>

@@ -2,11 +2,11 @@
 ![TengineKit](https://openailab.oss-cn-shenzhen.aliyuncs.com/logo/TengineKit.png?raw=true "TengineKit logo")
 =======================================================================    
 
-# TengineKit - 永久免费移动端实时人脸212关键点SDK
+# TengineKit - 永久免费AI算法SDK
 [![Apache 2.0](https://img.shields.io/crates/l/r)](LICENSE)
 
 TengineKit, 由 OPEN AI LAB 自主研发.        
-TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，它可以在各种手机上以非常低的延迟运行。**我们会持续更新这个项目，让效果更佳，性能更好！**
+TengineKit是一个易于集成的AI算法SDK。目前，它可以在各种手机上以非常低的延迟运行。**我们会持续更新这个项目，让效果更佳，性能更好！**
 
 # 效果
 
@@ -46,19 +46,26 @@ TengineKit是一个易于集成的人脸检测和人脸关键点SDK。目前，�
 - 身体检测(尚未手机实时)
 - 身体关键点(尚未手机实时)
 
-# 性能指标(face & landmark)
+# 性能指标(Face Detect & Face Landmark)(缩短了时间)
 
 | CPU | 耗时 | 帧率 |
 | :---: | :---: | :---: |
-| 麒麟980 | 14ms | 71fps | 
-| 骁龙855 | 15ms | 67fps |
-| 麒麟970 | 17ms | 59fps |
-| 骁龙835 | 18ms | 56fps |
-| 麒麟710F| 19ms | 53fps |
-| 骁龙439 | 26ms | 38fps |
-| 联发科 Helio P60 | 27ms | 37fps |
-| 骁龙450B | 28ms | 36fps |
+| 麒麟980 | 4ms | 250fps | 
+| 骁龙855 | 5ms | 200fps |
+| 麒麟970 | 7ms | 142fps |
+| 骁龙835 | 8ms | 125fps |
+| 麒麟710F| 9ms | 111fps |
+| 骁龙439 | 16ms | 62fps |
+| 联发科 Helio P60 | 17ms | 59fps |
+| 骁龙450B | 18ms | 56fps |
 
 
 # 人脸关键点顺序
 [人脸关键点顺序](POINTORDER_CN.md)
+
+# 联系
+关于TengineKit的使用以及人脸相关的技术交流可以加入下群(加群答案：TengineKit)：
+- TengineKit QQ交流群 630836519
+- 扫码加群
+ 
+ <img width="256" height="256"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QQGroup_QR.jpg"/>
