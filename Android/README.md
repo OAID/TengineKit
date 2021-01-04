@@ -1,4 +1,4 @@
-[中文版本](../docs/Android_README_CN.md)
+[中文版本](docs/Android_README_CN.md)
 
 # Gradle Configure
 The ```build.gradle``` in Project add
@@ -24,10 +24,10 @@ The ```build.gradle``` in Main Module add,select which function you need.But the
 ```java
     dependencies {
         ...
-        // Must!!!!
-        implementation 'com.tengine.tenginekit:core:0.0.1'
+        // Must have and must be the newest!!!!
+        implementation 'com.tengine.tenginekit:core:0.0.2'
         // Function on Face
-        implementation 'com.tengine.tenginekit:face:0.0.1'
+        implementation 'com.tengine.tenginekit:face:0.0.2'
         // Function on Hand
         implementation 'com.tengine.tenginekit:hand:0.0.1'
         // Function on Body
@@ -40,11 +40,10 @@ The ```build.gradle``` in Main Module add,select which function you need.But the
 Android
 - Min Sdk Version 19
 
-# API
-When using sdk, you can refer to [Api](../docs/Android_api.md) to complete the functions you need.
 
 # Usage
-[Usage](../docs/Usage.md)
+- [API](docs/Android_api.md) : Use API to complete the functions you need.
+- [Usage](docs/Usage.md) : Specific usage
 
 # Permission
 ``` permission
@@ -71,13 +70,5 @@ We use the vertical screen as an angle of 0 degrees. Since the data collected by
 ## 3.Rendering
 When rendering, it is rendered at an angle of 0°, which is the normal output that people see under normal circumstances. The Android part has Canvas and Opengl rendering. Using Opengl rendering can make your apk better.
 
-# Contact
-About the use of TengineKit and face-related technical exchanges, you can join the following QQ groups(Group Answer:TengineKit):
-- TengineKit communication QQ group: 630836519
-- Scan to join group
- 
- <img width="256" height="256"  src="https://openailab.oss-cn-shenzhen.aliyuncs.com/images/QQGroup_QR.jpg"/>
-
-
 # ImageHandle
-[ImageHandle](../docs/Android_api.md#ImageHandleApi) to do Zoom, rotate, crop, and change picture format
+[ImageHandle](docs/Android_api.md#ImageHandleApi) to do Zoom, rotate, crop, and change picture format
