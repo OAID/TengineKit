@@ -1,0 +1,3 @@
+/home/khadas/zj_workspace/workspace/TengineKit/Khadas/sample/Face/build/CMakeFiles/rebuild_cache.dir
+/home/khadas/zj_workspace/workspace/TengineKit/Khadas/sample/Face/build/CMakeFiles/edit_cache.dir
+/home/khadas/zj_workspace/workspace/TengineKit/Khadas/sample/Face/build/CMakeFiles/Face.dir
