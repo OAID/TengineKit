@@ -87,7 +87,7 @@
 Tips：BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect, HandLandmark3d,的模型都是来自Google，项目地址为：https://github.com/google/mediapipe
 
 ## 获取人脸检测信息
-由于脸部所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，BlazeFace会更准并且角度可以更大(BlazeFace是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
+由于脸部所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，BlazeFace更准确,支持角度更大但是不支持多脸(BlazeFace是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
 #### 参数
  - imageData: 输入数据    
 ```java
