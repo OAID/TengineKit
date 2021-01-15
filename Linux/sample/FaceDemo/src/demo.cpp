@@ -30,13 +30,9 @@ void handle_rgb(std::string path)
     std::string image_file = path;
     cv::Mat frame = cv::imread(image_file);
 
-    frame.cols = frame.cols % 2 + frame.cols;
-    frame.rows = frame.rows % 2 + frame.rows;
-
     int w = frame.cols;
     int h = frame.rows;
 
-    cv::resize(frame, frame, cv::Size(w, h));
     FaceSDKConfig config = getConfig(w, h);
     facesdk_init(config);
 
@@ -52,7 +48,7 @@ void handle_rgb(std::string path)
         cv::rectangle(frame, pt1, pt2, cv::Scalar(255, 0, 0), 2);
     }
 
-    facesdk_readModelFromFile(ModelType::Landmark, "models/landmark4.bin", ImageFormat::RGB);
+    facesdk_readModelFromFile(ModelType::Landmark, "models/face_landmark2d.bin", ImageFormat::RGB);
     sdkFaces faces2 = facesdk_landmark();
     int index = 0;
     for (int j = 0; j < faces2.face_count; j++)
