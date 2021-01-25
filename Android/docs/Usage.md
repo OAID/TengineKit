@@ -32,7 +32,7 @@ public class CameraActivity extends AppCompatActivity implements Camera.PreviewC
         /**
          * init
          * */
-        Face.init(
+        KitCore.init(
                 this,
                 AndroidConfig
                         .create()
