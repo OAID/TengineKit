@@ -49,14 +49,16 @@ or
 - body detect(Real-time, not yet on Mobile)
 - body landamrks(Real-time, not yet on Mobile)
 
-# Update (2021/01/08)
-- Khadas NPU application
-- Improved the speed of face detection and face landmarks
-- Update folders
-- Update Linux Models
-- Update Core v0.0.2 & Face v0.0.2
+# Update (2021/02/24)
+- Update Core v0.0.3
+- Update Face v0.0.3
+- Update Hand v0.0.2
+- Update Body v0.0.2
+- Fixed some Bugs
+- Rename models
+- Linux libTengineKitSDK.so
 
-# Performance(Face Detect & Face Landmark)(Reduced time)
+# Performance(Face Detect & Face Landmark)
 
 | CPU | Time consuming | Frame rate |
 | :---: | :---: | :---: |

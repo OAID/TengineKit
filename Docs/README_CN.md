@@ -45,7 +45,7 @@ TengineKit是一个易于集成的AI算法SDK。目前，它可以在各种手�
 - 身体检测(尚未手机实时)
 - 身体关键点(尚未手机实时)
 
-# 性能指标(Face Detect & Face Landmark)(缩短了时间)
+# 性能指标(Face Detect & Face Landmark)
 
 | CPU | 耗时 | 帧率 |
 | :---: | :---: | :---: |

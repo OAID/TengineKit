@@ -1,14 +1,19 @@
-[中文版本](docs/Linux_README_CN.md)
+[中文版本](docs/Linux_README_CN.md) | English Version
 
-# Files
-- libTengineKitSDK.so
-- tenginekit_api.h
-- tenginekit_struct.h
-- [models](docs/Model_des.md)
+# Qucik Start
+## Sources
+- Library File : ```libTengineKitSDK.so```
+- Header Files : ```tenginekit_api.h``` && ```tenginekit_struct.h```
+- Model Files : [Models Path](docs/Model_des.md)
 
-# System
-Linux
+## System
 - Ubuntu 18
 
-# Usage
+## Function
 - [API](docs/Linux_api.md) : When using sdk, you can refer to API to complete the functions you need.
+
+## Sample Usage
+```bash
+./make.sh
+./bin/demo resources/image/4.jpg
+```
