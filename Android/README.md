@@ -25,13 +25,13 @@ The ```build.gradle``` in Main Module add,select which function you need.But the
     dependencies {
         ...
         // Must have and must be the newest!!!!
-        implementation 'com.tengine.tenginekit:core:0.0.3'
+        implementation 'com.tengine.tenginekit:core:0.0.4'
         // Function on Face
         implementation 'com.tengine.tenginekit:face:0.0.3'
         // Function on Hand
         implementation 'com.tengine.tenginekit:hand:0.0.2'
         // Function on Body
-        implementation 'com.tengine.tenginekit:body:0.0.2'
+        implementation 'com.tengine.tenginekit:body:0.0.3'
         ...
     }
 ```     

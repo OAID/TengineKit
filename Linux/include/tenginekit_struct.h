@@ -1,4 +1,5 @@
-
+#ifndef TENGINEKIT_STRUCT
+#define TENGINEKIT_STRUCT
 //--------------------base struct ------------------------
 typedef struct Box {
     float x1;
@@ -52,8 +53,9 @@ typedef struct FaceInfo3d {
 typedef struct BodyInfo
 {
     Box body_box;
+    float score;
     float landmark[25 * 4];
-};
+} BodyInfo;
 
 typedef struct HandInfo3d
 {
@@ -89,3 +91,4 @@ typedef struct sdkHand3d
 
 
 //--------------------------------------------------------
+#endif

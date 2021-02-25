@@ -65,6 +65,7 @@
         BlazeFace,
         FaceMesh,
         Iris,
+        BodyDetect,
         BlazePose,
         BlazePoseLandmark,
         HandDetect,
@@ -79,12 +80,15 @@
 | BlazeFace | 人脸检测 |
 | FaceMesh | 人脸3d关键点(468) |
 | Iris | 虹膜关键点 |
+| BodyDetect | 身体检测 |
 | BlazePose | 身体检测 |
 | BlazePoseLandmark | 身体关键点 |
 | HandDetect | 手部检测 |
 | HandLandmark3d | 手部关键点 |
 
-Tips：BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect, HandLandmark3d,的模型都是来自Google，项目地址为：https://github.com/google/mediapipe
+Tips：
+ - BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect, HandLandmark3d,的模型都是来自Google，项目地址为：https://github.com/google/mediapipe
+ - 如果你想使用身体关键点，请使用```BlazePose```作为身体检测方式。
 
 ## 获取人脸检测信息
 由于脸部所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，BlazeFace更准确,支持角度更大但是不支持多脸(BlazeFace是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);

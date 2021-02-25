@@ -65,6 +65,7 @@ Configuration function (functions are based on image detection):
         BlazeFace,
         FaceMesh,
         Iris,
+        BodyDetect
         BlazePose,
         BlazePoseLandmark,
         HandDetect,
@@ -79,12 +80,15 @@ Configuration function (functions are based on image detection):
 | BlazeFace | Face detect |
 | FaceMesh | Face 3d landmarks(468) |
 | Iris | Iris landmarks |
+| BodyDetect | Body detect |
 | BlazePose | Body detect |
 | BlazePoseLandmark | Body landmarks |
 | HandDetect | Hand detect |
 | HandLandmark3d | Hand landmarks | 
 
-Tips：BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect,  HandLandmark3d, models are from Google，The project address is：https://github.com/google/mediapipe
+Tips：
+ - BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect,  HandLandmark3d, models are from Google，The project address is：https://github.com/google/mediapipe
+ - If you want to use body landmark , please use ```BlazePose``` as body detect.
 
 ## get face detect infos     
 Since all functions on face are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, BlazeFace will be more accurate and the angle can be larger , but it didn`t support much faces(BlazeFace is based on the Google model). Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);

@@ -44,19 +44,21 @@ or
 - face 3dlandmarks
 - face attributes for example: age, gender, smile, glasses
 - eye iris & landmarks
+- body detect
 - hand detect(Real-time, not yet on Mobile)
 - hand landmarks(Real-time, not yet on Mobile)
-- body detect(Real-time, not yet on Mobile)
+- body detect google(Real-time, not yet on Mobile)
 - body landamrks(Real-time, not yet on Mobile)
 
-# Update (2021/02/24)
-- Update Core v0.0.3
+# Update (2021/02/25)
+- Update Core v0.0.4
 - Update Face v0.0.3
 - Update Hand v0.0.2
-- Update Body v0.0.2
+- Update Body v0.0.3
 - Fixed some Bugs
 - Rename models
 - Linux libTengineKitSDK.so
+- Body Detect model
 
 # Performance(Face Detect & Face Landmark)
 
