@@ -38,7 +38,7 @@ Android
 - 系统最低要求API 19
 
 # 使用
-- [API](Android_api.md) : 使用Tengine-Kit API来完成你所需要得功能。
+- [API](Android_api_CN.md) : 使用Tengine-Kit API来完成你所需要得功能。
 - [使用示例](Usage.md) : 您可以伴随着您给我们的```star```一起看看使用示例，感谢。
 
 # 权限

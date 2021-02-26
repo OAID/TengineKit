@@ -65,7 +65,7 @@ Configuration function (functions are based on image detection):
         BlazeFace,
         FaceMesh,
         Iris,
-        BodyDetect
+        BodyDetect,
         BlazePose,
         BlazePoseLandmark,
         HandDetect,
@@ -90,7 +90,7 @@ Tips：
  - BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect,  HandLandmark3d, models are from Google，The project address is：https://github.com/google/mediapipe
  - If you want to use body landmark , please use ```BlazePose``` as body detect.
 
-## get face detect infos     
+## Get Face Detect Infomation     
 Since all functions on face are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, BlazeFace will be more accurate and the angle can be larger , but it didn`t support much faces(BlazeFace is based on the Google model). Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);
 #### Parameter
  - imageData: Input data
@@ -100,61 +100,89 @@ Since all functions on face are based on face detection, first create an object 
     List<FaceDetectInfo> faceDetectInfos = faceDetect.getDetectInfos();
 ```
 
-## get landmark infos(212 landmarks)   
-The face key point function is based on face detection, so the landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceLandmarkInfo list](#FaceLandmarkInfo);
+## Get Landmark Infomation  
+The face key point function is based on face detection, so the landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a FaceLandmarkInfo list.
 ``` java
     List<LandmarkInfo> landmarkInfos = faceDetect.landmark2d();
 ```
+Tips:
+ - 212 landmarks, landmark order [Click Here](../../Docs/POINTORDER.md).
+ - FaceLandmarkInfo list data struct [Click Here](#FaceLandmarkInfo).
 
-## get 3D landmark infos(This feature is based on Google model)(468 landmarks)  
-The face key point function is based on face detection, so the 3d landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceLandmark3dInfo list](#FaceLandmark3dInfo);
+## Get 3D Landmark Infomation 
+The face key point function is based on face detection, so the 3d landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a FaceLandmark3dInfo list.
 ``` java
     List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();
 ```
+Tips:
+ - This feature is based on Google model.
+ - 468 landmarks.
+ - FaceLandmark3dInfo list data struct [Click Here](#FaceLandmark3dInfo).
 
-## get attribution infos
-The attribute function is based on face detection, so the method of obtaining attribute information is based on the ```Face.FaceDetect``` object created earlier. Finally returns a [FaceAttributionInfo list](#FaceAttributionInfo);
+## Get Attribution Infomation
+The attribute function is based on face detection, so the method of obtaining attribute information is based on the ```Face.FaceDetect``` object created earlier. Finally returns a FaceAttributionInfo list.
 ```java
     List<AttributionInfo> attributionInfos = faceDetect.attribution();
 ```
+Tips:
+ - FaceAttributionInfo list content data struct [Click Here](#FaceAttributionInfo).
 
-## get iris information (this function is based on Google's model) (76 key points)
-The iris function is based on face detection and face 3d key points, so iris3d information acquisition should be based on the ```Face.FaceDetect``` object created earlier. Finally return a [FaceIrisInfo list](#FaceIrisInfo); 76 key points include 5 iris key points and 71 key points around the eyes.
+## Get Iris Infomation
+The iris function is based on face detection and face 3d key points, so iris3d information acquisition should be based on the ```Face.FaceDetect``` object created earlier. Finally return a FaceIrisInfo list. 
 ``` java
     List<FaceIrisInfo> irisInfos = faceDetect.iris3d();;
 ```
+Tips:
+ - This function is based on Google's model.
+ - FaceIrisInfo list data struck [Click Here](#FaceIrisInfo);
+ - 76 key points include 5 iris key points and 71 key points around the eyes.
 
-## get hand detection information(this function is based on Google's model)
-Since all the functions of the hand are based on hand detection, first create an object of ```Hand.HandDetect```. Will eventually return a [List<HandDetectInfo>](#HandDetectInfo);
+## Get Hand Detection Information()
+Since all the functions of the hand are based on hand detection, first create an object of ```Hand.HandDetect```. Will eventually return a HandDetectInfo list.
 #### Parameters
 - imageData: input data
 ```java
     Hand.HandDetect handDetect = Hand.detect(imageData);
     List<HandDetectInfo> handDetectInfos = handDetect.getDetectInfos();
 ```
+Tips:
+ - This function is based on Google's model.
+ - HandDetectInfo list data struct [Click Here](#HandDetectInfo).
 
-## get hand landamrk info (this function is based on Google's model)(21 key points)
-The hand key point function is based on hand detection, so the landmark information acquisition method should be based on the ```Hand.HandDetect``` object created earlier. Finally returns a [HandLandmarkInfo](#HandLandmarkInfo);
+## Get Hand Landamrk Infomation
+The hand key point function is based on hand detection, so the landmark information acquisition method should be based on the ```Hand.HandDetect``` object created earlier. Finally returns a HandLandmarkInfo list.
 ``` java
      List<HandLandmarkInfo> landmarkInfos = handDetect.landmark3d();
 ```
+Tips:
+ - This function is based on Google's model.
+ - 21 key points.
+ - HandLandmarkInfo data struct [Click Here](#HandLandmarkInfo).
 
-## get body detection information(this function is based on Google's model)
-Since all the functions of the body are based on body detection, first create an object of ```Body.BodyDetect```. Will eventually return a [List<BodyDetectInfo>](#BodyDetectInfo);
+## Get Body Detection Information
+Since all the functions of the body are based on body detection, first create an object of ```Body.BodyDetect```. Will eventually return a BodyDetectInfo list.
 #### Parameters
 - imageData: input data
 ```java
     Body.BodyDetect bodyDetect = Body.detect(imageData);
     List<BodyDetectInfo> bodyDetectInfos = bodyDetect.getDetectInfos();
 ```
+Tips:
+- ```BlazePose``` function is based on Google's model.
+- ```BodyDetect``` is a faster function , but can`t use Body Landmark.
+- BodyDetectInfo data struct [Click Here](#BodyDetectInfo).
 
-## get body landamrk info (this function is based on Google's model)(25 key points)
-The body key point function is based on body detection, so the landmark information acquisition method should be based on the ```Body.BodyDetect``` object created earlier. Finally returns a [BodyLandmarkInfo](#BodyLandmarkInfo);
+## Get Body Landamrk Infomation
+The body key point function is based on body detection, so the landmark information acquisition method should be based on the ```Body.BodyDetect``` object created earlier. Finally returns a BodyLandmarkInfo list.
 ``` java
      List<BodyLandmarkInfo> landmarkInfos = bodyDetect.landmark2d();
 ```
+Tips:
+ - This function is based on Google's model.
+ - 25 key points.
+ - BodyLandmarkInfo list data struct [Click Here](#BodyLandmarkInfo).
 
-## switch camera
+## Wwitch Camera
 Switching cameras is only useful when in camera mode.
 #### Parameter
  - back:Whether it is a rear camera
@@ -163,7 +191,7 @@ Switching cameras is only useful when in camera mode.
     Face.Camera.switchCamera(boolean back); 
 ```
 
-## set rotation
+## Set Rotation
 Setting rotation is only useful in camera mode.
 #### Parameter
  - ori: Rotation angle (vertical to 0°)
@@ -174,7 +202,7 @@ Setting rotation is only useful in camera mode.
     Face.Camera.setRotation(int ori, boolean isScreenRotate, int outputW, int outputH);
 ```
 
-## release
+## Release
 ``` java
     FaceManager.getInstance().release();
 ```

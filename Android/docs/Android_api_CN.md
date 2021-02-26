@@ -91,67 +91,98 @@ Tips：
  - 如果你想使用身体关键点，请使用```BlazePose```作为身体检测方式。
 
 ## 获取人脸检测信息
-由于脸部所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，BlazeFace更准确,支持角度更大但是不支持多脸(BlazeFace是基于Google模型的)。最终会返回一个[List<FaceDetectInfo>](#FaceDetectInfo);
+由于脸部所有功能都基于人脸检测，所以先创建一个```Face.FaceDetect```的对象。Detect检测会更快，BlazeFace更准确,支持角度更大但是不支持多脸，最终会返回一个FaceDetectInfo列表。
 #### 参数
  - imageData: 输入数据    
 ```java
     Face.FaceDetect faceDetect = Face.detect(imageData);
     List<FaceDetectInfo> faceDetectInfos = faceDetect.getDetectInfos();
 ```
+Tips : 
+ - FaceDetectInfo列表，数据结构查看[点击这里](#FaceDetectInfo)。
+ - BlazeFace是基于Google模型的。
 
-## 获取人脸关键点信息（212关键点）  
-人脸关键点功能是基于人脸检测的，所以landmark信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmarkInfo列表](#FaceLandmarkInfo);
+## 获取人脸关键点信息  
+人脸关键点功能是基于人脸检测的，所以landmark信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个FaceLandmarkInfo列表。
 ``` java
     List<FaceLandmarkInfo> landmarkInfos = faceDetect.landmark2d();;
 ```
+Tips: 
+ - FaceLandmarkInfo列表，数据结构查看[点击这里](#FaceLandmarkInfo)。
+ - 人脸关键点有212个关键点。
 
-## 获取3D人脸关键点信息(此功能是基于Google的模型)（468关键点）  
-3D人脸关键点功能是基于人脸检测的，所以landmark3d信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceLandmark3dInfo列表](#FaceLandmark3dInfo);
+## 获取3D人脸关键点信息  
+3D人脸关键点功能是基于人脸检测的，所以landmark3d信息获取方法要基于前面创建的```Face.FaceDetect```对象。最终返回一个FaceLandmark3dInfo列表。
 ``` java
     List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();;
 ```
+Tips:
+ - FaceLandmark3dInfo列表，数据结构查看[点击这里](#FaceLandmark3dInfo)。
+ - 此功能是基于Google的模型。
+ - 人脸3D关键点有468个关键点。
 
 ## 获取人脸属性信息
-属性功能是基于人脸检测的，所以attribution信息获取方法是基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceAttributionInfo列表](#FaceAttributionInfo);
+属性功能是基于人脸检测的，所以attribution信息获取方法是基于前面创建的```Face.FaceDetect```对象。最终返回一个FaceAttributionInfo列表。
 ```java
     List<FaceAttributionInfo> attributionInfos = faceDetect.attribution();
 ```
+Tips:
+ - FaceAttributionInfo列表，数据结构查看[点击这里](#FaceAttributionInfo)。
 
 ## 获取获取虹膜信息(此功能是基于Google的模型)(76关键点)  
-虹膜功能是基于人脸检测和人脸3d关键点，所以iris3d信息获取要基于前面创建的```Face.FaceDetect```对象。最终返回一个[FaceIrisInfo列表](#FaceIrisInfo);76个关键点包含5个虹膜关键点以及71个眼睛周围关键点。
+虹膜功能是基于人脸检测和人脸3d关键点，所以iris3d信息获取要基于前面创建的```Face.FaceDetect```对象。最终返回一个FaceIrisInfo列表。
 ``` java
     List<FaceIrisInfo> irisInfos = faceDetect.iris3d();;
 ```
+Tip:
+ - FaceIrisInfo列表，数据结构查看[点击这里](#FaceIrisInfo)。
+ - 76个关键点包含5个虹膜关键点以及71个眼睛周围关键点。
+ - 此功能是基于Google的模型。
 
 ## 获取手部检测信息
-由于手部所有功能都基于人脸检测，所以先创建一个```Hand.HandDetect```的对象。最终会返回一个[List<HandDetectInfo>](#HandDetectInfo);
+由于手部所有功能都基于人脸检测，所以先创建一个```Hand.HandDetect```的对象。最终会返回一个HandDetectInfo列表。
 #### 参数
  - imageData: 输入数据    
 ```java
     Hand.HandDetect handDetect = Hand.detect(imageData);
     List<HandDetectInfo> handDetectInfos = handDetect.getDetectInfos();
 ```
+Tips:
+ - HandDetectInfo列表，数据结构查看[点击这里](#HandDetectInfo)。
+ - 此功能是基于Google的模型。
 
-## 获取手部关键点信息（21关键点）  
-手部关键点功能是基于手部检测的，所以landmark信息获取方法要基于前面创建的```Hand.HandDetect```对象。最终返回一个[HandLandmarkInfo](#HandLandmarkInfo);
+## 获取手部关键点信息  
+手部关键点功能是基于手部检测的，所以landmark信息获取方法要基于前面创建的```Hand.HandDetect```对象。最终返回一个HandLandmarkInfo列表。
 ``` java
     List<HandLandmarkInfo> landmarkInfos = handDetect.landmark3d();;
 ```
+Tip:
+ - HandLandmarkInfo列表，数据结构查看[点击这里](#HandLandmarkInfo)。
+ - 手部关键点有21个关键点。
+ - 此功能是基于Google的模型。
 
 ## 获取身体检测信息
-由于身体所有功能都基于人脸检测，所以先创建一个```Body.BodyDetect```的对象。最终会返回一个[List<BodyDetectInfo>](#BodyDetectInfo);
+由于身体所有功能都基于人脸检测，所以先创建一个```Body.BodyDetect```的对象。最终会返回一个BodyDetectInfo列表。
 #### 参数
  - imageData: 输入数据    
 ```java
     Body.BodyDetect bodyDetect = Body.detect(imageData);
     List<BodyDetectInfo> bodyDetectInfos = bodyDetect.getDetectInfos();
 ```
+Tips:
+ - BodyDetectInfo列表，数据结构查看[点击这里](#BodyDetectInfo)。
+ - ```BlazePose```功能是基于Google的模型。
+ - ```BodyDetect```功能身体检测更快速，但不能组合使用身体关键点。
 
-## 获取身体关键点信息（25关键点）  
-身体关键点功能是基于身体检测的，所以landmark信息获取方法要基于前面创建的```Body.BodyDetect```对象。最终返回一个[BodyLandmarkInfo](#BodyLandmarkInfo);
+## 获取身体关键点信息  
+身体关键点功能是基于身体检测的，所以landmark信息获取方法要基于前面创建的```Body.BodyDetect```对象。最终返回一个BodyLandmarkInfo列表。
 ``` java
     List<BodyLandmarkInfo> landmarkInfos = bodyDetect.landmark2d();;
 ```
+Tips:
+ - BodyLandmarkInfo列表，数据结构查看[点击这里](#BodyLandmarkInfo)。
+ - 身体关键点有25个关键点。
+ - 此功能是基于Google的模型。
 
 ## 切换摄像头
 切换摄像头，只有处于摄像机模式时才有用。
