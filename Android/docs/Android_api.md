@@ -91,7 +91,7 @@ Configuration function (functions are based on image detection):
  - If you want to use body landmark , please use ```BlazePose``` as body detect.
 
 ## Get Face Detect Infomation     
-Since all functions on face are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, BlazeFace will be more accurate and the angle can be larger , but it didn`t support much faces(BlazeFace is based on the Google model). Will eventually return a [FaceDetectInfo list](#FaceDetectInfo);
+Since all functions on face are based on face detection, first create an object of ```Face.FaceDetect```. Detect detection will be faster, BlazeFace will be more accurate and the angle can be larger , but it didn`t support much faces. Will eventually return a FaceDetectInfo list.
 #### Parameter
  - imageData: Input data
 
@@ -99,6 +99,9 @@ Since all functions on face are based on face detection, first create an object 
     Face.FaceDetect faceDetect = Face.detect(imageData);
     List<FaceDetectInfo> faceDetectInfos = faceDetect.getDetectInfos();
 ```
+#### Tips:
+- FaceDetectInfo list data struct [Click Here](#FaceDetectInfo).
+- ```BlazeFace``` is based on the Google model.
 
 ## Get Landmark Infomation  
 The face key point function is based on face detection, so the landmark information acquisition method should be based on the ```Face.FaceDetect``` object created earlier. Finally returns a FaceLandmarkInfo list.
