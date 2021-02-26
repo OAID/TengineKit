@@ -86,7 +86,7 @@
 | HandDetect | 手部检测 |
 | HandLandmark3d | 手部关键点 |
 
-Tips：
+#### Tips：
  - BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect, HandLandmark3d,的模型都是来自Google，项目地址为：https://github.com/google/mediapipe
  - 如果你想使用身体关键点，请使用```BlazePose```作为身体检测方式。
 
@@ -98,7 +98,7 @@ Tips：
     Face.FaceDetect faceDetect = Face.detect(imageData);
     List<FaceDetectInfo> faceDetectInfos = faceDetect.getDetectInfos();
 ```
-Tips : 
+#### Tips : 
  - FaceDetectInfo列表，数据结构查看[点击这里](#FaceDetectInfo)。
  - BlazeFace是基于Google模型的。
 
@@ -107,7 +107,7 @@ Tips :
 ``` java
     List<FaceLandmarkInfo> landmarkInfos = faceDetect.landmark2d();;
 ```
-Tips: 
+#### Tips: 
  - FaceLandmarkInfo列表，数据结构查看[点击这里](#FaceLandmarkInfo)。
  - 人脸关键点有212个关键点。
 
@@ -116,7 +116,7 @@ Tips:
 ``` java
     List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();;
 ```
-Tips:
+#### Tips:
  - FaceLandmark3dInfo列表，数据结构查看[点击这里](#FaceLandmark3dInfo)。
  - 此功能是基于Google的模型。
  - 人脸3D关键点有468个关键点。
@@ -126,7 +126,7 @@ Tips:
 ```java
     List<FaceAttributionInfo> attributionInfos = faceDetect.attribution();
 ```
-Tips:
+#### Tips:
  - FaceAttributionInfo列表，数据结构查看[点击这里](#FaceAttributionInfo)。
 
 ## 获取获取虹膜信息(此功能是基于Google的模型)(76关键点)  
@@ -134,7 +134,7 @@ Tips:
 ``` java
     List<FaceIrisInfo> irisInfos = faceDetect.iris3d();;
 ```
-Tip:
+#### Tip:
  - FaceIrisInfo列表，数据结构查看[点击这里](#FaceIrisInfo)。
  - 76个关键点包含5个虹膜关键点以及71个眼睛周围关键点。
  - 此功能是基于Google的模型。
@@ -147,7 +147,7 @@ Tip:
     Hand.HandDetect handDetect = Hand.detect(imageData);
     List<HandDetectInfo> handDetectInfos = handDetect.getDetectInfos();
 ```
-Tips:
+#### Tips:
  - HandDetectInfo列表，数据结构查看[点击这里](#HandDetectInfo)。
  - 此功能是基于Google的模型。
 
@@ -156,7 +156,7 @@ Tips:
 ``` java
     List<HandLandmarkInfo> landmarkInfos = handDetect.landmark3d();;
 ```
-Tip:
+#### Tip:
  - HandLandmarkInfo列表，数据结构查看[点击这里](#HandLandmarkInfo)。
  - 手部关键点有21个关键点。
  - 此功能是基于Google的模型。
@@ -169,7 +169,7 @@ Tip:
     Body.BodyDetect bodyDetect = Body.detect(imageData);
     List<BodyDetectInfo> bodyDetectInfos = bodyDetect.getDetectInfos();
 ```
-Tips:
+#### Tips:
  - BodyDetectInfo列表，数据结构查看[点击这里](#BodyDetectInfo)。
  - ```BlazePose```功能是基于Google的模型。
  - ```BodyDetect```功能身体检测更快速，但不能组合使用身体关键点。
@@ -179,7 +179,7 @@ Tips:
 ``` java
     List<BodyLandmarkInfo> landmarkInfos = bodyDetect.landmark2d();;
 ```
-Tips:
+#### Tips:
  - BodyLandmarkInfo列表，数据结构查看[点击这里](#BodyLandmarkInfo)。
  - 身体关键点有25个关键点。
  - 此功能是基于Google的模型。

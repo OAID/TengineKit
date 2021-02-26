@@ -86,7 +86,7 @@ Configuration function (functions are based on image detection):
 | HandDetect | Hand detect |
 | HandLandmark3d | Hand landmarks | 
 
-Tips：
+#### Tips：
  - BlazeFace, FaceMesh, Iris, BlazePose, BlazePoseLandmark, HandDetect,  HandLandmark3d, models are from Google，The project address is：https://github.com/google/mediapipe
  - If you want to use body landmark , please use ```BlazePose``` as body detect.
 
@@ -105,7 +105,7 @@ The face key point function is based on face detection, so the landmark informat
 ``` java
     List<LandmarkInfo> landmarkInfos = faceDetect.landmark2d();
 ```
-Tips:
+#### Tips:
  - 212 landmarks, landmark order [Click Here](../../Docs/POINTORDER.md).
  - FaceLandmarkInfo list data struct [Click Here](#FaceLandmarkInfo).
 
@@ -114,7 +114,7 @@ The face key point function is based on face detection, so the 3d landmark infor
 ``` java
     List<FaceLandmark3dInfo> landmarkInfos = faceDetect.landmark3d();
 ```
-Tips:
+#### Tips:
  - This feature is based on Google model.
  - 468 landmarks.
  - FaceLandmark3dInfo list data struct [Click Here](#FaceLandmark3dInfo).
@@ -124,7 +124,7 @@ The attribute function is based on face detection, so the method of obtaining at
 ```java
     List<AttributionInfo> attributionInfos = faceDetect.attribution();
 ```
-Tips:
+#### Tips:
  - FaceAttributionInfo list content data struct [Click Here](#FaceAttributionInfo).
 
 ## Get Iris Infomation
@@ -132,7 +132,7 @@ The iris function is based on face detection and face 3d key points, so iris3d i
 ``` java
     List<FaceIrisInfo> irisInfos = faceDetect.iris3d();;
 ```
-Tips:
+#### Tips:
  - This function is based on Google's model.
  - FaceIrisInfo list data struck [Click Here](#FaceIrisInfo);
  - 76 key points include 5 iris key points and 71 key points around the eyes.
@@ -145,7 +145,7 @@ Since all the functions of the hand are based on hand detection, first create an
     Hand.HandDetect handDetect = Hand.detect(imageData);
     List<HandDetectInfo> handDetectInfos = handDetect.getDetectInfos();
 ```
-Tips:
+#### Tips:
  - This function is based on Google's model.
  - HandDetectInfo list data struct [Click Here](#HandDetectInfo).
 
@@ -154,7 +154,7 @@ The hand key point function is based on hand detection, so the landmark informat
 ``` java
      List<HandLandmarkInfo> landmarkInfos = handDetect.landmark3d();
 ```
-Tips:
+#### Tips:
  - This function is based on Google's model.
  - 21 key points.
  - HandLandmarkInfo data struct [Click Here](#HandLandmarkInfo).
@@ -167,7 +167,7 @@ Since all the functions of the body are based on body detection, first create an
     Body.BodyDetect bodyDetect = Body.detect(imageData);
     List<BodyDetectInfo> bodyDetectInfos = bodyDetect.getDetectInfos();
 ```
-Tips:
+#### Tips:
 - ```BlazePose``` function is based on Google's model.
 - ```BodyDetect``` is a faster function , but can`t use Body Landmark.
 - BodyDetectInfo data struct [Click Here](#BodyDetectInfo).
@@ -177,7 +177,7 @@ The body key point function is based on body detection, so the landmark informat
 ``` java
      List<BodyLandmarkInfo> landmarkInfos = bodyDetect.landmark2d();
 ```
-Tips:
+#### Tips:
  - This function is based on Google's model.
  - 25 key points.
  - BodyLandmarkInfo list data struct [Click Here](#BodyLandmarkInfo).
