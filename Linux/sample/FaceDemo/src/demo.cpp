@@ -88,7 +88,7 @@ void handle_rgb(std::string path)
         }
         std::cout << std::endl;
     }
-    facesdk_readModelFromFile(ModelType::Attribution, "models/attribution.bin", ImageFormat::RGB);
+    facesdk_readModelFromFile(ModelType::Attribution, "models/face_attr.bin", ImageFormat::RGB);
     sdkFaces faces3 = facesdk_attribute();
     std::cout << faces3.face_count << std::endl;
     for (int i = 0; i < faces3.face_count; i++)
