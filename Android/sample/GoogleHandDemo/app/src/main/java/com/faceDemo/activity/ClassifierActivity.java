@@ -65,7 +65,6 @@ public class ClassifierActivity extends CameraActivity {
     @Override
     protected void processImage() {
         if (sensorEventUtil!= null) {
-            getCameraBytes();
             int degree = CameraEngine.getInstance().getCameraOrientation(sensorEventUtil.orientation);
             /**
              * 设置旋转角
@@ -101,7 +100,6 @@ public class ClassifierActivity extends CameraActivity {
         runInBackground(new Runnable() {
             @Override
             public void run() {
-                readyForNextImage();
                 if (trackingOverlay!=null) {
                     trackingOverlay.postInvalidate();
                 }

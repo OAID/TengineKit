@@ -59,9 +59,6 @@ public abstract class CameraActivity extends AppCompatActivity implements
     // 相机的数据 nv21格式
     protected byte[] mNV21Bytes;
 
-    private Runnable postInferenceCallback;
-    private Runnable imageConverter;
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(null);
@@ -113,19 +110,9 @@ public abstract class CameraActivity extends AppCompatActivity implements
             MyLogger.logError(TAG, "onPreviewFrame: " + e);
             return;
         }
-        imageConverter = new Runnable() {
-            @Override
-            public void run() {
-                mNV21Bytes = bytes;
-            }
-        };
-        postInferenceCallback = new Runnable() {
-            @Override
-            public void run() {
-                camera.addCallbackBuffer(bytes);
-                isProcessingFrame = false;
-            }
-        };
+        mNV21Bytes = bytes;
+        camera.addCallbackBuffer(bytes);
+        isProcessingFrame = false;
         processImage();
     }
 
@@ -177,12 +164,6 @@ public abstract class CameraActivity extends AppCompatActivity implements
         getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 
-    protected void readyForNextImage() {
-        if (postInferenceCallback != null) {
-            postInferenceCallback.run();
-        }
-    }
-
     protected synchronized void runInBackground(final Runnable r) {
         if (handler != null) {
             handler.post(r);
@@ -196,12 +177,4 @@ public abstract class CameraActivity extends AppCompatActivity implements
     protected abstract int getLayoutId();
 
     protected abstract Size getDesiredPreviewFrameSize();
-
-    //得到最新的bytes
-    protected void getCameraBytes() {
-        if (imageConverter != null) {
-            imageConverter.run();
-        }
-    }
-
 }
