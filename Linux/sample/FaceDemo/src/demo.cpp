@@ -38,7 +38,7 @@ void handle_rgb(std::string path)
 
     char data[w * h * 3];
     memcpy(data, (char *)frame.data, w * h * 3);
-    facesdk_readModelFromFile(ModelType::Detect, "models/detect.bin", ImageFormat::RGB);
+    facesdk_readModelFromFile(ModelType::Detect, "models/face_detect.bin", ImageFormat::RGB);
     sdkFaces faces = facesdk_detect(data);
     std::cout << "faces:" << faces.face_count << std::endl;
     for (int i = 0; i < faces.face_count; i++)
