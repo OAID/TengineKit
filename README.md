@@ -50,15 +50,10 @@ or
 - body detect google(Real-time, not yet on Mobile)
 - body landamrks(Real-time, not yet on Mobile)
 
-# Update (2021/02/25)
-- Update Core v0.0.4
-- Update Face v0.0.3
-- Update Hand v0.0.2
-- Update Body v0.0.3
-- Fixed some Bugs
-- Rename models
-- Linux libTengineKitSDK.so
-- Body Detect model
+# Update (2021/03/22)
+- Fixed Linux sample code errer
+- Update Android sample code, up fps
+- update Linux so file
 
 # Performance(Face Detect & Face Landmark)
 
