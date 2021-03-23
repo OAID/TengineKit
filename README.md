@@ -49,6 +49,7 @@ or
 - hand landmarks(Real-time, not yet on Mobile)
 - body detect google(Real-time, not yet on Mobile)
 - body landamrks(Real-time, not yet on Mobile)
+- yolov5
 
 # Update (2021/03/22)
 - Fixed Linux sample code errer

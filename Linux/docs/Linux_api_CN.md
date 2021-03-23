@@ -109,6 +109,14 @@ sdkHand3d facesdk_handdetect(char *imageData);
 sdkHand3d facesdk_handlandmark3d();
 ```
 
+## Yolov5
+```c++
+/*!
+* @brief yolov5 Use
+*/
+sdkYolov5 facesdk_yolov5();
+```
+
 ## 释放
 ```c++
 /*!
