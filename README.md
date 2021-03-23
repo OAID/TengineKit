@@ -54,6 +54,7 @@ or
 - Fixed Linux sample code errer
 - Update Android sample code, up fps
 - update Linux so file
+- update Linux yolov5s
 
 # Performance(Face Detect & Face Landmark)
 

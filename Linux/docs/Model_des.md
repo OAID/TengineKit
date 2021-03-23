@@ -12,3 +12,4 @@
 | hand_landmark_go.bin | Hand Landmark |
 | body_detect_go.bin | Body Detect |
 | body_landmark_go.bin | Body Landmark |
+| yolov5s.bin | yolov5s |

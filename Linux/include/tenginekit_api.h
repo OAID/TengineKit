@@ -30,6 +30,7 @@ enum ModelType{
     BlazePoseLandmark,
     HandDetect,
     HandLandmark3d,
+    Yolov5
 };
 
 enum FaceSDKMode{
@@ -56,8 +57,6 @@ typedef struct FaceSDKConfig
 
 void facesdk_init(FaceSDKConfig config);
 void facesdk_readModelFromFile(ModelType type, const char* model_path, ImageFormat modelInputFormat);
-void facesdk_readModelFromFile(ModelType type, const char* model_path, ImageFormat modelInputFormat, bool is_encrypted);
-void facesdk_readModelFromBuffer(ModelType type, char* buffer,int buffer_size, ImageFormat modelInputFormat, bool is_encrypted);
 void facesdk_release();
 
 sdkFaces facesdk_detect(char *imgData);
@@ -71,6 +70,8 @@ sdkBody facesdk_bodylandmark();
 
 sdkHand3d facesdk_handdetect(char *imageData);
 sdkHand3d facesdk_handlandmark3d();
+
+sdkYolov5 facesdk_yolov5(char *imageData);
 
 void facesdk_set_mode(FaceSDKMode mode);
 void facesdk_set_orientation(int degree, bool screen_rotation, int screen_w, int screen_h);

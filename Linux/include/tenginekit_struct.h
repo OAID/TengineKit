@@ -1,35 +1,35 @@
 #ifndef TENGINEKIT_STRUCT
 #define TENGINEKIT_STRUCT
 //--------------------base struct ------------------------
-typedef struct Box {
+struct Box {
     float x1;
     float y1;
     float x2;
     float y2;
-}Box;
+};
 
-typedef struct vector2 {
+struct vector2 {
     float x;
     float y;
 };
 //--------------------------------------------------------
 
 //--------------------function struct ------------------------
-typedef struct FaceAttribution{
+struct FaceAttribution{
     int gender; // 0 man, 1 woman
     int glasses;
     int age;
     int smile;
     int beauty_man_look;
     int beauty_woman_look;
-} FaceAttribution;
+} ;
 
-typedef struct EyeInfo{
+struct EyeInfo{
     float eye_landmark[71 * 3];
     float eye_iris[5 * 3];
-} EyeInfo;
+} ;
 
-typedef struct FaceInfo {
+struct FaceInfo {
     Box face_box;
     float score;
     float head_x;
@@ -42,53 +42,65 @@ typedef struct FaceInfo {
     float landmarks[212 * 2];
     float person_mark[512];
     FaceAttribution attribution;
-} FaceInfo;
+} ;
 
-typedef struct FaceInfo3d {
+struct FaceInfo3d {
     Box face_box;
     float landmarks3d[468 * 3];
     EyeInfo eye[2];
-} FaceInfo3d;
+} ;
 
-typedef struct BodyInfo
+struct BodyInfo
 {
     Box body_box;
     float score;
     float landmark[25 * 4];
-} BodyInfo;
+} ;
 
-typedef struct HandInfo3d
+struct HandInfo3d
 {
     Box hand_box;
     float landmark[21 * 3];
 };
 
+struct Yolov5Info
+{
+    const char* obj_name;
+    Box obj_box;
+    float score;
+};
+
+
 
 //--------------------------------------------------------
 
 //--------------------output struct ------------------------
-typedef struct sdkFaces {
+struct sdkFaces {
     int face_count = 0;
     FaceInfo* info;
-} sdkFaces;
+} ;
 
-typedef struct sdkFaces3d {
+struct sdkFaces3d {
     int face3d_count;
     FaceInfo3d* info;
-} sdkFaces3d;
+} ;
 
-typedef struct sdkBody {
+struct sdkBody {
     int body_count = 0;
     BodyInfo* info;
-} sdkBody;
+} ;
 
 
-typedef struct sdkHand3d
+struct sdkHand3d
 {
     int hand_count = 0;
     HandInfo3d* info;
-} sdkHand3d;
+} ;
 
+struct sdkYolov5 {
+    int object_count = 0;
+    Yolov5Info* info;
+};
 
 //--------------------------------------------------------
 #endif
