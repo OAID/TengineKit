@@ -51,11 +51,12 @@ or
 - body landamrks(Real-time, not yet on Mobile)
 - yolov5
 
-# Update (2021/03/22)
+# Update (2021/03/25)
 - Fixed Linux sample code errer
 - Update Android sample code, up fps
 - update Linux so file
 - update Linux yolov5s
+- Fixed memory(Core v0.0.6)
 
 # Performance(Face Detect & Face Landmark)
 

@@ -23,7 +23,7 @@ Project中的build.gradle添加
     dependencies {
         ...
         // 必须有，并且必须是最新的
-        implementation 'com.tengine.tenginekit:core:0.0.4'
+        implementation 'com.tengine.tenginekit:core:0.0.6'
         // Function on Face
         implementation 'com.tengine.tenginekit:face:0.0.3'
         // Function on Hand
