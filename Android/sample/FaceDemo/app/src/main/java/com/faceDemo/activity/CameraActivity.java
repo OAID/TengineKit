@@ -112,8 +112,8 @@ public abstract class CameraActivity extends AppCompatActivity implements
         }
         mNV21Bytes = bytes;
         camera.addCallbackBuffer(bytes);
-        isProcessingFrame = false;
         processImage();
+        isProcessingFrame = false;
     }
 
     @Override
