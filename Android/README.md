@@ -35,6 +35,7 @@ The ```build.gradle``` in Main Module add,select which function you need.But the
         ...
     }
 ```     
+> <b>Since jfrog will not be updated after May 1, 2021, we cannot continuously update the SDK library. At the same time, jfrog will stop providing services on February 1, 2022, and our SDK will not be able to provide normal services after the time point.</b>
 
 # System
 Android
