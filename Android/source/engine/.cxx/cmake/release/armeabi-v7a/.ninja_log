@@ -1,0 +1,21 @@
+# ninja log v5
+22	165	1628588769	CMakeFiles/tenginekit_engine.dir/src/main/jni/arm32/MNNSamplerC1NearestOpt.S.o	c8c0685d6ee69
+17	165	1628588769	CMakeFiles/tenginekit_engine.dir/src/main/jni/arm32/MNNNV21ToRGBAUnit.S.o	8a6bb3b790f28b8d
+19	165	1628588769	CMakeFiles/tenginekit_engine.dir/src/main/jni/arm32/MNNNV21ToRGBUnit.S.o	7b882b0573dd6076
+20	165	1628588769	CMakeFiles/tenginekit_engine.dir/src/main/jni/arm32/MNNSamplerC1BilinearOpt.S.o	83206d5427fd6932
+11	400	1628588770	CMakeFiles/tenginekit_engine.dir/src/main/jni/image/RGBConverterHelper.cpp.o	4ce98f709b17ecba
+13	643	1628588770	CMakeFiles/tenginekit_engine.dir/src/main/jni/image/YuvConverterHelper.cpp.o	faae9798a84a68ee
+15	686	1628588770	CMakeFiles/tenginekit_engine.dir/src/main/jni/image/ImageRotateHelper.cpp.o	cff388e4ed7728ff
+5	769	1628588770	CMakeFiles/tenginekit_engine.dir/src/main/jni/utils/utils.cpp.o	c80bb1cf4fbed581
+4	992	1628588770	CMakeFiles/tenginekit_engine.dir/src/main/jni/face/faceLandmark.cpp.o	2d8da70bcdd094e
+6	999	1628588770	CMakeFiles/tenginekit_engine.dir/src/main/jni/face_engine_jni.cpp.o	f1e65c481e54b463
+4	1004	1628588770	CMakeFiles/tenginekit_engine.dir/src/main/jni/face/faceLandmark3d.cpp.o	de6354fc7bed0e54
+5	1019	1628588770	CMakeFiles/tenginekit_engine.dir/src/main/jni/face/eyeLandmark.cpp.o	39dae676dfb71c94
+0	1346	1628588771	CMakeFiles/tenginekit_engine.dir/src/main/jni/core/manager.cpp.o	d63e96e5863a22a2
+7	1499	1628588771	CMakeFiles/tenginekit_engine.dir/src/main/jni/image/ImageResizeHelper.cpp.o	6dae970848a2ddbd
+3	1577	1628588771	CMakeFiles/tenginekit_engine.dir/src/main/jni/face/faceDetect.cpp.o	375cf387281d0e07
+2	1636	1628588771	CMakeFiles/tenginekit_engine.dir/src/main/jni/core/faceService.cpp.o	c00893b2be5d2331
+16	5041	1628588774	CMakeFiles/tenginekit_engine.dir/src/main/jni/tengine/common/tengine_operations.c.o	7fcfc2d8bd5a0aa9
+5042	5097	1628588774	../../../../build/intermediates/cmake/release/obj/armeabi-v7a/libtenginekit_engine.so	1073b6ce94b19df4
+0	47	1628757627	build.ninja	cfd5e5d85bff5a53
+0	9	0	clean	e729ef56f7b5d195
