@@ -1,0 +1,1 @@
+/Users/hebingshi/demos/tenginedemo/engine/build/intermediates/cmake/debug/obj/armeabi-v7a

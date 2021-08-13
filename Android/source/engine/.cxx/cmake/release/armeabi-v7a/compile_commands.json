@@ -1,0 +1,103 @@
+[
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/core/manager.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/core/manager.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/core/manager.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/core/faceService.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/core/faceService.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/core/faceService.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/face/faceDetect.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face/faceDetect.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face/faceDetect.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/face/faceLandmark.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face/faceLandmark.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face/faceLandmark.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/face/faceLandmark3d.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face/faceLandmark3d.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face/faceLandmark3d.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/face/eyeLandmark.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face/eyeLandmark.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face/eyeLandmark.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/utils/utils.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/utils/utils.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/utils/utils.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/face_engine_jni.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face_engine_jni.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/face_engine_jni.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/image/ImageResizeHelper.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/image/ImageResizeHelper.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/image/ImageResizeHelper.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/image/RGBConverterHelper.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/image/RGBConverterHelper.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/image/RGBConverterHelper.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/image/YuvConverterHelper.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/image/YuvConverterHelper.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/image/YuvConverterHelper.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++11 -fexceptions -frtti -DTENGINE_KIT_DEBUG_IMAGE=off -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/image/ImageRotateHelper.cpp.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/image/ImageRotateHelper.cpp",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/image/ImageRotateHelper.cpp"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=armv7-none-linux-androideabi21 --gcc-toolchain=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/tengine/common/tengine_operations.c.o   -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/tengine/common/tengine_operations.c",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/tengine/common/tengine_operations.c"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang -target armv7-none-linux-androideabi21 -gcc-toolchain /Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/arm32/MNNNV21ToRGBAUnit.S.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/arm32/MNNNV21ToRGBAUnit.S",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/arm32/MNNNV21ToRGBAUnit.S"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang -target armv7-none-linux-androideabi21 -gcc-toolchain /Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/arm32/MNNNV21ToRGBUnit.S.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/arm32/MNNNV21ToRGBUnit.S",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/arm32/MNNNV21ToRGBUnit.S"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang -target armv7-none-linux-androideabi21 -gcc-toolchain /Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/arm32/MNNSamplerC1BilinearOpt.S.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/arm32/MNNSamplerC1BilinearOpt.S",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/arm32/MNNSamplerC1BilinearOpt.S"
+},
+
+{
+  "directory": "/Users/hebingshi/demos/tenginedemo/engine/.cxx/cmake/release/armeabi-v7a",
+  "command": "/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang -target armv7-none-linux-androideabi21 -gcc-toolchain /Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/hebingshi/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dtenginekit_engine_EXPORTS -I../../../.././src/main/jni/tengine -I../../../.././src/main/jni/utils -I../../../.././src/main/jni/image -I../../../.././src/main/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -Oz -DNDEBUG  -fPIC   -O3 -o CMakeFiles/tenginekit_engine.dir/src/main/jni/arm32/MNNSamplerC1NearestOpt.S.o -c /Users/hebingshi/demos/tenginedemo/engine/src/main/jni/arm32/MNNSamplerC1NearestOpt.S",
+  "file": "/Users/hebingshi/demos/tenginedemo/engine/src/main/jni/arm32/MNNSamplerC1NearestOpt.S"
+}
+]
