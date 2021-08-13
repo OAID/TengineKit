@@ -1,118 +1,127 @@
 # Usage
 
-## First        
-You can first give the warehouse a star, your star is the driving force of our efforts, this SDK is definitely your star. We are still in continuous iteration, please support us, your one star is our supervision. thank a lot.
+You can use Tengine Kit to detect faces in images and video.
 
-## Second
-```java
-...
+You can first give the repository a star, your star is the driving force of our efforts, this SDK is definitely your star.
 
-import com.tenginekit.FaceManager;
 
-public class CameraActivity extends AppCompatActivity implements Camera.PreviewCallback{
-    private static final String TAG = "CameraActicity";
+## 0.Before you begin
 
-    // camera preview width
-    protected int previewWidth;
-    // camera preview height
-    protected int previewHeight;
-    // content display screen width
-    public static float ScreenWidth;
-    // content display screen height
-    public static float ScreenHeight;
+first download tengine-kit-sdk1.0.0.aar
 
-    // nv21 data from camera
-    protected byte[] mNV21Bytes;
-
-    ...
-
-    public void Init() {
-        mNV21Bytes = new byte[previewHeight * previewWidth];
-
-        /**
-         * init
-         * */
-        KitCore.init(
-                this,
-                AndroidConfig
-                        .create()
-                        .setCameraMode()
-                        .setDefaultFunc()
-                        .setDefaultInputImageFormat()
-                        .setNormalMode()
-                        .setInputImageSize(previewWidth, previewHeight)
-                        .setOutputImageSize((int) ScreenWidth, (int) ScreenHeight)
-        );
-    }
-
-    /**
-     * Callback for android.hardware.Camera API
-     */
-    @Override
-    public void onPreviewFrame(final byte[] bytes, final Camera camera) {
-        if (isProcessingFrame) {
-            return;
-        }
-        isProcessingFrame = true;
-        try {
-            if (mNV21Bytes == null) {
-
-                ...
-
-                Camera.Size previewSize = camera.getParameters().getPreviewSize();
-                previewHeight = previewSize.height;
-                previewWidth = previewSize.width;
-                Init();
-                
-                ...
-            }
-        } catch (final Exception e) {
-            MyLogger.logError(TAG, "onPreviewFrame: " + e);
-            return;
-        }
-        
-        processImage();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        /**
-         * release
-         * */
-        Face.release();
-    }
-   
-
-    protected void processImage() {
-
+Then ```build.gradle``` in Main Module add aar dependency
+```groovy
+    dependencies {
         ...
-
-        Face.FaceDetect faceDetect = Face.detect(mNV21Bytes);
-        List<FaceDetectInfo> faceDetectInfos = new ArrayList<>();
-        List<FaceLandmarkInfo> landmarkInfos = new ArrayList<>();
-        if(faceDetect.getFaceCount() > 0){
-            faceDetectInfos = faceDetect.getDetectInfos();
-            landmarkInfos = faceDetect.landmark2d();
-        }
-
-        if (faceDetectInfos != null && faceDetectInfos.size() > 0) {
-            Rect[] face_rect = new Rect[faceDetectInfos.size()];
-
-            List<List<TenginekitPoint>> face_landmarks = new ArrayList<>();
-            for (int i = 0; i < faceDetectInfos.size(); i++) {
-                Rect rect = new Rect();
-                rect = faceDetectInfos.get(i).asRect();
-                face_rect[i] = rect;
-                face_landmarks.add(landmarkInfos.get(i).landmarks);
-            }
-
-            // do something with face_rect, face_landmarks
-        }
-
+        implementation files('path/tengine-kit-sdk1.0.0.aar')
         ...
-
     }
-}
-
 ```
+
+## 1.Configure the face detector 
+
+Before you apply face detection to an image, you can change any of the face detector's default settings with a **FaceConfig** object. You can change the following settings:
+
+| Settings |  |
+| :------| :------ |
+| detect | 	Whether or not to detect faces |
+| landmark2d | Whether to attempt to identify facial "landmarks": eyes, ears, nose,mouth, and so on. |
+| video | Whether or not use camera mode, image process is specially optimized in camera mode  |
+
+### Images
+
+``` kotlin
+    val config = FaceConfig().apply {
+        detect = true
+        landmark2d = true
+        video = false
+    }
+```
+
+### Video
+    
+``` kotlin
+    val config = FaceConfig().apply {
+        detect = true
+        landmark2d = true
+        video = true
+    }
+```
+
+## 2.Prepare the input image
+
+You can change the input image settings with a **ImageConfig** object. You can change the following settings:
+| Settings |  |
+| :------| :------ |
+| data | 	Set image data byte array of image raw data |
+| degree | Set rotate degree need if in camera mode, need to rotate the right angle to detect the face |
+| height | 	Set bitmap height or preview height. |
+| width | Set bitmap width or preview width. |
+| format | Set image format, support RGB format and NV21 format current now.  |
+### Images
+
+``` kotlin
+    val byte = ImageUtils.bitmap2RGB(bitmap)
+    val imageConfig = ImageConfig().apply {
+        data = byte
+        degree = 0
+        mirror = false
+        height = bitmapHeight
+        width = bitmapWidth
+        format = ImageConfig.FaceImageFormat.RGB
+    }
+```
+
+### Video
+
+``` kotlin
+    val imageConfig = ImageConfig().apply {
+        data = mNV21Bytes
+        degree = rotateDegree
+        mirror = true
+        height = previewHeight
+        width = previewWidth
+        format = ImageConfig.FaceImageFormat.YUV
+    }
+```
+
+## 3.Get an instance of FaceDetector and Process the image
+
+``` kotlin
+    val faces = TengineKitSdk.getInstance().detectFace(imageConfig, config)
+```
+
+## 4.Get information about detected faces
+
+Each Face object represents a face that was detected in the image. For each face, you can get its bounding coordinates in the input image,
+as well as any other information you configured the face detector to find. For example:
+
+``` kotlin
+    if (faces.isNotEmpty()) {
+        val faceRects = arrayOfNulls<Rect>(faces.size)
+        val faceLandmarks: MutableList<List<TenginekitPoint>> =
+    ArrayList<List<TenginekitPoint>>()
+        for ((i, face) in faces.withIndex()) {
+    val faceLandmarkList = mutableListOf<TenginekitPoint>()
+    for (j in 0..211) {
+        faceLandmarkList.add(
+        j,
+        TenginekitPoint(
+    face.landmark[j * 2] * width,
+    face.landmark[j * 2 + 1] * height
+        )
+        )
+    }
+    val rect = Rect(
+        (face.x1 * width).toInt(),
+        (face.y1 * height).toInt(),
+        (face.x2 * width).toInt(),
+        (face.y2 * height).toInt()
+    )
+    faceLandmarks.add(i, faceLandmarkList)
+    faceRects[i] = rect
+        }
+
+    }
+```
+
