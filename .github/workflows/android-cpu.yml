@@ -1,0 +1,36 @@
+name: android-cpu
+on:
+  push:
+    branches: [master]
+    paths:
+    - '.github/workflows/android-cpu.yml'
+    - 'Android/source'
+  pull_request:
+    branches: [master]
+    paths:
+    - '.github/workflows/android-cpu.yml'
+    - 'Android/source'
+jobs:
+  Release:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Grant execute permission for gradlew
+      run: cd Android/source && chmod +x gradlew
+    - name: Build with Gradle
+      run: cd Android/source && ./gradlew assembleRelease --parallel --daemon
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        name: engine-release.aar
+        path: ${{github.workspace}}/Android/source/engine/build/outputs/aar
+        if-no-files-found: error
