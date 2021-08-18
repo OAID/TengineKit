@@ -4,12 +4,19 @@ on:
     branches: [master]
     paths:
     - '.github/workflows/android-cpu.yml'
-    - 'Android/source'
+    - 'Android/source/*'
+    - 'Android/source/app/**'
+    - 'Android/source/engine/**'
+    - 'Android/source/gradle/**'
+    
   pull_request:
     branches: [master]
     paths:
     - '.github/workflows/android-cpu.yml'
-    - 'Android/source'
+    - 'Android/source/*'
+    - 'Android/source/app/**'
+    - 'Android/source/engine/**'
+    - 'Android/source/gradle/**'
 jobs:
   Release:
 

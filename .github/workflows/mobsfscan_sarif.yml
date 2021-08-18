@@ -1,0 +1,33 @@
+# https://github.com/MobSF/mobsfscan
+# mobsfscan is a static analysis tool that can find insecure code patterns in your Android and iOS source code. Supports Java, Kotlin, Swift, and Objective C Code.
+# mobsfscan uses MobSF static analysis rules and is powered by semgrep and libsast pattern matcher.
+
+name: mobsfscan sarif
+on:
+  push:
+    branches: [ master, main ]
+    paths:
+    - '.github/workflows/mobsfscan_sarif.yml'
+    - 'Android/source/**'
+  pull_request:
+    branches: [ master, main ]
+    paths:
+    - '.github/workflows/mobsfscan_sarif.yml'
+    - 'Android/source/**'
+    
+jobs:
+  mobsfscan:
+    runs-on: ubuntu-latest
+    name: mobsfscan code scanning
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v2
+    - name: mobsfscan
+      uses: MobSF/mobsfscan@main
+      with:
+        args: '. -c script/configure.mobsf   --sarif --output results.sarif || true'
+        
+    - name: Upload mobsfscan report
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: results.sarif
