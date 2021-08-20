@@ -1,4 +1,4 @@
-[中文版本](docs/Android_README_CN.md)
+English | [简体中文](docs/Android_README_CN.md)
 
 # Introduction
 This Tengine Kit app demonstrates how to use and integrate various vision based Tengine Kit features into your Android app.
@@ -15,7 +15,6 @@ Then ```build.gradle``` in Main Module add aar dependency
 }
 ```     
 
-
 # System
 Android
 - Min Sdk Version 21
@@ -33,50 +32,8 @@ Android
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
-
 # Sample
-Android code under the "sample/" folder.
-# Access Guide
-In setRotation of TengineKit Api, there are two parameters ori and is_screen_rotate, which are the rotation angle and whether to follow the screen rotation. Whether the android:screenOrientation parameter in the Manifest follows the screen can be set. Not setting this parameter is to follow the screen rotation.
-# Process
-## 1.Device preview
-This part is to get data from Camera, as the SDK input.
-## 2.Angle
-We use the vertical screen as an angle of 0 degrees. Since the data collected by the Android front camera [中文版本](docs/Android_README_CN.md)
-
-# Gradle Configure
-first download tengine-kit-sdk1.0.0.aar
-
-Then ```build.gradle``` in Main Module add aar dependency
-```groovy
-    dependencies {
-        ...
-        implementation files('path/tengine-kit-sdk1.0.0.aar')
-        ...
-    }
-```     
-
-
-# System
-Android
-- Min Sdk Version 21
-
-
-# Usage
-- [API](docs/Android_api.md) : Use API to complete the functions you need.
-- [Usage](docs/Usage.md) : Specific usage
-
-# Permission
-``` permission
-<uses-permission android:name="android.permission.INTERNET"/>
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-```
-
-
-# Sample
-Android code under the "sample/" folder.
+Android code under the "source/" folder.
 # Access Guide
 In setRotation of TengineKit Api, there are two parameters ori and is_screen_rotate, which are the rotation angle and whether to follow the screen rotation. Whether the android:screenOrientation parameter in the Manifest follows the screen can be set. Not setting this parameter is to follow the screen rotation.
 # Process
