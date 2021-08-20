@@ -33,7 +33,7 @@ Android
 ```
 
 # Sample
-Android code under the "sample/" folder.
+Android code under the "source/" folder.
 # Access Guide
 In setRotation of TengineKit Api, there are two parameters ori and is_screen_rotate, which are the rotation angle and whether to follow the screen rotation. Whether the android:screenOrientation parameter in the Manifest follows the screen can be set. Not setting this parameter is to follow the screen rotation.
 # Process

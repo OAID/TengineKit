@@ -32,7 +32,7 @@ Android
 ```
 
 # 示例
-“sample/”文件夹下的Android代码。
+“source/”文件夹下的Android代码。
 # 接入指南
 在TengineKit Api的setRotation 里有两个有两个参数ori和is_screen_rotate，分别为旋转角度和是否跟随屏幕旋转。这个是否跟随屏幕在Manifest里面的android:screenOrientation参数可以设置。不设置这个参数就是跟随屏幕旋转。
 # 处理过程
