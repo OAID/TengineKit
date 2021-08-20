@@ -1,43 +1,23 @@
-# 配置Gradle
-Project中的build.gradle添加
-```java
-    repositories {
-        ...
-        jcenter()
-        mavenCentral()
-        ...
-    }
+简体中文 | [English](../README.md)
 
-    allprojects {
-        repositories {
-            ...
-            jcenter()
-            mavenCentral()
-            ...    
-        }
-    }
-    
-```           
-主Module中的```build.gradle```添加,选择你需要的功能。```core```是必须的。
-```java
+# 介绍
+Tengine Kit Android应用程序演示了如何在Android系统中使用和集成各种基于视觉的Tengine Kit功能。
+
+# 配置Gradle
+首先下载tengine-kit-sdk1.0.0.aar
+
+在主Module中的build.gradle添加
+```groovy
     dependencies {
-        ...
-        // 必须有，并且必须是最新的
-        implementation 'com.tengine.tenginekit:core:0.0.6'
-        // Function on Face
-        implementation 'com.tengine.tenginekit:face:0.0.3'
-        // Function on Hand
-        implementation 'com.tengine.tenginekit:hand:0.0.2'
-        // Function on Body
-        implementation 'com.tengine.tenginekit:body:0.0.3'
-        ...
-    } 
-```
-> <b>由于jfrog将于2021年5月1日后无法更新，我们无法持续更新SDK库。同时jfrog即将于2022年2月1日停止提供服务，我们的SDK也将在时间点后无法提供正常的服务。</b>
+    ...
+    implementation files('path/tengine-kit-sdk1.0.0.aar')
+    ...
+}
+```           
 
 # 系统
 Android
-- 系统最低要求API 19
+- 系统最低要求API 21
 
 # 使用
 - [API](Android_api_CN.md) : 使用Tengine-Kit API来完成你所需要得功能。
@@ -45,14 +25,10 @@ Android
 
 # 权限
 ``` permission
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.INTERNET"/>
-
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
-<uses-permission android:name="android.permission.CAMERA"/>
 ```
 
 # 示例
@@ -63,9 +39,10 @@ Android
 ## 1.设备预览
 这部分是从Camera获取数据，作为SDK的输入。
 ## 2.角度
-我们以竖直屏幕下为0度角，由于Android摄像头采集的数据实际总是偏差90，所以在设置ori参数的时候都需要 + (-90)，安卓的实际旋转角是需要通过传感器加上函数计算去获得。具体可以看Demo项目中的示例。
+我们使用垂直屏幕作为0度角。由于Android摄像头采集的数据实际总是偏离某个角度。如果摄像头采集的数据无法正确预处理，则无法检测到人脸。
+
+### 预处理示例
+![](../image/rotateexample.png)
+
 ## 3.渲染
 在渲染的时候是以0°角去渲染，是人在正常情况下看到正常输出。Android部分有Canvas和Opengl渲染，选用Opengl渲染可以让你的apk效果更好。
-
-# 图像处理
-[图像处理](Android_api_CN.md#图像处理文档)进行缩放、旋转、裁剪、改变图片格式。
