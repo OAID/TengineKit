@@ -18,13 +18,13 @@
 
 typedef struct FaceLandmarkInfo {
     float landmarks[212 * 2];
-    float head_x;
-    float head_y;
-    float head_z;
-    float lefteye_close_state;
-    float righteye_close_state;
-    float mouth_close_state;
-    float mouth_bigopen_state;
+    float headX;
+    float headY;
+    float headZ;
+    float leftEyeCloseState;
+    float rightEyeCloseState;
+    float mouthCloseState;
+    float mouthBigOpenState;
 } FaceLandmarkInfo;
 
 

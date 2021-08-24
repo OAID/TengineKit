@@ -88,6 +88,13 @@ class FaceVideoActivity : CameraActivity() {
                             ).rotateByOrientation(it.orientation, ScreenWidth, ScreenHeight)
                         )
                     }
+                    /*
+                        Test Facial action
+                     */
+                    Log.e(Constant.LOG_TAG,"close")
+                    Log.e(Constant.LOG_TAG, face.mouthClose.toString())
+                    Log.e(Constant.LOG_TAG, face.mouthBigOpen.toString())
+
                     landmarks.add(landmark)
                 }
                 trackingOverlay?.onProcessResults(faceRects)

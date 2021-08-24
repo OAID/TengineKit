@@ -29,6 +29,13 @@ jfieldID jY1Field;
 jfieldID jX2Field;
 jfieldID jY2Field;
 jfieldID jLandMarkField;
+jfieldID jHeadXField;
+jfieldID jHeadYField;
+jfieldID jHeadZField;
+jfieldID jLeftEyeCloseField;
+jfieldID jRightEyeCloseField;
+jfieldID jMouthCloseField;
+jfieldID jMouthBigOpenField;
 jfieldID jLandMark3dField;
 jmethodID jFaceConstructMethodId;
 jclass jFaceClass;
@@ -84,6 +91,13 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     jX2Field = env->GetFieldID(clz, "x2", "F");
     jY2Field = env->GetFieldID(clz, "y2", "F");
     jLandMarkField = env->GetFieldID(clz, "landmark", "[F");
+    jHeadXField = env->GetFieldID(clz, "headX", "F");
+    jHeadYField = env->GetFieldID(clz, "headY", "F");
+    jHeadZField = env->GetFieldID(clz, "headZ", "F");
+    jLeftEyeCloseField = env->GetFieldID(clz, "leftEyeClose", "F");
+    jRightEyeCloseField = env->GetFieldID(clz, "rightEyeClose", "F");
+    jMouthCloseField = env->GetFieldID(clz, "mouthClose", "F");
+    jMouthBigOpenField = env->GetFieldID(clz, "mouthBigOpen", "F");
     jLandMark3dField = env->GetFieldID(clz, "landmark3d", "[F");
     jFaceConstructMethodId = env->GetMethodID(clz, "<init>", "()V");
     jFaceClass = (jclass) (env->NewGlobalRef(clz));
@@ -256,6 +270,14 @@ Java_com_tenginekit_engine_core_TengineKitEngine_nativeDetectFace(JNIEnv *env, j
             jfloatArray array = env->NewFloatArray(212 * 2);
             env->SetFloatArrayRegion(array, 0, 212 * 2, faces[i].landmarks);
             env->SetObjectField(face, jLandMarkField, array);
+            env->SetFloatField(face, jHeadXField, faces[i].headX);
+            env->SetFloatField(face, jHeadYField, faces[i].headY);
+            env->SetFloatField(face, jHeadZField, faces[i].headZ);
+            env->SetFloatField(face, jLeftEyeCloseField, faces[i].leftEyeCloseState);
+            env->SetFloatField(face, jRightEyeCloseField, faces[i].rightEyeCloseState);
+            env->SetFloatField(face, jMouthCloseField, faces[i].mouthCloseState);
+            env->SetFloatField(face, jMouthBigOpenField, faces[i].mouthBigOpenState);
+
             if (faceConfig.landmark3d) {
                 jfloatArray array3d = env->NewFloatArray(468 * 2);
                 auto landmark3d = new float[468 * 2];

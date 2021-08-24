@@ -48,13 +48,13 @@ struct EyeInfo {
 struct FaceInfo {
     Box face_box;
     float score;
-    float head_x;
-    float head_y;
-    float head_z;
-    float lefteye_close_state;
-    float righteye_close_state;
-    float mouth_close_state;
-    float mouth_bigopen_state;
+    float headX;
+    float headY;
+    float headZ;
+    float leftEyeCloseState;
+    float rightEyeCloseState;
+    float mouthCloseState;
+    float mouthBigOpenState;
     float landmarks[212 * 2];
     float person_mark[512];
     float landmarks3d[468 * 3];
