@@ -68,6 +68,13 @@ void faceLandmark::landmark(const uint8_t *faceImage, FaceInfo &faceInfo) {
     for (int i = 0; i < 212 * 2; ++i) {
         faceInfo.landmarks[i] = out.landmarks[i];
     }
+    faceInfo.headX = out.headX * 90;
+    faceInfo.headY = out.headY * 90;
+    faceInfo.headZ = out.headZ * 90;
+    faceInfo.leftEyeCloseState = sigmoid(out.leftEyeCloseState);
+    faceInfo.rightEyeCloseState = sigmoid(out.rightEyeCloseState);
+    faceInfo.mouthCloseState = sigmoid(out.mouthCloseState);
+    faceInfo.mouthBigOpenState = sigmoid(out.mouthBigOpenState);
     delete[] input_img;
     std::cout << "Run Over" << std::endl;
 }
