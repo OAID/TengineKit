@@ -13,7 +13,8 @@ enum FaceModelType {
     DETECT,
     LANDMARK,
     LANDMARK3D,
-    EYELANDMARK
+    EYELANDMARK,
+    ATTRIBUTE
 };
 
 //--------------------base struct ------------------------

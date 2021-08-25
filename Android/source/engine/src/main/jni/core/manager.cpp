@@ -27,6 +27,7 @@ static std::map<FaceModelType, std::string> faceModelList = {{DETECT,     "/dete
                                                              {LANDMARK,   "/face_landmark_sim.tmfile"},
                                                              {LANDMARK3D, "/face_landmark3d.tmfile"},
                                                              {EYELANDMARK, "/iris_landmark.tmfile"},
+                                                             {ATTRIBUTE, "/face_attr.tmfile"}
 };
 
 void
@@ -36,6 +37,7 @@ manager::Init(const std::string &path) {
     config.landmarkModelPath = path + faceModelList[LANDMARK];
     config.landmark3dModelPath = path + faceModelList[LANDMARK3D];
     config.eyeLandmarkModelPath = path + faceModelList[EYELANDMARK];
+    config.attributeModelPath = path + faceModelList[ATTRIBUTE];
     mEngine = std::make_shared<faceService>(config);
     mEngine->init();
 }

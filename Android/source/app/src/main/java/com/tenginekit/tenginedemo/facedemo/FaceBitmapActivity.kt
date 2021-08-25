@@ -63,7 +63,7 @@ class FaceBitmapActivity : AppCompatActivity(), View.OnClickListener {
         val sdkConfig = SdkConfig().apply {
             sdkFunction = SdkConfig.SdkFunction.FACE
         }
-        TengineKitSdk.getInstance().initSdk(externalCacheDir!!.absolutePath, sdkConfig)
+        TengineKitSdk.getInstance().initSdk(externalCacheDir!!.absolutePath, sdkConfig, this)
     }
 
     private fun register() {

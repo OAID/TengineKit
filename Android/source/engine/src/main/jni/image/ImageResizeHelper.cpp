@@ -1363,7 +1363,7 @@ ImageResizeHelper::cropYuv(const uint8_t *input, uint8_t *output, int inputWidth
         dst += width;
     }
 
-    int a = inputWidth * inputHeight + top * inputWidth / 2 + left;
+    int a = inputWidth * inputHeight + (top / 2) * inputWidth + left;
     int b = (a >> 1) * 2;
     src = input + b;
     uint8_t *dstuv = output + width * height;

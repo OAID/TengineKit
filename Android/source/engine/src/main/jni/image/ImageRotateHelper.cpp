@@ -421,7 +421,8 @@ rotate270c2(const unsigned char *src, int srcw, int srch, int srcstride, unsigne
         int remain = srcw - (nn << 3);
 
 #if __aarch64__
-        transW8C2(src0, srcstride, dst7, -stride, srcw);
+        const unsigned char *srcP = src + y * srcstride;
+        transW8C2(srcP, srcstride, dst7, -stride, srcw);
 #else
         if (nn > 0)
         {

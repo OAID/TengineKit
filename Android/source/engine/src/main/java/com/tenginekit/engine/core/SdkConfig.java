@@ -22,5 +22,16 @@ public class SdkConfig {
         SdkFunction(int value) {
             this.value = value;
         }
+
+        public String functionName() {
+            switch (value) {
+                case 1:
+                    return "face";
+                case 2:
+                    return "";
+                default:
+                    return "face";
+            }
+        }
     }
 }

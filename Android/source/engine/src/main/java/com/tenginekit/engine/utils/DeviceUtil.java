@@ -1,8 +1,13 @@
 package com.tenginekit.engine.utils;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Environment;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.Log;
+
+import com.tenginekit.engine.SDKConstant;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -116,6 +121,7 @@ public class DeviceUtil {
 
     /**
      * this way to get mac address
+     *
      * @param context
      * @return
      */
@@ -158,6 +164,7 @@ public class DeviceUtil {
 
     /**
      * save content into sdcard , this is unique key
+     *
      * @param str
      * @param context
      */
@@ -175,8 +182,9 @@ public class DeviceUtil {
 
     /**
      * MD5 encryption for specific content
-     * @param message  Encrypted plaintext
-     * @param upperCase  Is the encrypted string uppercase or lowercase true uppercase false lowercase lowercase
+     *
+     * @param message   Encrypted plaintext
+     * @param upperCase Is the encrypted string uppercase or lowercase true uppercase false lowercase lowercase
      * @return
      */
     public static String getMD5(String message, boolean upperCase) {
@@ -219,6 +227,7 @@ public class DeviceUtil {
 
     /**
      * 统一处理设备唯一标识 保存的文件的地址
+     *
      * @param context
      * @return
      */
@@ -239,4 +248,41 @@ public class DeviceUtil {
         }
         return mCropFile;
     }
+
+
+    /**
+     * 获取国家码
+     */
+
+    public static String getCountryCode(Context context) {
+//        val telephonyManager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+//        Log.d(TAG, "detectSIMCountry: ${telephonyManager.simCountryIso}")
+        String countryCode = "unKnow";
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (telephonyManager != null) {
+            countryCode = telephonyManager.getSimCountryIso();
+            if (!TextUtils.isEmpty(countryCode)) {
+                Log.i(SDKConstant.SDK_LOG_TAG, "getCountry code by telephoneManager" + countryCode);
+                return countryCode;
+            }
+
+            countryCode = telephonyManager.getNetworkCountryIso();
+            if (!TextUtils.isEmpty(countryCode)) {
+                Log.i(SDKConstant.SDK_LOG_TAG, "getCountry code by telephoneManager networkiso" + countryCode);
+                return countryCode;
+            }
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            countryCode = context.getResources().getConfiguration().getLocales().get(0).getCountry();
+        } else {
+            countryCode = context.getResources().getConfiguration().locale.getCountry();
+        }
+        if (!TextUtils.isEmpty(countryCode)) {
+            Log.i(SDKConstant.SDK_LOG_TAG, "getCountry code by locale" + countryCode);
+        }
+        return countryCode;
+    }
+
+
 }

@@ -13,11 +13,13 @@ struct ModelPathConfig {
     std::string landmarkModelPath;
     std::string landmark3dModelPath;
     std::string eyeLandmarkModelPath;
+    std::string attributeModelPath;
 };
 
 struct FaceConfig {
     bool detect = true;
     bool landmark = true;
+    bool attribute = false;
     bool landmark3d = false;
     bool eyeLandmark = false;
     bool useYuvForResize = false;
