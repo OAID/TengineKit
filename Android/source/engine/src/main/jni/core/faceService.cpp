@@ -10,9 +10,15 @@
 #include <RGBConverterHelper.h>
 #include <ImageRotateHelper.h>
 #include <YuvConverterHelper.h>
+#include "fstream"
+
+#ifdef DEBUG_IMAGE
+
 #include <opencv2/core/mat.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/imgcodecs/imgcodecs.hpp>
+
+#endif
 
 faceService::faceService(ModelPathConfig config) : mPathConfig(config) {
     LOGI("%s", __func__);
@@ -25,67 +31,39 @@ void faceService::init() {
     LOGI("tengine-lite library version: %s", get_tengine_version());
     detectHandler = std::make_shared<faceDetect>(mPathConfig.detectModelPath);
     landmarkHandler = std::make_shared<faceLandmark>(mPathConfig.landmarkModelPath);
-    landmark3dHandler = std::make_shared<faceLandmark3d>(mPathConfig.landmark3dModelPath);
-    eyeLandmarkHandler = std::make_shared<eyeLandmark>(mPathConfig.eyeLandmarkModelPath);
+    faceAttributeHandler = std::make_shared<faceAttribute>(mPathConfig.attributeModelPath);
 }
 
 void
 faceService::runDetect(const uint8_t *input, const uint8_t *yuv, int iw, int ih,
                        std::vector<FaceInfo> &faceList, const FaceConfig &faceConfig) {
-    rgbBuffer.resize(detectHandler->detectW * detectHandler->detectH * 3);
-    mirrorBuffer.resize(detectHandler->detectW * detectHandler->detectH * 3);
+    buffer0.resize(iw * ih * 3);
+    buffer1.resize(iw * ih * 3);
     LOGI("resize start");
     if (faceConfig.useYuvForResize) {
-        yuvResizeBuffer.resize(detectHandler->detectH * detectHandler->detectW * 3 / 2);
-        ImageResizeHelper::resizeYuvBilinear(yuv, iw, ih, yuvResizeBuffer.data(),
+        ImageResizeHelper::resizeYuvBilinear(yuv, iw, ih, buffer1.data(),
                                              detectHandler->detectW, detectHandler->detectH);
-        YuvConverterHelper::nv21RGB(yuvResizeBuffer.data(), rgbBuffer.data(),
+        YuvConverterHelper::nv21RGB(buffer1.data(), buffer0.data(),
                                     detectHandler->detectW, detectHandler->detectH);
-#ifdef DEBUG_IMAGE
-        if (!hasSave && saveCount > 100) {
-            cv::Mat yuvResize(detectHandler->detectH * 3 / 2, detectHandler->detectW, CV_8UC1,
-                              yuvResizeBuffer.data());
-            cv::imwrite(
-                    "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/yuvResize.png",
-                    yuvResize);
-
-
-            cv::Mat rgbAll(detectHandler->detectH, detectHandler->detectW, CV_8UC3,
-                           rgbBuffer.data());
-            cv::imwrite(
-                    "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/rgbAll.png",
-                    rgbAll);
-            //hasSave = true;
-        }
-#endif
     } else {
-        ImageResizeHelper::resize_bilinear_c3(input, iw, ih, iw * 3, rgbBuffer.data(),
+        ImageResizeHelper::resize_bilinear_c3(input, iw, ih, iw * 3, buffer0.data(),
                                               detectHandler->detectW,
                                               detectHandler->detectH, detectHandler->detectW * 3);
     }
     LOGI("resize end");
     if (faceConfig.mirror) {
-        ImageRotateHelper::mirrorC3(rgbBuffer.data(), detectHandler->detectW,
+        ImageRotateHelper::mirrorC3(buffer0.data(), detectHandler->detectW,
                                     detectHandler->detectH,
-                                    detectHandler->detectW * 3, mirrorBuffer.data(),
+                                    detectHandler->detectW * 3, buffer1.data(),
                                     detectHandler->detectW, detectHandler->detectH,
                                     detectHandler->detectW * 3);
-        detectHandler->detect(mirrorBuffer.data(), faceList);
+        detectHandler->detect(buffer1.data(), faceList);
     } else {
-        detectHandler->detect(rgbBuffer.data(), faceList);
+        detectHandler->detect(buffer0.data(), faceList);
     }
 
     if (!faceList.empty()) {
-        saveCount++;
-        uint8_t *mirrorY = nullptr;
-        if (faceConfig.mirror) {
-            mirrorY = (uint8_t *) malloc(iw * ih);
-            LOGI("mirror start");
-            ImageRotateHelper::mirrorC1(
-                    yuv, iw, ih, iw, mirrorY, iw, ih, iw
-            );
-            LOGI("mirror end");
-        }
+        if (faceConfig.mirror) { ImageRotateHelper::mirrorNv(yuv, iw, ih, buffer1.data(), iw, ih); }
         for (int i = 0; i < faceList.size(); ++i) {
             //runLandMark
             float diff_x = (faceList[i].face_box.x2 - faceList[i].face_box.x1) * 0.2f;
@@ -105,77 +83,29 @@ faceService::runDetect(const uint8_t *input, const uint8_t *yuv, int iw, int ih,
                  realWidth,
                  realHeight);
             LOGI("crop start");
-            auto cropOutput = (uint8_t *) malloc(realWidth * realHeight);
-            cropYuv(faceConfig.mirror ? mirrorY : yuv, cropOutput, iw, realLeft, realTop, realWidth,
-                    realHeight);
+            yuvCropBuffer.resize(iw * ih * 3 / 2);
+            ImageResizeHelper::cropYuv(faceConfig.mirror ? buffer1.data() : yuv,
+                                       yuvCropBuffer.data(),
+                                       iw, ih, realLeft, realTop, realWidth, realHeight);
             LOGI("crop end");
-            landmarkBuffer.resize(landmarkHandler->landmarkH * landmarkHandler->landmarkW *
-                                  landmarkHandler->landmarkBpp);
-            ImageResizeHelper::resizeC1Bilinear(cropOutput, realWidth, realHeight,
-                                                landmarkBuffer.data(),
+            LOGI("landmark resize start");
+            ImageResizeHelper::resizeC1Bilinear(yuvCropBuffer.data(), realWidth, realHeight,
+                                                buffer0.data(),
                                                 landmarkHandler->landmarkW,
                                                 landmarkHandler->landmarkH);
-            LOGI("resize end");
-            landmarkHandler->landmark(landmarkBuffer.data(), faceList[i]);
-            for (int j = 0; j < 212; ++j) {
-                float x = (faceList[i].landmarks[j * 2] * (float) realWidth + (float) realLeft) /
-                          (float) iw;
-                float y =
-                        (faceList[i].landmarks[j * 2 + 1] * (float) realHeight + (float) realTop) /
-                        (float) ih;
-                faceList[i].landmarks[j * 2] = x;
-                faceList[i].landmarks[j * 2 + 1] = y;
+            LOGI("landmark resize end");
+            landmarkHandler->landmark(buffer0.data(), faceList[i]);
+            postProcessLandmark2d(faceList[i], realLeft, realTop, realWidth, realHeight, iw, ih);
+            if (faceConfig.attribute) {
+                ImageResizeHelper::resizeYuvBilinear(yuvCropBuffer.data(),
+                                                     realWidth, realHeight, buffer0.data(),
+                                                     faceAttributeHandler->attributeW,
+                                                     faceAttributeHandler->attributeH);
+                YuvConverterHelper::nv21RGB(buffer0.data(), buffer1.data(),
+                                            faceAttributeHandler->attributeW,
+                                            faceAttributeHandler->attributeH);
+                faceAttributeHandler->attribute(buffer1.data(), faceList[i]);
             }
-#ifdef DEBUG_IMAGE
-            if (!hasSave && !faceList.empty() && saveCount > 100) {
-                cv::Mat mY(ih, iw, CV_8UC1);
-                memcpy(mY.data, faceConfig.mirror ? mirrorY : yuv, ih * iw);
-                cv::Point pt1(left, top);
-                cv::Point pt2(left + width, top + height);
-                cv::rectangle(mY, pt1, pt2, cv::Scalar(255), 1);
-                pt1.x = realLeft;
-                pt1.y = realTop;
-                pt2.x = realLeft + realWidth;
-                pt2.y = realTop + height;
-                cv::rectangle(mY, pt1, pt2, cv::Scalar(255), 1);
-                cv::imwrite(
-                        "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/mY.png",
-                        mY);
-
-
-                cv::Mat cropIm(realHeight, realWidth, CV_8UC1, cropOutput);
-                cv::imwrite(
-                        "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/runCrop.png",
-                        cropIm);
-
-
-                cv::Mat landmarkIm(landmarkHandler->landmarkH, landmarkHandler->landmarkW, CV_8UC1,
-                                   landmarkBuffer.data());
-                cv::imwrite(
-                        "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/runLandMark.png",
-                        landmarkIm);
-
-                cv::Mat dst(detectHandler->detectH, detectHandler->detectW, CV_8UC3,
-                            faceConfig.mirror ? mirrorBuffer.data() : rgbBuffer.data());
-                for (int i = 0; i < faceList.size(); ++i) {
-                    FaceInfo info = faceList[i];
-                    LOGE("%f %f %f %f", info.face_box.x1, info.face_box.y1, info.face_box.x2,
-                         info.face_box.y2);
-                    cv::Point pt1(info.face_box.x1, info.face_box.y1);
-                    cv::Point pt2(info.face_box.x2, info.face_box.y2);
-                    cv::rectangle(dst, pt1, pt2, cv::Scalar(0, 255, 0), 2);
-                }
-                cv::imwrite(
-                        "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/runDetect.png",
-                        dst);
-                hasSave = true;
-            }
-#endif
-            free(cropOutput);
-        }
-
-        if (faceConfig.mirror) {
-            free(mirrorY);
         }
     }
 }
@@ -185,14 +115,16 @@ faceService::~faceService() {
     release_tengine();
 }
 
-void faceService::cropYuv(const uint8_t *input, uint8_t *output, int inputWidth, int left, int top,
-                          int width,
-                          int height) {
-    const uint8_t *src = input + top * inputWidth + left;
-    uint8_t *dst = output;
-    for (int i = 0; i < height; ++i) {
-        memcpy(dst, src, width);
-        src += inputWidth;
-        dst += width;
+void
+faceService::postProcessLandmark2d(FaceInfo &info, int left, int top, int width, int height, int iw,
+                                   int ih) {
+    for (int j = 0; j < 212; ++j) {
+        float x = (info.landmarks[j * 2] * (float) width + (float) left) /
+                  (float) iw;
+        float y =
+                (info.landmarks[j * 2 + 1] * (float) height + (float) top) /
+                (float) ih;
+        info.landmarks[j * 2] = x;
+        info.landmarks[j * 2 + 1] = y;
     }
 }

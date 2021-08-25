@@ -8,12 +8,14 @@ The located Function under ```com.tenginekit```.
 
 - sdkFunction: function enum, only support FACE now
 
+- context: android context
+
 
 ``` kotlin
 	val sdkConfig = SdkConfig().apply {
         sdkFunction = SdkConfig.SdkFunction.FACE
     }
-    TengineKitSdk.getInstance().initSdk(path, config)
+    TengineKitSdk.getInstance().initSdk(path, config, context)
 ```
 
 

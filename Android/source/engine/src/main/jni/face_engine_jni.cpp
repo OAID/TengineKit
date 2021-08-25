@@ -5,6 +5,7 @@
 #include "YuvConverterHelper.h"
 #include "ImageRotateHelper.h"
 #include "RGBConverterHelper.h"
+#include "fstream"
 
 #ifdef DEBUG_IMAGE
 
@@ -185,6 +186,12 @@ preProcessImageData(uint8_t *rgbForDetect, uint8_t *yuvForDetect, uint8_t *input
             LOGI("end yuv rgb");
 #ifdef DEBUG_IMAGE
             if (!hasSave) {
+                std::ofstream out(
+                        "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/origin.bin",
+                        std::ofstream::binary);
+                out.write(reinterpret_cast<const char *>(input), inputWidth * inputHeight * 3 / 2);
+                out.close();
+
                 cv::Mat mat0 = cv::Mat(inputHeight * 3 / 2, inputWidth, CV_8UC1, input);
                 cv::imwrite(
                         "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/run0.png",
@@ -197,6 +204,7 @@ preProcessImageData(uint8_t *rgbForDetect, uint8_t *yuvForDetect, uint8_t *input
                 hasSave = true;
 
                 cv::Mat mat2 = cv::Mat(detectHeight, detectWidth, CV_8UC3, rgbForDetect);
+                cv::cvtColor(mat2, mat2, CV_RGB2BGR);
                 cv::imwrite(
                         "/storage/emulated/0/Android/data/com.tenginekit.tenginedemo/cache/runRGB.png",
                         mat2);

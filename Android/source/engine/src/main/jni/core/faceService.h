@@ -20,6 +20,7 @@
 #include "../face/faceLandmark.hpp"
 #include "../face/faceLandmark3d.hpp"
 #include "../face/eyeLandmark.hpp"
+#include "../face/faceAttribute.h"
 
 
 class faceService {
@@ -29,14 +30,21 @@ private:
     std::shared_ptr<faceLandmark> landmarkHandler;
     std::shared_ptr<faceLandmark3d> landmark3dHandler;
     std::shared_ptr<eyeLandmark> eyeLandmarkHandler;
+    std::shared_ptr<faceAttribute> faceAttributeHandler;
     bool hasInit = false;
-    std::vector<uint8_t> rgbBuffer;
-    std::vector<uint8_t> mirrorBuffer;
+    std::vector<uint8_t> buffer0;
+    std::vector<uint8_t> buffer1;
+
     std::vector<uint8_t> yuvResizeBuffer;
-    std::vector<uint8_t> landmarkBuffer;
+    //std::vector<uint8_t> landmarkBuffer;
+
+
+    std::vector<uint8_t> yuvCropBuffer;
     std::vector<uint8_t> landmark3dBuffer;
     bool hasSave = false;
     int saveCount = 0;
+
+    void postProcessLandmark2d(FaceInfo &info, int left, int top, int width, int height, int iw, int ih);
 public:
     faceService() = delete;
 
@@ -48,10 +56,6 @@ public:
                    std::vector<FaceInfo> &faceList, const FaceConfig &config);
 
     ~faceService();
-
-private:
-    static void cropYuv(const uint8_t *input, uint8_t *output, int inWidth, int left, int top, int width,
-                 int height);
 };
 
 #endif //TENGINEDEMO_FACESERVICE_H

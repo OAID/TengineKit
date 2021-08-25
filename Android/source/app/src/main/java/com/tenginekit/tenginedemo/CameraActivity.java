@@ -73,7 +73,7 @@ public abstract class CameraActivity extends AppCompatActivity implements
          * 初始化
          * */
         SdkConfig config = new SdkConfig().setSdkFunction(SdkConfig.SdkFunction.FACE);
-        TengineKitSdk.getInstance().initSdk(getExternalCacheDir().getAbsolutePath(), config);
+        TengineKitSdk.getInstance().initSdk(getExternalCacheDir().getAbsolutePath(), config, this);
         if (sensorEventUtil == null) {
             sensorEventUtil = new SensorEventUtil(this);
         }
