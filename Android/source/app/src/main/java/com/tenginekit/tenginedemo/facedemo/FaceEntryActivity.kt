@@ -1,4 +1,4 @@
-package com.tenginekit.tenginedemo
+package com.tenginekit.tenginedemo.facedemo
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,8 +8,8 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.tenginekit.tenginedemo.facedemo.FaceBitmapActivity
-import com.tenginekit.tenginedemo.facedemo.FaceVideoActivity
+import com.tenginekit.tenginedemo.Constant
+import com.tenginekit.tenginedemo.R
 import com.tenginekit.tenginedemo.utils.ModelCopyCallback
 import com.tenginekit.tenginedemo.utils.PermissionUtils
 import com.tenginekit.tenginedemo.utils.copyAssetFolder

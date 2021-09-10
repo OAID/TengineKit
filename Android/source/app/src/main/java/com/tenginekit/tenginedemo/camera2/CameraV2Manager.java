@@ -1,8 +1,9 @@
-package com.tengine.cameratest;
+package com.tenginekit.tenginedemo.camera2;
 
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -23,6 +24,11 @@ import android.view.Surface;
 
 import androidx.annotation.NonNull;
 
+import com.tenginekit.engine.core.TengineKitSdk;
+import com.tenginekit.tenginedemo.Constant;
+
+import org.jetbrains.annotations.Nullable;
+
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,7 +38,7 @@ import java.util.List;
 
 public class CameraV2Manager {
 
-    public static final String TAG = "Filter_CameraV2";
+    public static final String TAG = Constant.LOG_TAG;
 
     private Activity mActivity;
     private CameraDevice mCameraDevice;
@@ -47,16 +53,32 @@ public class CameraV2Manager {
     private ImageReader previewReader;
     private Range<Integer>[] fpsRender;
     private CameraV2GLSurfaceView mSurfaceView;
-    boolean isSurfaceCreated = false;
+
+    public void setSurfaceCreated(boolean surfaceCreated) {
+        isSurfaceCreated = surfaceCreated;
+    }
+
+    public boolean isSurfaceCreated = false;
+    private FrameDataCallBack mFrameDataCallBack = null;
+
+    public void updateSegRes(@Nullable Bitmap res) {
+        mSurfaceView.updateSegRes(res);
+    }
 
 
-    public CameraV2Manager(Activity activity, boolean useFront, int width, int height,
-                           CameraV2GLSurfaceView surfaceView) {
+    public interface FrameDataCallBack {
+        void onFrameData(byte[] data, int width, int height);
+    }
+
+
+    public CameraV2Manager(Activity activity, boolean useFront, Size size,
+                           CameraV2GLSurfaceView surfaceView, FrameDataCallBack callBack) {
         mActivity = activity;
         mSurfaceView = surfaceView;
         surfaceView.init(this, false, activity);
         startCameraThread();
-        setupCamera(useFront, width, height);
+        setupCamera(useFront, size.getWidth(), size.getHeight());
+        mFrameDataCallBack = callBack;
     }
 
     public String setupCamera(boolean useFront, int width, int height) {
@@ -108,7 +130,10 @@ public class CameraV2Manager {
     }
 
     public boolean openCamera() {
-        isSurfaceCreated = true;
+        if (!isSurfaceCreated) {
+            Log.e(TAG, "surface not created now");
+            return false;
+        }
         CameraManager cameraManager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
             cameraManager.openCamera(mCameraId, mStateCallback, mCameraHandler);
@@ -182,19 +207,18 @@ public class CameraV2Manager {
         mSurfaceTexture.setDefaultBufferSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
         Surface surface = new Surface(mSurfaceTexture);
         try {
-            previewReader = ImageReader.newInstance(mPreviewSize.getWidth(), mPreviewSize.getHeight(), ImageFormat.YUV_420_888, 2);
+            previewReader = ImageReader.newInstance(mPreviewSize.getWidth() / 2, mPreviewSize.getHeight() / 2, ImageFormat.YUV_420_888, 2);
             previewReader.setOnImageAvailableListener(
                     reader -> {
                         Image image = reader.acquireNextImage();
-                        //Log.e(TAG,"hello  " + image.getHeight() + "  " + image.getWidth());
-//                        if (image != null) {
-//                            ByteBuffer buffer = image.getPlanes()[0].getBuffer();
-//                            byte[] data = new byte[buffer.remaining()];
-//                            Log.d(TAG, "data-size=" + data.length);
-//                            buffer.get(data);
-//                            image.close();
-//                        }
-                        image.close();
+                        if (image != null) {
+                            if (mFrameDataCallBack != null) {
+                                Log.i(TAG,"image in");
+                                byte[] nv21 = TengineKitSdk.getInstance().yuv2nv21camera2(image);
+                                mFrameDataCallBack.onFrameData(nv21, image.getWidth(), image.getHeight());
+                            }
+                            image.close();
+                        }
                     },
                     mCameraHandler);
             mCaptureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
