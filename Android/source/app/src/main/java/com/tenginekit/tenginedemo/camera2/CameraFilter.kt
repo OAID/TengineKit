@@ -3,57 +3,44 @@ package com.tengine.cameratest
 import android.opengl.GLES11Ext
 import android.opengl.GLES30
 import android.opengl.Matrix
-import android.util.Log
-import com.tengine.cameratest.CameraV2Manager.TAG
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
+import com.tenginekit.tenginedemo.Constant
+import com.tenginekit.tenginedemo.utils.OpenGLUtils
 import java.nio.FloatBuffer
+import android.opengl.GLES30.GL_FRAMEBUFFER
+
+import android.opengl.GLES30.glBindFramebuffer
+import android.opengl.GLES30.GL_COLOR_ATTACHMENT0
+import android.opengl.GLES30.glFramebufferTexture2D
+
 
 class CameraFilter {
-    val buffer: FloatBuffer?
-    val buffer1: FloatBuffer?
+    private val buffer: FloatBuffer?
+    private val buffer1: FloatBuffer?
     var oESTextureId = -1
     var shaderProgram = -1
+    private var width = 0
+    private var height = 0
 
-    /**
-     * 创建FloatBuffer
-     * @param coords
-     * @return
-     */
-    fun createFloatBuffer(coords: FloatArray): FloatBuffer? {
-        val bb = ByteBuffer.allocateDirect(coords.size * 4)
-        bb.order(ByteOrder.nativeOrder())
-        val fb = bb.asFloatBuffer()
-        fb.put(coords)
-        fb.position(0)
-        return fb
-    }
-
-    fun linkProgram(verShader: Int, fragShader: Int): Int {
-        val program = GLES30.glCreateProgram()
-        GLES30.glAttachShader(program, verShader)
-        GLES30.glAttachShader(program, fragShader)
-        GLES30.glLinkProgram(program)
-        return program
-    }
-
-    companion object {
+    private var TAG = Constant.LOG_TAG;
 
 
-        private val vertexData = floatArrayOf(
-            1f, -1f, 0f,
-            -1f, -1f, 0f,
-            1f, 1f, 0f,
-            -1f, 1f, 0f
-        )
+    var frameBuffer = IntArray(1)
+    var frameTexture = IntArray(1)
 
-        private val textureVertexData = floatArrayOf(
-            1f, 0f,
-            0f, 0f,
-            1f, 1f,
-            0f, 1f
-        )
-    }
+
+    private val vertexData = floatArrayOf(
+        1f, -1f, 0f,
+        -1f, -1f, 0f,
+        1f, 1f, 0f,
+        -1f, 1f, 0f
+    )
+
+    private val textureVertexData = floatArrayOf(
+        1f, 0f,
+        0f, 0f,
+        1f, 1f,
+        0f, 1f
+    )
 
 
     private val vrg = """
@@ -86,45 +73,19 @@ void main() {
 }
     """.trimIndent()
 
-    /**
-     * 加载Shader
-     * @param shaderType
-     * @param source
-     * @return
-     */
-    fun loadShader(shaderType: Int, source: String?): Int {
-        var shader = GLES30.glCreateShader(shaderType)
-        checkGlError("glCreateShader type=$shaderType")
-        GLES30.glShaderSource(shader, source)
-        GLES30.glCompileShader(shader)
-        val compiled = IntArray(1)
-        GLES30.glGetShaderiv(shader, GLES30.GL_COMPILE_STATUS, compiled, 0)
-        if (compiled[0] == 0) {
-            Log.e(TAG, "Could not compile shader $shaderType:")
-            Log.e(TAG, " " + GLES30.glGetShaderInfoLog(shader))
-            GLES30.glDeleteShader(shader)
-            shader = 0
-        }
-        return shader
-    }
-
-
-    /**
-     * 检查是否出错
-     * @param op
-     */
-    fun checkGlError(op: String) {
-        val error = GLES30.glGetError()
-        if (error != GLES30.GL_NO_ERROR) {
-            val msg = op + ": glError 0x" + Integer.toHexString(error)
-            Log.e(TAG, msg)
-            //            throw new RuntimeException(msg);
-        }
-    }
-
     private val projectionMatrix = FloatArray(16)
 
-    fun onDrawFrame(transformMatrix: FloatArray) {
+
+    fun onDrawFrameBuffer(transformMatrix: FloatArray): Int {
+        //bindFrameBufferAndTexture()
+        glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer[0])
+        onDrawFrame(transformMatrix)
+        //unBindFrameBuffer()
+        glBindFramebuffer(GL_FRAMEBUFFER, 0)
+        return frameTexture[0]
+    }
+
+    private fun onDrawFrame(transformMatrix: FloatArray) {
         Matrix.orthoM(
             projectionMatrix, 0,
             -1f, 1f, -1f, 1f,
@@ -154,11 +115,46 @@ void main() {
             GLES30.GL_TEXTURE_MAG_FILTER,
             GLES30.GL_LINEAR.toFloat()
         )
-
+        // bindTexture
         GLES30.glActiveTexture(GLES30.GL_TEXTURE0)
         GLES30.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, oESTextureId)
         GLES30.glUniform1i(uSTextureLocation, 0)
+
+        // start draw
         GLES30.glDrawArrays(GLES30.GL_TRIANGLE_STRIP, 0, 4)
+    }
+
+    fun onDrawFrameScreen(transformMatrix: FloatArray) {
+        onDrawFrame(transformMatrix)
+    }
+
+    fun onSurfaceChanged(width: Int, height: Int) {
+        this.width = width
+        this.height = height
+        delFrameBufferAndTexture()
+        genFrameBufferAndTexture()
+    }
+
+
+    fun delFrameBufferAndTexture() {
+        GLES30.glDeleteFramebuffers(frameBuffer.size, frameBuffer, 0)
+        GLES30.glDeleteTextures(frameTexture.size, frameTexture, 0)
+    }
+
+    private fun genFrameBufferAndTexture() {
+        OpenGLUtils.createFrameBuffer(frameBuffer, frameTexture, width, height)
+    }
+
+    private fun bindFrameBufferAndTexture() {
+        GLES30.glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer[0])
+//        GLES30.glFramebufferTexture2D(
+//            GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GLES30.GL_TEXTURE_2D,
+//            frameTexture[0], 0
+//        )
+    }
+
+    fun unBindFrameBuffer() {
+        GLES30.glBindFramebuffer(GL_FRAMEBUFFER, 0)
     }
 
     private val aPositionLocation = 0
@@ -169,20 +165,18 @@ void main() {
 
 
     init {
-        //oESTextureId = OESTextureId
-
 
         val textures = IntArray(1)
         GLES30.glGenTextures(1, textures, 0)
         oESTextureId = textures[0]
+
+
         GLES30.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, oESTextureId)
 
 
 
-        buffer = createFloatBuffer(vertexData)
-        buffer1 = createFloatBuffer(textureVertexData)
-        val vertexShader = loadShader(GLES30.GL_VERTEX_SHADER, vrg)
-        val fragmentShader = loadShader(GLES30.GL_FRAGMENT_SHADER, frag)
-        shaderProgram = linkProgram(vertexShader, fragmentShader)
+        buffer = OpenGLUtils.createFloatBuffer(vertexData)
+        buffer1 = OpenGLUtils.createFloatBuffer(textureVertexData)
+        shaderProgram = OpenGLUtils.createProgram(vrg, frag)
     }
 }

@@ -1,12 +1,11 @@
-package com.tenginekit.tenginedemo.seg
+package com.tenginekit.tenginedemo.segdemo
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 
-public class XfermodeBitmap : View {
-
+class XfermodeBitmap : View {
 
     private var paint: Paint? = null
 

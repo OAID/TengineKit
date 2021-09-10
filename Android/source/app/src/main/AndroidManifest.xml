@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,6 +23,10 @@
         </activity>
         <activity android:name=".facedemo.FaceVideoActivity" />
         <activity android:name=".facedemo.FaceBitmapActivity" />
+        <activity android:name=".segdemo.SegBitmapActivity" />
+        <activity android:name=".facedemo.FaceEntryActivity" />
+        <activity android:name=".segdemo.SegEntryActivity" />
+        <activity android:name=".segdemo.SegCameraActivity" />
     </application>
 
 </manifest>

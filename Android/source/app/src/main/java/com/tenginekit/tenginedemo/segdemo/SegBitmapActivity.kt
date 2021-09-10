@@ -1,4 +1,4 @@
-package com.tenginekit.tenginedemo
+package com.tenginekit.tenginedemo.segdemo
 
 import android.app.Activity
 import android.content.Intent
@@ -15,14 +15,10 @@ import com.tenginekit.engine.core.ImageConfig
 import com.tenginekit.engine.core.SdkConfig
 import com.tenginekit.engine.core.TengineKitSdk
 import com.tenginekit.engine.seg.SegConfig
-import com.tenginekit.tenginedemo.currencyview.GLBitmap
-import com.tenginekit.tenginedemo.seg.XfermodeBitmap
+import com.tenginekit.tenginedemo.R
 import com.tenginekit.tenginedemo.utils.ImageUtils
 
 class SegBitmapActivity : AppCompatActivity() {
-
-
-    private lateinit var bitmapTextureView: GLBitmap
     private lateinit var imageView: ImageView
     private lateinit var imageSegMask: ImageView
     private lateinit var modeResult: XfermodeBitmap
@@ -46,8 +42,7 @@ class SegBitmapActivity : AppCompatActivity() {
             startSeg()
         }
 
-
-        //setContentView(R.layout.seg_bitmap)
+//        setContentView(R.layout.seg_bitmap)
 //        bitmapTextureView = GLBitmap(this)
 //        val width = DisplayUtils.dp2px(this, 400f)
 //        val height = DisplayUtils.dp2px(this, 400f)
@@ -109,7 +104,6 @@ class SegBitmapActivity : AppCompatActivity() {
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 data?.let {
-                    this.bitmap?.recycle()
                     this.bitmap = ImageUtils.getCorrectlyOrientedImage(this, it.data)
                     imageView.setImageBitmap(bitmap)
                 }

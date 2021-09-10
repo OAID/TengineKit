@@ -1,3 +1,5 @@
 .vscode
 .DS_Store
 Android/.DS_Store
+Android/source/.gradle
+Android/source/.idea
