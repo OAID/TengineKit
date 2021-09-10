@@ -3,9 +3,37 @@
 
 //--------------------enum----------------------
 
-enum ModelType {
-    FACE = 0,
-    BODY,
+struct ModelPathConfig {
+    std::string detectModelPath;
+    std::string landmarkModelPath;
+    std::string landmark3dModelPath;
+    std::string eyeLandmarkModelPath;
+    std::string attributeModelPath;
+
+    std::string segHumanModelPath;
+};
+
+struct FaceConfig {
+    bool detect = true;
+    bool landmark = true;
+    bool attribute = false;
+    bool landmark3d = false;
+    bool eyeLandmark = false;
+    bool useYuvForResize = false;
+    bool mirror = false;
+};
+
+enum ImageFormat {
+    YUV = 0,
+    RGB = 1,
+    RGBA = 2
+};
+
+
+
+enum FunctionType {
+    FACE = 1,
+    SEG,
     HAND
 };
 
@@ -16,6 +44,11 @@ enum FaceModelType {
     EYELANDMARK,
     ATTRIBUTE
 };
+
+enum SegModelType{
+    HUMAN,
+};
+
 
 //--------------------base struct ------------------------
 struct Box {
