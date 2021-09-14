@@ -24,6 +24,7 @@ Android
 - [API](docs/Android_api.md) : Use API to complete the functions you need.
 - [Usage](docs/Usage.md) : Specific usage
 - [Old version API](https://github.com/OAID/TengineKit/blob/test/Android/docs/Android_api.md) : Use TengineKitCore-v0.0.4 or older version API to complete the functions you need.
+- [Old version Usage](https://github.com/OAID/TengineKit/blob/test/Android/docs/Usage.md) : TengineKitCore-v0.0.4 or older version Specific usage.
 
 # Permission
 ``` permission
