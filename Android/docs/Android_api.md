@@ -2,9 +2,9 @@
 The located Function under ```com.tenginekit```.
 ## Init
 
-- path: ```model``` is the model file path
-
 ### SdkConfig
+
+- path: the model file absolute dir path
 
 - sdkFunction: function enum, only support FACE now
 
@@ -14,13 +14,14 @@ The located Function under ```com.tenginekit```.
 ``` kotlin
 	val sdkConfig = SdkConfig().apply {
         sdkFunction = SdkConfig.SdkFunction.FACE
+      //sdkFunction = SdkConfig.SdkFunction.SEG
     }
     TengineKitSdk.getInstance().initSdk(path, config, context)
 ```
 
 
-## Get Face Detect Information
-We merge all the functions into one function
+## Face Detect
+We merge all the functions into one interface
 
 ```
 	val byte = ImageUtils.bitmap2RGB(bitmap)
@@ -60,6 +61,38 @@ all detect values ​​are normalized from 0 to 1
 * x2: face rect right
 * y2: face rect bottom
 * landmark: if not null landmark contain 212 face key points
+* headX:  rotate degree x
+* headY:  rotate degree y
+* headZ:  rotate degree y
+* leftEyeClose:  probability left eye is close
+* rightEyeClose: probability right eye is close
+* mouthClose: probability mouth is Close
+
+
+## Human Seg
+
+directly return a mask, the mask is a android bitmap, the mask's width is 398, the height is 224; the mask's format is ARGB_8888
+
+
+``` kotlin
+	val byte = ImageUtils.bitmap2RGB(bitmap)
+	val config = SegConfig()
+	val imageConfig = ImageConfig().apply {
+			data = byte
+			degree = 0
+			mirror = false
+			height = it.height
+			width = it.width
+			format = ImageConfig.FaceImageFormat.RGB
+	}
+	val bitmapMask = TengineKitSdk.getInstance().segHuman(imageConfig, config)
+```
+            
+###SegConfig
+
+* default portrait segmentation config current
+
+
 
 
 ## Release
