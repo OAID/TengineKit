@@ -7,7 +7,7 @@ This Tengine Kit app demonstrates how to use and integrate various vision based 
 first download tengine-kit-sdk1.0.0.aar
 
 Then ```build.gradle``` in Main Module add aar dependency
-```groovy
+``` groovy
     dependencies {
     ...
     implementation files('path/tengine-kit-sdk1.0.0.aar')
