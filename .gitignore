@@ -3,3 +3,5 @@
 Android/.DS_Store
 Android/source/.gradle
 Android/source/.idea
+Android/source/local.properties
+Android/source/app/build
