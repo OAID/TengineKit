@@ -6,7 +6,7 @@ Tengine Kit Android应用程序演示了如何在Android系统中使用和集成
 # 配置Gradle
 首先下载tengine-kit-sdk1.0.0.aar
 
-在主Module中的build.gradle添加
+在主Module中的```build.gradle``` 添加aar依赖
 ```groovy
     dependencies {
     ...
@@ -40,11 +40,14 @@ Android
 # 处理过程
 ## 1.设备预览
 这部分是从Camera获取数据，作为SDK的输入。
-## 2.角度
+Android/source文件夹里提供了camera1和camera2例子。
+## 2.图像处理
+sdk支持rgb和yuv(nv21)格式，使用camera1时可以直接获取nv21，但是使用camera2时，您需要先使用我们的sdk将android.media.Image 转换为 nv21 字节。
+## 3.角度
 我们使用垂直屏幕作为0度角。由于Android摄像头采集的数据实际总是偏离某个角度。如果摄像头采集的数据无法正确预处理，则无法检测到人脸。
 
 ### 预处理示例
 ![](../image/rotateexample.png)
 
-## 3.渲染
-在渲染的时候是以0°角去渲染，是人在正常情况下看到正常输出。Android部分有Canvas和Opengl渲染，选用Opengl渲染可以让你的apk效果更好。
+## 4.渲染
+在渲染的时候是以0°角去渲染，是人在正常情况下看到的输出。Android部分有Canvas和OpenGL渲染，选用OpenGL渲染可以让你的app效果更好。
