@@ -22,7 +22,8 @@ Android
 # 使用
 - [API](Android_api_CN.md) : 使用Tengine-Kit API来完成你所需要得功能。
 - [使用示例](Usage.md) : 您可以伴随着您给我们的```star```一起看看使用示例，感谢。
-- [Old version API](https://github.com/OAID/TengineKit/blob/test/Android/docs/Android_api_CN.md) : 使用TengineKitCore-v0.0.4或者更老版本API来完成你所需要得功能。
+- [老版本API](https://github.com/OAID/TengineKit/blob/test/Android/docs/Android_api_CN.md) : 使用TengineKitCore-v0.0.4或者更老版本API来完成你所需要得功能。
+- [老版本使用示例](https://github.com/OAID/TengineKit/blob/test/Android/docs/Usage.md) : TengineKitCore-v0.0.4或者更老版本API使用示例。
 
 # 权限
 ``` permission
