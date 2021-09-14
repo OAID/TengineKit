@@ -41,7 +41,7 @@ In setRotation of TengineKit Api, there are two parameters ori and is_screen_rot
 # Process
 ## 1.Device preview
 This part is to get data from Camera, as the SDK input.
-Android/source provide camera1 and camera2 example;
+Android/source provide camera1 and camera2 example.
 
 ## 2.image format 
 sdk support rgb and yuv(nv21), camera1 get nv21 directly, but when use camera2 you need use our sdk convert android.media.Image to nv21 byte first.
@@ -54,4 +54,4 @@ We use the vertical screen as an angle of 0 degrees. The data collected by the c
 ![](image/rotateexample.png)
 
 ## 4.Rendering
-When rendering, it is rendered at an angle of 0°, which is the normal output that people see under normal circumstances. The Android part has Canvas and Opengl rendering. Using Opengl rendering can make your apk better.
+When rendering, it is rendered at an angle of 0°, which is the normal output that people see under normal circumstances. The Android part has Canvas and OpenGL rendering. Using OpenGL rendering can make your app better.
