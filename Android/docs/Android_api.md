@@ -13,17 +13,17 @@ The located Function under ```com.tenginekit```.
 
 ``` kotlin
 	val sdkConfig = SdkConfig().apply {
-        sdkFunction = SdkConfig.SdkFunction.FACE
-      //sdkFunction = SdkConfig.SdkFunction.SEG
-    }
-    TengineKitSdk.getInstance().initSdk(path, config, context)
+		sdkFunction = SdkConfig.SdkFunction.FACE
+		//sdkFunction = SdkConfig.SdkFunction.SEG
+	}
+	TengineKitSdk.getInstance().initSdk(path, config, context)
 ```
 
 
 ## Face Detect
 We merge all the functions into one interface
 
-```
+``` kotlin
 	val byte = ImageUtils.bitmap2RGB(bitmap)
 	val faceConfig = FaceConfig().apply {
         detect = true
