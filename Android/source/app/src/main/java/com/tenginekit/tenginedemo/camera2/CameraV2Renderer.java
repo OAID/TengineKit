@@ -33,7 +33,6 @@ public class CameraV2Renderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-        Log.e("ShiTouren", "onSurefaceCreated");
         mFilterEngine = new CameraFilter();
         mCamera.setSurfaceCreated(true);
         mCamera.openCamera();

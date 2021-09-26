@@ -65,6 +65,7 @@ class BodyBitmapActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        binding.overlayView.unRegisterAll()
         TengineKitSdk.getInstance().releaseBodyDetect()
         TengineKitSdk.getInstance().release()
     }

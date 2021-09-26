@@ -35,8 +35,6 @@ class SegCameraActivity : AppCompatActivity(), CameraV2Manager.FrameDataCallBack
             DisplayUtils.dp2px(this, 400f)
         )
 
-        Log.i("ShiTouren", "${previewSize?.height}   ${previewSize?.width}")
-
         val picsTream1 = assets.open("bac.png")
         testBitmap = BitmapFactory.decodeStream(picsTream1)
         picsTream1.close()

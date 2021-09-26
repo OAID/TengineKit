@@ -193,6 +193,7 @@ class FaceBitmapActivity : AppCompatActivity(), View.OnClickListener {
         }
         super.onDestroy()
         releaseSdk()
+        overlayView?.unRegisterAll()
     }
 
     private fun releaseSdk() {

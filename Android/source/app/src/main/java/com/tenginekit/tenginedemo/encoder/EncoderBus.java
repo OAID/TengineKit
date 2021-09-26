@@ -1,6 +1,7 @@
 package com.tenginekit.tenginedemo.encoder;
 
 import android.graphics.Canvas;
+
 import java.util.ArrayList;
 
 public class EncoderBus {
@@ -16,9 +17,9 @@ public class EncoderBus {
 
     public void UnRegiste(DrawEncoder encoder) {
         if (encodersClass.contains(encoder.getClass())) {
-             int index = encodersClass.indexOf(encoders.getClass());
-             encodersClass.remove(index);
-             encoders.remove(index);
+            int index = encodersClass.indexOf(encoders.getClass());
+            encodersClass.remove(index);
+            encoders.remove(index);
         }
     }
 
@@ -44,5 +45,10 @@ public class EncoderBus {
         for (int i = 0; i < encoders.size(); i++) {
             encoders.get(i).clearResult();
         }
+    }
+
+    public void unRegisterAll() {
+        encoders.clear();
+        encodersClass.clear();
     }
 }
