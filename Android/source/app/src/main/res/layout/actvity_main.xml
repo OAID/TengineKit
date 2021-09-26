@@ -62,4 +62,26 @@
             android:textSize="25sp" />
     </FrameLayout>
 
+
+    <FrameLayout
+        android:id="@+id/bodyEntry"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_face_demo_bg"
+        app:layout_constraintLeft_toLeftOf="@id/faceEntry"
+        app:layout_constraintTop_toBottomOf="@id/faceEntry">
+
+        <TextView
+            android:id="@+id/jumpToBody"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:paddingHorizontal="10dp"
+            android:text="body"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
