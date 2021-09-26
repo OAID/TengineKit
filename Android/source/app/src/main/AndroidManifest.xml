@@ -21,12 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".facedemo.FaceVideoActivity" />
+        <activity android:name=".facedemo.FaceFrameActivity" />
         <activity android:name=".facedemo.FaceBitmapActivity" />
         <activity android:name=".segdemo.SegBitmapActivity" />
         <activity android:name=".facedemo.FaceEntryActivity" />
         <activity android:name=".segdemo.SegEntryActivity" />
         <activity android:name=".segdemo.SegCameraActivity" />
+        <activity android:name=".bodydemo.BodyEntryActivity" />
+        <activity android:name=".bodydemo.BodyBitmapActivity" />
+        <activity android:name=".facedemo.BodyFrameActivity" />
     </application>
 
 </manifest>

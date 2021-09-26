@@ -68,16 +68,11 @@ public abstract class CameraActivity extends AppCompatActivity implements
 
     public void Init() {
         mNV21Bytes = new byte[previewHeight * previewWidth];
-
-        /**
-         * 初始化
-         * */
-        SdkConfig config = new SdkConfig().setSdkFunction(SdkConfig.SdkFunction.FACE);
-        TengineKitSdk.getInstance().initSdk(getExternalCacheDir().getAbsolutePath(), config, this);
-        if (sensorEventUtil == null) {
-            sensorEventUtil = new SensorEventUtil(this);
-        }
+        initSdk();
     }
+
+
+    public abstract void initSdk();
 
     /**
      * Callback for android.hardware.Camera API
@@ -143,8 +138,10 @@ public abstract class CameraActivity extends AppCompatActivity implements
     public synchronized void onDestroy() {
         super.onDestroy();
         Log.i(Constant.LOG_TAG, "onDestroy");
-        TengineKitSdk.getInstance().release();
+        releaseSdk();
     }
+
+    protected abstract void releaseSdk();
 
     protected void setFragment() {
         LegacyCameraConnectionFragment fragment = new LegacyCameraConnectionFragment(this, getLayoutId(), getDesiredPreviewFrameSize());

@@ -79,7 +79,7 @@ public class AutoFitTextureView extends TextureView {
 //            Log.d("setMeasuredDimension", "width: " + width + ":height:" + height + ":ratioHeight" + ratioHeight + ":ratioWeight:" + ratioWidth);
             if (width < height * ratioWidth / ratioHeight) {
                 CameraActivity.ScreenWidth = width;
-                CameraActivity.ScreenHeight = height;
+                CameraActivity.ScreenHeight = width * ratioHeight / ratioWidth;
                 setMeasuredDimension(width, width * ratioHeight / ratioWidth);
             } else {
                 CameraActivity.ScreenWidth = height * ratioWidth / ratioHeight;

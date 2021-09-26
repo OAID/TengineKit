@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.tenginekit.tenginedemo.bodydemo.BodyEntryActivity
 import com.tenginekit.tenginedemo.facedemo.FaceEntryActivity
 import com.tenginekit.tenginedemo.segdemo.SegEntryActivity
 
@@ -15,8 +16,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.actvity_main)
         val face = findViewById<View>(R.id.faceEntry)
         val seg = findViewById<View>(R.id.segEntry)
+        val body = findViewById<View>(R.id.bodyEntry)
         face.setOnClickListener(this)
         seg.setOnClickListener(this)
+        body.setOnClickListener(this)
     }
 
 
@@ -30,6 +33,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
     }
 
+    private fun jumpToBodyActivity() {
+        val intent = Intent(this, BodyEntryActivity::class.java)
+        startActivity(intent)
+    }
+
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.faceEntry -> {
@@ -38,6 +46,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.segEntry -> {
                 jumpToSegActivity()
             }
+            R.id.bodyEntry -> {
+                jumpToBodyActivity()
+            }
         }
     }
+
+
 }

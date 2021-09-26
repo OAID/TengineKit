@@ -60,7 +60,7 @@ class FaceEntryActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun jumpToCameraActivity() {
-        val intent = Intent(this, FaceVideoActivity::class.java)
+        val intent = Intent(this, FaceFrameActivity::class.java)
         startActivity(intent)
     }
 

@@ -21,7 +21,7 @@ class SegCameraActivity : AppCompatActivity(), CameraV2Manager.FrameDataCallBack
     lateinit var binding: ActivitySegVideoBinding
     private var TAG = Constant.LOG_TAG
     private var previewSize: Size? = null
-    private var testBitmap : Bitmap? = null
+    private var testBitmap: Bitmap? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class SegCameraActivity : AppCompatActivity(), CameraV2Manager.FrameDataCallBack
             DisplayUtils.dp2px(this, 400f)
         )
 
-        Log.i("ShiTouren","${previewSize?.height}   ${previewSize?.width}")
+        Log.i("ShiTouren", "${previewSize?.height}   ${previewSize?.width}")
 
         val picsTream1 = assets.open("bac.png")
         testBitmap = BitmapFactory.decodeStream(picsTream1)
@@ -46,10 +46,9 @@ class SegCameraActivity : AppCompatActivity(), CameraV2Manager.FrameDataCallBack
             this
         )
 
-        val sdkConfig = SdkConfig().apply {
-            sdkFunction = SdkConfig.SdkFunction.SEG
-        }
+        val sdkConfig = SdkConfig()
         TengineKitSdk.getInstance().initSdk(externalCacheDir?.absolutePath, sdkConfig, this)
+        TengineKitSdk.getInstance().initSegBody()
     }
 
     override fun onResume() {
@@ -66,6 +65,8 @@ class SegCameraActivity : AppCompatActivity(), CameraV2Manager.FrameDataCallBack
     override fun onDestroy() {
         super.onDestroy()
         cameraManager.releaseCamera()
+        TengineKitSdk.getInstance().releaseSegBody()
+        TengineKitSdk.getInstance().release()
     }
 
     override fun onFrameData(data: ByteArray?, width: Int, height: Int) {

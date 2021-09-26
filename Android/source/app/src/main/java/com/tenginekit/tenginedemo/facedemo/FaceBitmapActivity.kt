@@ -60,10 +60,9 @@ class FaceBitmapActivity : AppCompatActivity(), View.OnClickListener {
             t.printStackTrace()
         }
 
-        val sdkConfig = SdkConfig().apply {
-            sdkFunction = SdkConfig.SdkFunction.FACE
-        }
+        val sdkConfig = SdkConfig()
         TengineKitSdk.getInstance().initSdk(externalCacheDir!!.absolutePath, sdkConfig, this)
+        TengineKitSdk.getInstance().initFaceDetect()
     }
 
     private fun register() {
@@ -193,6 +192,12 @@ class FaceBitmapActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         super.onDestroy()
+        releaseSdk()
+    }
+
+    private fun releaseSdk() {
+        TengineKitSdk.getInstance().releaseFaceDetect()
+        TengineKitSdk.getInstance().release()
     }
 
 }

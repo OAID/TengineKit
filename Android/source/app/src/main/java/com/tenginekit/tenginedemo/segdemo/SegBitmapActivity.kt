@@ -69,11 +69,16 @@ class SegBitmapActivity : AppCompatActivity() {
             t.printStackTrace()
         }
 
-        val sdkConfig = SdkConfig().apply {
-            sdkFunction = SdkConfig.SdkFunction.SEG
-        }
+        val sdkConfig = SdkConfig()
         TengineKitSdk.getInstance().initSdk(externalCacheDir!!.absolutePath, sdkConfig, this)
+        TengineKitSdk.getInstance().initSegBody()
+    }
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        TengineKitSdk.getInstance().releaseSegBody()
+        TengineKitSdk.getInstance().release()
     }
 
     private fun startSeg() {
