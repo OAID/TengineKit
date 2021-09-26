@@ -21,7 +21,7 @@ class BodyFrameActivity : CameraActivity() {
     private var trackingOverlay: OverlayView? = null
     var isProcessImage = false
     override fun getLayoutId(): Int {
-        return R.layout.layout_classifer
+        return R.layout.activity_body_frame
     }
 
     override fun getDesiredPreviewFrameSize(): Size {
@@ -29,13 +29,19 @@ class BodyFrameActivity : CameraActivity() {
     }
 
     private fun register() {
-        trackingOverlay?.register(BitmapEncoder(this))
         trackingOverlay?.register(BodyEncoder(this))
+        trackingOverlay?.register(RectEncoder(this))
     }
 
     public override fun onPreviewSizeChosen(size: Size) {
         trackingOverlay = findViewById(R.id.facing_overlay)
         register()
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        trackingOverlay?.unRegisterAll()
     }
 
     override fun initSdk() {

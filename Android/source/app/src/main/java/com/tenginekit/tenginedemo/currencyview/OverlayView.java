@@ -19,6 +19,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import com.tenginekit.tenginedemo.encoder.DrawEncoder;
 import com.tenginekit.tenginedemo.encoder.EncoderBus;
@@ -61,6 +62,10 @@ public class OverlayView extends View {
         if (encoderBus != null) {
             encoderBus.Registe(encoder);
         }
+    }
+
+    public void unRegisterAll(){
+        encoderBus.unRegisterAll();
     }
 
     public void unRegister(DrawEncoder encoder) {
