@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">tenginedemo</string>
+    <string name="InsightFaceError">Please use image with only one person </string>
+    <string name="InsightFaceRegError">Please register face first </string>
 </resources>

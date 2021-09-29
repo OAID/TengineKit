@@ -1,15 +1,16 @@
-package com.tenginekit.tenginedemo.bodydemo
+package com.tenginekit.tenginedemo.insightface
 
 import android.graphics.Rect
 import android.util.Log
 import android.util.Size
-import com.tenginekit.engine.body.BodyConfig
 import com.tenginekit.tenginedemo.CameraActivity
 import com.tenginekit.tenginedemo.R
+import com.tenginekit.engine.face.FaceConfig
 import com.tenginekit.engine.core.ImageConfig
 import com.tenginekit.engine.core.TengineKitSdk
 import com.tenginekit.engine.common.TenginekitPoint
 import com.tenginekit.engine.core.SdkConfig
+import com.tenginekit.engine.insightface.InsightFaceConfig
 import com.tenginekit.tenginedemo.Constant
 import com.tenginekit.tenginedemo.camera.CameraEngine
 import com.tenginekit.tenginedemo.currencyview.OverlayView
@@ -17,11 +18,11 @@ import com.tenginekit.tenginedemo.encoder.*
 import com.tenginekit.tenginedemo.utils.SensorEventUtil
 import java.util.ArrayList
 
-class BodyFrameActivity : CameraActivity() {
+class InsightFaceFrameActivity : CameraActivity() {
     private var trackingOverlay: OverlayView? = null
     var isProcessImage = false
     override fun getLayoutId(): Int {
-        return R.layout.activity_body_frame
+        return R.layout.activity_insightface_frame
     }
 
     override fun getDesiredPreviewFrameSize(): Size {
@@ -29,7 +30,8 @@ class BodyFrameActivity : CameraActivity() {
     }
 
     private fun register() {
-        trackingOverlay?.register(BodyEncoder(this))
+        trackingOverlay?.register(BitmapEncoder(this))
+        trackingOverlay?.register(CircleEncoder(this))
         trackingOverlay?.register(RectEncoder(this))
     }
 
@@ -37,7 +39,6 @@ class BodyFrameActivity : CameraActivity() {
         trackingOverlay = findViewById(R.id.facing_overlay)
         register()
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
@@ -47,17 +48,17 @@ class BodyFrameActivity : CameraActivity() {
     override fun initSdk() {
         /**
          * 初始化
-         */
-        val config = SdkConfig();
+         * */
+        val config = SdkConfig()
         TengineKitSdk.getInstance().initSdk(externalCacheDir!!.absolutePath, config, this)
-        TengineKitSdk.getInstance().initBodyDetect()
+        TengineKitSdk.getInstance().initInsightFace()
         if (sensorEventUtil == null) {
             sensorEventUtil = SensorEventUtil(this)
         }
     }
 
     override fun releaseSdk() {
-        TengineKitSdk.getInstance().releaseBodyDetect()
+        TengineKitSdk.getInstance().releaseInsightFace()
         TengineKitSdk.getInstance().release()
     }
 
@@ -73,7 +74,12 @@ class BodyFrameActivity : CameraActivity() {
             }
             Log.e(Constant.LOG_TAG, "start detect")
             isProcessImage = true
-            val config = BodyConfig()
+            val config = InsightFaceConfig().apply{
+                scrfd=true
+                recognition=false
+                registered=false
+                video = false
+            }
             val imageConfig = ImageConfig().apply {
                 data = mNV21Bytes
                 degree = rotateDegree
@@ -82,7 +88,7 @@ class BodyFrameActivity : CameraActivity() {
                 width = previewWidth
                 format = ImageConfig.FaceImageFormat.YUV
             }
-            val faces = TengineKitSdk.getInstance().bodyDetect(imageConfig, config)
+            val faces = TengineKitSdk.getInstance().detectInsightFace(imageConfig, config)
             if (faces != null && faces.isNotEmpty()) {
                 Log.i(Constant.LOG_TAG, "faces length:" + faces.size)
                 val faceRects = arrayOfNulls<Rect>(faces.size)
@@ -100,7 +106,7 @@ class BodyFrameActivity : CameraActivity() {
                     )
                     faceRects[i] = rect
                     val landmark: MutableList<TenginekitPoint> = ArrayList()
-                    for (j in 0..15) {
+                    for (j in 0..4) {
                         landmark.add(
                             TenginekitPoint(
                                 face.landmark[2 * j],
@@ -108,10 +114,7 @@ class BodyFrameActivity : CameraActivity() {
                             ).rotateByOrientation(it.orientation, ScreenWidth, ScreenHeight)
                         )
                     }
-                    /*
-                        Test Facial action
-                     */
-                    Log.e(Constant.LOG_TAG, "close")
+
                     landmarks.add(landmark)
                 }
                 trackingOverlay?.onProcessResults(faceRects)
