@@ -37,21 +37,44 @@
             android:text="face"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="22sp" />
 
+    </FrameLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/InsightFaceEntry"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/button_face_demo_bg"
+        app:layout_constraintLeft_toRightOf="@id/faceEntry"
+        app:layout_constraintTop_toTopOf="@id/faceEntry">
+
+        <TextView
+            android:id="@+id/jumpToInsightFace"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:paddingHorizontal="10dp"
+            android:text="InsightFace"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/segEntry"
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_face_demo_bg"
-        app:layout_constraintLeft_toRightOf="@id/faceEntry"
-        app:layout_constraintTop_toTopOf="@id/faceEntry">
+        app:layout_constraintLeft_toLeftOf="@id/faceEntry"
+        app:layout_constraintTop_toBottomOf="@id/faceEntry">
 
         <TextView
-            android:id="@+id/jumpToCamera"
+            android:id="@+id/jumpToSeg"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -59,18 +82,17 @@
             android:text="seg"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="22sp" />
     </FrameLayout>
-
 
     <FrameLayout
         android:id="@+id/bodyEntry"
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="8dp"
         android:background="@drawable/button_face_demo_bg"
-        app:layout_constraintLeft_toLeftOf="@id/faceEntry"
-        app:layout_constraintTop_toBottomOf="@id/faceEntry">
+        app:layout_constraintLeft_toRightOf="@id/segEntry"
+        app:layout_constraintTop_toTopOf="@id/segEntry">
 
         <TextView
             android:id="@+id/jumpToBody"
@@ -81,7 +103,9 @@
             android:text="body"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="22sp" />
     </FrameLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

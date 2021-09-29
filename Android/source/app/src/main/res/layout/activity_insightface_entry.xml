@@ -12,7 +12,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="face page"
+        android:text="InsightFace page"
         android:textSize="40dp"
         android:textColor="@color/light_blue_A400"
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:paddingHorizontal="10dp"
-            android:text="pick image"
+            android:text="Recognition"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="25sp" />
@@ -57,7 +57,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:paddingHorizontal="10dp"
-            android:text="front camera"
+            android:text="Detect"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="25sp" />

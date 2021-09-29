@@ -1,38 +1,42 @@
-package com.tenginekit.tenginedemo.bodydemo
+package com.tenginekit.tenginedemo.insightface
 
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.tenginekit.tenginedemo.Constant
 import com.tenginekit.tenginedemo.R
-import com.tenginekit.tenginedemo.databinding.ActivityBodyEntryBinding
 import com.tenginekit.tenginedemo.utils.ModelCopyCallback
 import com.tenginekit.tenginedemo.utils.PermissionUtils
 import com.tenginekit.tenginedemo.utils.copyAssetFolder
 
+class InsightFaceEntryActivity : AppCompatActivity(), View.OnClickListener {
 
-class BodyEntryActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val REQ_PERMISSION_CODE_BITMAP = 1
         const val REQ_PERMISSION_CODE_CAMERA = 2
     }
-    private lateinit var binding: ActivityBodyEntryBinding
+
+    private var modelCopyFinished = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityBodyEntryBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_insightface_entry)
 
-        setContentView(binding.root)
-        binding.bitmap.setOnClickListener(this)
-        binding.camera.setOnClickListener(this)
+        val jumpToBitmap = findViewById<TextView>(R.id.jumpToBitmap)
+        val jumpToCamera = findViewById<TextView>(R.id.jumpToCamera)
+
+        jumpToBitmap.setOnClickListener(this)
+        jumpToCamera.setOnClickListener(this)
+        //Thread { copyModel() }
         copyModel()
-
-
     }
+
 
     private fun copyModel() {
         assets.copyAssetFolder(
@@ -41,6 +45,7 @@ class BodyEntryActivity : AppCompatActivity(), View.OnClickListener {
             object : ModelCopyCallback {
                 override fun copyFinish() {
                     Log.i(Constant.LOG_TAG, "copyModel Success")
+                    modelCopyFinished = true
                 }
 
                 override fun copyFail() {
@@ -50,14 +55,15 @@ class BodyEntryActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun jumpToBitmapActivity() {
-        val intent = Intent(this, BodyBitmapActivity::class.java)
+        val intent = Intent(this, InsightFaceBitmapActivity::class.java)
         startActivity(intent)
     }
 
     private fun jumpToCameraActivity() {
-        val intent = Intent(this, BodyFrameActivity::class.java)
+        val intent = Intent(this, InsightFaceFrameActivity::class.java)
         startActivity(intent)
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -81,25 +87,36 @@ class BodyEntryActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            R.id.bitmap -> {
-                PermissionUtils.checkPermission(
-                    this, {
-                        jumpToBitmapActivity()
-                    }, BodyEntryActivity.REQ_PERMISSION_CODE_BITMAP
-                )
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.jumpToBitmap -> {
+                if (checkModel()) {
+                    PermissionUtils.checkPermission(
+                        this, {
+                            jumpToBitmapActivity()
+                        }, REQ_PERMISSION_CODE_BITMAP
+                    )
+                } else {
+                    Toast.makeText(this, "wait model copy finish", Toast.LENGTH_LONG).show()
+                }
             }
-            R.id.camera -> {
-                PermissionUtils.checkPermission(
-                    this, {
-                        jumpToCameraActivity()
-                    }, BodyEntryActivity.REQ_PERMISSION_CODE_CAMERA
-                )
+            R.id.jumpToCamera -> {
+                if (checkModel()) {
+                    PermissionUtils.checkPermission(
+                        this, {
+                            jumpToCameraActivity()
+                        }, REQ_PERMISSION_CODE_CAMERA
+                    )
+                } else {
+                    Toast.makeText(this, "wait model copy finish", Toast.LENGTH_LONG).show()
+                }
             }
             else -> {
-
             }
         }
+    }
+
+    private fun checkModel(): Boolean {
+        return modelCopyFinished
     }
 }

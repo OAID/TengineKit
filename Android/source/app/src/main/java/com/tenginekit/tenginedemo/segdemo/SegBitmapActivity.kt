@@ -28,7 +28,7 @@ class SegBitmapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val root = LayoutInflater.from(this).inflate(R.layout.seg_bitmap, null, false) as ViewGroup
+        val root = LayoutInflater.from(this).inflate(R.layout.activity_seg_bitmap, null, false) as ViewGroup
         setContentView(root)
 
 
