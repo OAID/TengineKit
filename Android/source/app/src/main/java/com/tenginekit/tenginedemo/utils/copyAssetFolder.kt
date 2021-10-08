@@ -1,13 +1,18 @@
 package com.tenginekit.tenginedemo.utils
 
 import android.content.res.AssetManager
+import com.luck.picture.lib.tools.PictureFileUtils.isFileExists
 import java.io.File
 import java.io.File.separator
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 
-fun AssetManager.copyAssetFolder(srcName: String, dstName: String, callback: ModelCopyCallback?): Boolean {
+fun AssetManager.copyAssetFolder(
+    srcName: String,
+    dstName: String,
+    callback: ModelCopyCallback?
+): Boolean {
     return try {
         var result = true
         val fileList = this.list(srcName) ?: return false
@@ -35,16 +40,19 @@ fun AssetManager.copyAssetFolder(srcName: String, dstName: String, callback: Mod
 
 fun AssetManager.copyAssetFile(srcName: String, dstName: String): Boolean {
     return try {
-        val inStream = this.open(srcName)
-        val outFile = File(dstName)
-        val out: OutputStream = FileOutputStream(outFile)
-        val buffer = ByteArray(1024)
-        var read: Int
-        while (inStream.read(buffer).also { read = it } != -1) {
-            out.write(buffer, 0, read)
+        if (!isFileExists(dstName)) {
+            val inStream = this.open(srcName)
+            val outFile = File(dstName)
+            val out: OutputStream = FileOutputStream(outFile)
+            val buffer = ByteArray(1024)
+            var read: Int
+            while (inStream.read(buffer).also { read = it } != -1) {
+                out.write(buffer, 0, read)
+            }
+
+            inStream.close()
+            out.close()
         }
-        inStream.close()
-        out.close()
         true
     } catch (e: IOException) {
         e.printStackTrace()
@@ -53,7 +61,7 @@ fun AssetManager.copyAssetFile(srcName: String, dstName: String): Boolean {
 }
 
 
-interface ModelCopyCallback{
+interface ModelCopyCallback {
     fun copyFinish()
     fun copyFail()
 }

@@ -24,7 +24,6 @@ import android.content.Intent
 import android.app.Activity
 import androidx.activity.result.contract.ActivityResultContracts
 import com.tenginekit.engine.core.SdkConfig
-import com.tenginekit.engine.insightface.InsightFace
 import com.tenginekit.engine.insightface.InsightFaceConfig
 import com.tenginekit.tenginedemo.Constant
 import com.tenginekit.tenginedemo.R
@@ -181,9 +180,10 @@ class InsightFaceBitmapActivity : AppCompatActivity(), View.OnClickListener {
                         )
                         faceLandmarks.add(i, faceLandmarkList)
                         faceRects[i] = rect
-                        faceFeature = face.Feature
+                        faceFeature = face.feature
                         val distance = calculSimilar(regFeature!!, faceFeature)
-                        Log.e("distance", distance.toString())
+                        Log.i(Constant.LOG_TAG, "Distance:" + distance.toString())
+                        Log.i(Constant.LOG_TAG, "Confidence:" + face.confidence.toString())
                     }
                     overlayView?.onProcessResults(faceRects)
                     overlayView?.onProcessResults(faceLandmarks)
@@ -254,7 +254,7 @@ class InsightFaceBitmapActivity : AppCompatActivity(), View.OnClickListener {
                         )
                         faceLandmarks.add(i, faceLandmarkList)
                         faceRects[i] = rect
-                        regFeature = face.Feature
+                        regFeature = face.feature
                     }
                     overlayView?.onProcessResults(faceRects)
                     overlayView?.onProcessResults(faceLandmarks)
