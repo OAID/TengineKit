@@ -53,7 +53,7 @@ public class CircleEncoder extends DrawEncoder {
     @Override
     void processResults(Object results) {
         if (!drawCircle || results == null) return;
-        if (results instanceof List) {
+        if (results instanceof List && (((List<?>) results).get(0) instanceof List)) {
             trackedObjects = (List<List<TenginekitPoint>>) results;
         }
     }

@@ -29,9 +29,9 @@ class FaceFrameActivity : CameraActivity() {
     }
 
     private fun register() {
-        trackingOverlay?.register(BitmapEncoder(this))
         trackingOverlay?.register(CircleEncoder(this))
         trackingOverlay?.register(RectEncoder(this))
+        trackingOverlay?.register(IrisEncoder(this))
     }
 
     public override fun onPreviewSizeChosen(size: Size) {
@@ -76,7 +76,9 @@ class FaceFrameActivity : CameraActivity() {
             val config = FaceConfig().apply {
                 detect = true
                 landmark2d = true
-                video = true
+                attribute = true
+                eyeIris = true
+                maxFaceNum = 1
             }
             val imageConfig = ImageConfig().apply {
                 data = mNV21Bytes
@@ -91,6 +93,7 @@ class FaceFrameActivity : CameraActivity() {
                 Log.i(Constant.LOG_TAG, "faces length:" + faces.size)
                 val faceRects = arrayOfNulls<Rect>(faces.size)
                 val landmarks: MutableList<List<TenginekitPoint>> = ArrayList()
+                val iris = arrayListOf<Iris>()
                 for ((i, face) in faces.withIndex()) {
                     Log.i(Constant.LOG_TAG, face.toString())
                     val rect = CameraEngine.getRectByOrientation(
@@ -120,9 +123,20 @@ class FaceFrameActivity : CameraActivity() {
                     Log.e(Constant.LOG_TAG, face.mouthBigOpen.toString())
 
                     landmarks.add(landmark)
+
+                    if (config.eyeIris) {
+                        val ir = Iris()
+                        ir.leftLandmark = face.eyeLandMarkLeft
+                        ir.rightLandmark = face.eyeLandMarkRight
+                        ir.leftIris = face.eyeIrisLeft
+                        ir.rightIris = face.eyeIrisRight
+                        iris.add(ir.trans(ScreenWidth, ScreenHeight))
+                    }
                 }
                 trackingOverlay?.onProcessResults(faceRects)
                 trackingOverlay?.onProcessResults(landmarks)
+                trackingOverlay?.onProcessResults(iris)
+
             } else {
                 trackingOverlay?.clearEncoder()
             }

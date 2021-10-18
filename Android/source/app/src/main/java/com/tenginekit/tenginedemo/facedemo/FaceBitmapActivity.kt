@@ -135,7 +135,6 @@ class FaceBitmapActivity : AppCompatActivity(), View.OnClickListener {
                 val config = FaceConfig().apply {
                     detect = true
                     landmark2d = true
-                    video = false
                 }
                 val imageConfig = ImageConfig().apply {
                     data = byte

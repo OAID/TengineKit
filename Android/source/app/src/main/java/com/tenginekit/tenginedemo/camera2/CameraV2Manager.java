@@ -3,7 +3,6 @@ package com.tenginekit.tenginedemo.camera2;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -26,10 +25,6 @@ import androidx.annotation.NonNull;
 
 import com.tenginekit.engine.core.TengineKitSdk;
 import com.tenginekit.tenginedemo.Constant;
-
-import org.jetbrains.annotations.Nullable;
-
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -61,21 +56,17 @@ public class CameraV2Manager {
     public boolean isSurfaceCreated = false;
     private FrameDataCallBack mFrameDataCallBack = null;
 
-    public void updateSegRes(@Nullable Bitmap res) {
-        mSurfaceView.updateSegRes(res);
-    }
-
-
     public interface FrameDataCallBack {
         void onFrameData(byte[] data, int width, int height);
     }
 
 
     public CameraV2Manager(Activity activity, boolean useFront, Size size,
-                           CameraV2GLSurfaceView surfaceView, FrameDataCallBack callBack) {
+                           CameraV2GLSurfaceView surfaceView, FrameDataCallBack callBack, CameraV2BaseRenderer renderer) {
         mActivity = activity;
         mSurfaceView = surfaceView;
-        surfaceView.init(this, false, activity);
+        renderer.setUp(surfaceView, this, activity);
+        mSurfaceView.init(renderer);
         startCameraThread();
         setupCamera(useFront, size.getWidth(), size.getHeight());
         mFrameDataCallBack = callBack;

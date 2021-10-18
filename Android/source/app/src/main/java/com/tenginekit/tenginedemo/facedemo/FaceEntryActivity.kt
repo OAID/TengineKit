@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ class FaceEntryActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val REQ_PERMISSION_CODE_BITMAP = 1
         const val REQ_PERMISSION_CODE_CAMERA = 2
+        const val REQ_PERMISSION_CODE_EFFECT = 3
     }
 
     private var modelCopyFinished = false
@@ -30,9 +32,11 @@ class FaceEntryActivity : AppCompatActivity(), View.OnClickListener {
 
         val jumpToBitmap = findViewById<TextView>(R.id.jumpToBitmap)
         val jumpToCamera = findViewById<TextView>(R.id.jumpToCamera)
+        val jumpToEffect = findViewById<FrameLayout>(R.id.effect)
 
         jumpToBitmap.setOnClickListener(this)
         jumpToCamera.setOnClickListener(this)
+        jumpToEffect.setOnClickListener(this)
         //Thread { copyModel() }
         copyModel()
     }
@@ -64,6 +68,11 @@ class FaceEntryActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
     }
 
+    private fun jumpToEffectActivity() {
+        val intent = Intent(this, FaceEffectActivity::class.java)
+        startActivity(intent)
+    }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -79,12 +88,13 @@ class FaceEntryActivity : AppCompatActivity(), View.OnClickListener {
             if (jump) {
                 if (requestCode == REQ_PERMISSION_CODE_CAMERA) {
                     jumpToCameraActivity()
+                } else if (requestCode == REQ_PERMISSION_CODE_EFFECT) {
+                    jumpToEffectActivity()
                 } else {
                     jumpToBitmapActivity()
                 }
             }
         }
-
     }
 
     override fun onClick(view: View) {
@@ -106,6 +116,17 @@ class FaceEntryActivity : AppCompatActivity(), View.OnClickListener {
                         this, {
                             jumpToCameraActivity()
                         }, REQ_PERMISSION_CODE_CAMERA
+                    )
+                } else {
+                    Toast.makeText(this, "wait model copy finish", Toast.LENGTH_LONG).show()
+                }
+            }
+            R.id.effect -> {
+                if (checkModel()) {
+                    PermissionUtils.checkPermission(
+                        this, {
+                            jumpToEffectActivity()
+                        }, REQ_PERMISSION_CODE_EFFECT
                     )
                 } else {
                     Toast.makeText(this, "wait model copy finish", Toast.LENGTH_LONG).show()

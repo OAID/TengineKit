@@ -1,4 +1,4 @@
-package com.tenginekit.tenginedemo.camera2
+package com.tenginekit.tenginedemo.segdemo
 
 import android.graphics.Bitmap
 import android.opengl.GLES11Ext
