@@ -35,6 +35,7 @@
         <activity android:name=".bodydemo.BodyEntryActivity" />
         <activity android:name=".bodydemo.BodyBitmapActivity" />
         <activity android:name=".bodydemo.BodyFrameActivity" />
+        <activity android:name=".facedemo.FaceEffectActivity" />
     </application>
 
 </manifest>

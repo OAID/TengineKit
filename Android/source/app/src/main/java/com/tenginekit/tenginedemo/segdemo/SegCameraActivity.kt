@@ -22,6 +22,7 @@ class SegCameraActivity : AppCompatActivity(), CameraV2Manager.FrameDataCallBack
     private var TAG = Constant.LOG_TAG
     private var previewSize: Size? = null
     private var testBitmap: Bitmap? = null
+    private var renderer: SimpleSegRenderer? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,14 +36,15 @@ class SegCameraActivity : AppCompatActivity(), CameraV2Manager.FrameDataCallBack
             DisplayUtils.dp2px(this, 400f)
         )
 
-        val picsTream1 = assets.open("bac.png")
-        testBitmap = BitmapFactory.decodeStream(picsTream1)
-        picsTream1.close()
+        // new a renderer
+        renderer = SimpleSegRenderer()
 
+        // new a cameraV2manager
         cameraManager = CameraV2Manager(
             this, true, previewSize, binding.glSurfaceView,
-            this
+            this, renderer
         )
+
 
         val sdkConfig = SdkConfig()
         TengineKitSdk.getInstance().initSdk(externalCacheDir?.absolutePath, sdkConfig, this)
@@ -79,7 +81,7 @@ class SegCameraActivity : AppCompatActivity(), CameraV2Manager.FrameDataCallBack
         }
         val segConfig = SegConfig()
         val res = TengineKitSdk.getInstance().segHuman(imageConfig, segConfig)
-        cameraManager.updateSegRes(res)
+        renderer?.updateSegRes(res)
     }
 
 
